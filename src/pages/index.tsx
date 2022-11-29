@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 const y=useAnimation()
 
 const [top,setTop]=useState<number>(0)
-const [progress,setProgress]=useState(0.3)
+const [progress,setProgress]=useState(0.4)
 const [position,setPosition]=useState(0)
 
 
@@ -27,7 +27,7 @@ const [position,setPosition]=useState(0)
       setPosition(0)
     }
       if(scrollY.get()<320){
-        if((scrollY.get()/320)>0.3&&(scrollY.get()/320)<0.99){
+        if((scrollY.get()/320)>0.4&&(scrollY.get()/320)<1){
           setTop(scrollY.get())
           setProgress(scrollY.get()/320)
 
@@ -38,13 +38,13 @@ const [position,setPosition]=useState(0)
 
       if(scrollY.get()>360&&scrollY.get()<640){
         if(scrollY.get()<640){
-          if(-1*(1-(640/scrollY.get()))>0.33){
+          if(-1*(1-(640/scrollY.get()))>0.4){
             setProgress(-1*(0.12+1-(640/scrollY.get())))
 
           }
           
         }
-      }
+      } 
 
       
     })
@@ -66,39 +66,39 @@ const [position,setPosition]=useState(0)
         <Header/>
 
         <div className="relative h-screen     ">
-          <div className="w-full px-10 md:w-1/2 h-[200px] md:py-20 bg-red-200">
+          <div className="w-full px-10 md:w-1/2 h-[200px] md:py-10 ">
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">Hi!</p>
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">I am Hossem edine ali</p>
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">A web developper</p>
           </div>
-{/*   */}
+            {/*   */}
          {true&& <motion.div  style={{scale:`${+progress.toString()}` ,  } }
 
-         className={` ${position==0?'fixed': 'relative'}  ${position==0?'': 'h-[550px] top-[50%]'}  top-0 right-0 left-0 bottom-0  z-10 border-2 ${progress>0.9?'overflow-auto':'overflow-hidden'} scrollbar-hide`}>
+         className={` ${position==0?'fixed': 'absolute  '}   ${position==0?'top-0 right-0 left-0 bottom-0': 'top-[480px] right-0 left-0 bottom-[-380px]'}    z-10 border-2 ${progress>0.9?'overflow-auto':'overflow-hidden'} scrollbar-hide mt-10`}>
               <Work/>
           </motion.div>}
          
-        {/*   <motion.div 
-          
-          className={`flex   md:hidden  border-2  max-w-full max-h-screen mx-auto ${top<269?'overflow-hidden':'overflow-scroll'}  scrollbar-hide ` }
-          style={{top:top+350,width:(top+50)*2,height:(top+90)*2}}
-          >
-          {<Work/>}
-          </motion.div> */}
-
-
-
-
-          {/* <div          
-            className={` md:flex   hidden  border-2  max-w-full max-h-screen mx-auto ${top<269?'overflow-hidden':'overflow-scroll'} scrollbar-hide` }
-            style={{top:top+50,width:(top+300)*2,height:(top+90)*2}}
+          {/*   <motion.div 
+            
+            className={`flex   md:hidden  border-2  max-w-full max-h-screen mx-auto ${top<269?'overflow-hidden':'overflow-scroll'}  scrollbar-hide ` }
+            style={{top:top+350,width:(top+50)*2,height:(top+90)*2}}
             >
-              {<Work/>}
-          </div> */}
-          </div>
+            {<Work/>}
+            </motion.div> */}
+
+
+
+
+            {/* <div          
+              className={` md:flex   hidden  border-2  max-w-full max-h-screen mx-auto ${top<269?'overflow-hidden':'overflow-scroll'} scrollbar-hide` }
+              style={{top:top+50,width:(top+300)*2,height:(top+90)*2}}
+              >
+                {<Work/>}
+            </div> */}
+            </div>
           <div className="h-[1500px] border-2 mt-[350px] bg-red-600">
 
-          </div>
+        </div>
       </main>
     </>
   );
