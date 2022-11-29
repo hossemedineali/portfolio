@@ -14,7 +14,7 @@ const y=useAnimation()
 
 const [top,setTop]=useState<number>(0)
 const [progress,setProgress]=useState(0.3)
-let opacity=1
+
   useEffect(()=>{
    
     scrollY.onChange(()=>{
@@ -43,11 +43,10 @@ let opacity=1
   },[scrollY.get()])
 
 
-const scale={scale:progress}
 
 
-const tt=progress.toString()
-console.log(typeof(tt),tt)
+
+
   return (
     <>
       <Head>
