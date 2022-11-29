@@ -2,7 +2,7 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/header";
-import { useAnimation, useScroll,motion } from "framer-motion"
+import { useAnimation, useScroll,motion, MotionValue } from "framer-motion"
 import { useEffect, useState } from "react";
 import Work from "../components/work";
 const Home: NextPage = () => {
@@ -14,12 +14,20 @@ const y=useAnimation()
 
 const [top,setTop]=useState<number>(0)
 const [progress,setProgress]=useState(0.3)
+const [position,setPosition]=useState(0)
+
 
   useEffect(()=>{
    
     scrollY.onChange(()=>{
+    if(scrollY.get()>500){
+      setPosition(1)
+    }
+    else{
+      setPosition(0)
+    }
       if(scrollY.get()<320){
-        if((scrollY.get()/320)>0.3){
+        if((scrollY.get()/320)>0.3&&(scrollY.get()/320)<0.99){
           setTop(scrollY.get())
           setProgress(scrollY.get()/320)
 
@@ -28,10 +36,10 @@ const [progress,setProgress]=useState(0.3)
 
       }
 
-      if(scrollY.get()>340&&scrollY.get()<640){
+      if(scrollY.get()>360&&scrollY.get()<640){
         if(scrollY.get()<640){
           if(-1*(1-(640/scrollY.get()))>0.33){
-            setProgress(-1*(1-(640/scrollY.get())))
+            setProgress(-1*(0.12+1-(640/scrollY.get())))
 
           }
           
@@ -57,16 +65,18 @@ const [progress,setProgress]=useState(0.3)
       <main className="min-h-[800px]   bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <Header/>
 
-        <div className="relative h-screen  flex   flex-col   ">
-          <div className="w-full px-10 md:w-1/2 h-[200px] md:py-20">
+        <div className="relative h-screen     ">
+          <div className="w-full px-10 md:w-1/2 h-[200px] md:py-20 bg-red-200">
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">Hi!</p>
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">I am Hossem edine ali</p>
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">A web developper</p>
           </div>
 {/*   */}
-          <motion.div style={{scale:`${+progress.toString()}`} } className={`  fixed top-0 right-0 left-0 bottom-0  z-10 border-2 ${progress>0.9?'overflow-auto':'overflow-hidden'} `}>
+         {true&& <motion.div  style={{scale:`${+progress.toString()}` ,  } }
+
+         className={` ${position==0?'fixed': 'relative'}  ${position==0?'': 'h-[550px] top-[50%]'}  top-0 right-0 left-0 bottom-0  z-10 border-2 ${progress>0.9?'overflow-auto':'overflow-hidden'} scrollbar-hide`}>
               <Work/>
-          </motion.div>
+          </motion.div>}
          
         {/*   <motion.div 
           
@@ -86,7 +96,7 @@ const [progress,setProgress]=useState(0.3)
               {<Work/>}
           </div> */}
           </div>
-          <div className="h-[3000px]">
+          <div className="h-[1500px] border-2 mt-[350px] bg-red-600">
 
           </div>
       </main>
