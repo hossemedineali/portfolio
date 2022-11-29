@@ -43,10 +43,11 @@ let opacity=1
   },[scrollY.get()])
 
 
+const scale={scale:progress}
 
 
-
-
+const tt=progress.toString()
+console.log(typeof(tt),tt)
   return (
     <>
       <Head>
@@ -63,10 +64,10 @@ let opacity=1
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">I am Hossem edine ali</p>
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">A web developper</p>
           </div>
-
-          <div style={{scale:`${+progress.toString()}`} } className={` fixed top-0 right-0 left-0 bottom-0  z-10 border-2 ${progress>0.9?'overflow-auto':'overflow-hidden'} `}>
+{/*   */}
+          <motion.div style={{scale:`${+progress.toString()}`} } className={`  fixed top-0 right-0 left-0 bottom-0  z-10 border-2 ${progress>0.9?'overflow-auto':'overflow-hidden'} `}>
               <Work/>
-          </div>
+          </motion.div>
          
         {/*   <motion.div 
           
