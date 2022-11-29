@@ -30,9 +30,11 @@ let opacity=1
 
       if(scrollY.get()>340&&scrollY.get()<640){
         if(scrollY.get()<640){
-          setProgress(-1*(1-(640/scrollY.get())))
-          opacity=progress
-          console.log()
+          if(-1*(1-(640/scrollY.get()))>0.33){
+            setProgress(-1*(1-(640/scrollY.get())))
+
+          }
+          
         }
       }
 
@@ -62,7 +64,7 @@ let opacity=1
                 <p className="text-white text-xl md:text-2xl lg:text-3xl font-bold">A web developper</p>
           </div>
 
-          <div style={{scale:`${+progress.toString()}`,opacity:opacity} } className={` fixed top-0 right-0 left-0 bottom-0  z-10 border-2 ${progress>0.99?'overflow-auto':'overflow-hidden'} `}>
+          <div style={{scale:`${+progress.toString()}`} } className={` fixed top-0 right-0 left-0 bottom-0  z-10 border-2 ${progress>0.9?'overflow-auto':'overflow-hidden'} `}>
               <Work/>
           </div>
          
