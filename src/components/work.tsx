@@ -3,8 +3,8 @@ import img2 from "../../public/img2.jpg";
 import { motion } from "framer-motion";
 
 const WorkWrapper: React.FC<{ position: number }> = ({ position }) => {
-  const showImage = position < 300 || position > 360;
-  const showContent = position > 300 && position < 360;
+  const showImage = position < 320 || position > 300;
+  const showContent = position > 300 && position < 320;
 
   const container = {
     hidden: { opacity: 1 },
