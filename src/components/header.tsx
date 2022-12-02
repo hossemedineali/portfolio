@@ -40,8 +40,7 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   isOpen,
 }) => {
 
-  let x=0
-  let i=0
+
 
   return (
     <div className="">
