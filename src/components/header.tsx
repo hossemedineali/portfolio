@@ -48,7 +48,7 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
-        className={`absolute top-2 right-2 z-20  h-14 w-14 rounded-full  hover:cursor-pointer p-2 ${isOpen?'bg-[#D6D6D2]':''}`}
+        className={`absolute top-2 right-2 z-20  h-14 w-14 rounded-full  hover:cursor-pointer p-2 ${isOpen?'bg-[#C7BCA1]':''}`}
         onClick={() => toggleOpen()}
       >
         {isOpen ? open : close}

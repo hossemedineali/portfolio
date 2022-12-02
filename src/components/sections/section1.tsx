@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { setMaxIdleHTTPParsers } from "http";
 
 const Section1 = () => {
+
+ 
+
   return (
     <div className=" mt-10 flex   flex-col items-center  md:flex-row md:justify-evenly   ">
       <div className="md:max-w-1/2  mb-10 md:mb-0">
@@ -12,7 +15,7 @@ const Section1 = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 1 }}
-        className="shadow-4xl shadow-white h-64 w-[320px] rounded-2xl border-2 bg-[#D6D6D2] px-10 pt-5 text-2xl"
+        className="shadow-4xl shadow-white font-bold py-2 w-[320px] rounded-2xl border-2 bg-[#C7BCA1] px-10 pt-5 text-3xl"
       >
         <p className="text-Cviolet">
           While <span>(</span> <span className="text-Cblue">alive</span>{" "}

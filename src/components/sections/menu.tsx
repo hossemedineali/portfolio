@@ -60,7 +60,7 @@ const Menu: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
       <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            className="absolute top-0 bottom-0 left-0 right-0 bg-[#D6D6D2]"
+            className="absolute top-0 bottom-0 left-0 right-0 bg-[#C7BCA1]"
             variants={menu}
             initial="hidden"
             animate="visible"
@@ -76,7 +76,7 @@ const Menu: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         className=" absolute top-0 left-0 bottom-0 right-0"
       >
         {list.map((skil,index)=>{
-                return <motion.div initial={{x:'-100vw'}} animate={{x:'0'}} exit={{x:'-100vw'}} transition={{delay:1,duration:1}}  key={index} className="hover:bg-black hover:text-[#994AA6] h-1/5 border-b-[1px] border-b-black flex justify-center items-center text-6xl md:text-8xl ">
+                return <motion.div initial={{x:'-100vw'}} animate={{x:'0'}} exit={{x:'-100vw'}} transition={{delay:1,duration:1}}  key={index} className="hover:bg-black transition-colors duration-300 ease-linear hover:text-[#994AA6] h-1/5 border-b-[1px] border-b-black flex justify-center items-center text-6xl md:text-8xl ">
                     {skil}
                 </motion.div>
             })}
