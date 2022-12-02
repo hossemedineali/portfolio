@@ -66,15 +66,21 @@ const Menu: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
             animate="visible"
             exit="hidden"
           >
-            {list.map((skil,index)=>{
+            {" "}
+          </motion.div>
+        )}
+      </AnimatePresence>
+     {isOpen&& <motion.div
+        variants={sidebar}
+        initial={{}}
+        className=" absolute top-0 left-0 bottom-0 right-0"
+      >
+        {list.map((skil,index)=>{
                 return <motion.div  key={index} className="hover:bg-black hover:text-[#994AA6] h-1/5 border-b-[1px] border-b-black flex justify-center items-center text-8xl ">
                     {skil}
                 </motion.div>
             })}
-          </motion.div>
-        )}
-      </AnimatePresence>
-      
+      </motion.div>}
     </div>
   );
 };
