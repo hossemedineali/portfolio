@@ -40,12 +40,13 @@ const text3 = Array.from("A web developper"); // "A web developper".split(" ");
 
 const Loader = () => {
   return (
-    <div className="font-black font-Allerta text-center text-4xl  sm:text-6xl md:text-6xl lg:text-7xl text-white ">
+    <div className="font-black font-Allerta text-center  text-4xl  sm:text-6xl md:text-5xl lg:text-6xl text-white ">
       <motion.div
       style={{ overflow: "hidden", display: "flex" }}
       variants={container}
       initial="hidden"
       animate="visible"
+      className="py-2"
     >
       {text1.map((letter, index) => (
         <motion.span  variants={child} key={index}>
@@ -60,6 +61,7 @@ const Loader = () => {
       variants={container}
       initial="hidden"
       animate="visible"
+      className="py-2"
     >
       {text2.map((letter, index) => (
         <motion.span  variants={child} key={index} className={`${index>4?'text-[#994AA6]':''}`}>
@@ -74,6 +76,7 @@ const Loader = () => {
       variants={container}
       initial="hidden"
       animate="visible"
+      className="py-2"
     >
       {text3.map((letter, index) => (
         <motion.span  variants={child} key={index}>

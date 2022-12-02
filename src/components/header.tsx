@@ -39,13 +39,17 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   toggleOpen,
   isOpen,
 }) => {
+
+  let x=0
+  let i=0
+
   return (
     <div className="">
       <motion.button
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
-        className="absolute top-2 right-2 z-20  h-14 w-14 rounded-full  hover:cursor-pointer"
+        className={`absolute top-2 right-2 z-20  h-14 w-14 rounded-full  hover:cursor-pointer p-2 ${isOpen?'bg-[#D6D6D2]':''}`}
         onClick={() => toggleOpen()}
       >
         {isOpen ? open : close}
@@ -58,7 +62,7 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         className="relative flex py-5 px-5 "
       >
         <h1 className=" flex-grow-1 font-mono mr-auto text-4xl font-extrabold text-[#994AA6] md:ml-10 ">
-          {"< HOSSEM >"}
+         <span className="text-5xl ">{'<'}</span>HOSSEM<span className="text-5xl ">{'>'}</span>
         </h1>
       </motion.div>
       <motion.div
