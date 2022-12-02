@@ -1,120 +1,89 @@
 import { motion } from "framer-motion";
+import { array } from "zod";
+import InvertedLetter from "./invertedLetter";
 
 const container = {
-  hidden: { opacity: 0 },
+  hidden: { width: '0%' },
   visible: (i = 1) => ({
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.05 * i,
-    },
+    width: '100%',
+    transition: { staggerChildren: 0.08, delayChildren: 0.04 * i },
   }),
 };
 
 const child = {
   visible: {
-    opacity: 1,
-    //y:0,
-    x: 0,
+    //opacity: 1,
+    scale:1,
+    rotateY:0,
+    transition: {
+      type: "spring",
+      damping: 12,
+      stiffness: 100,
+      bounce:100
+    },
+  },
+  hidden: {
+   // opacity: 0,
+    scale:0,
+    rotateY:180,
     transition: {
       type: "spring",
       damping: 12,
       stiffness: 100,
     },
   },
-  hidden: {
-    opacity: 0,
-    //y:20,
-    x: -20,
-    transition: {
-      type: "spring",
-      damping: 12,
-      stiffness: 500,
-    },
-  },
 };
-
-const text1 = "Hi there!".split(" ");
-const text2 = "I am Hossem ".split(" ");
-const text3 = "A web developper".split(" ");
+const text = [['Hi!'],['I am Hossem'],['a web developper']]
+const text1 = Array.from("Hi there!"); // "Hi there!".split(" ");
+const text2 = Array.from("I am Hossem "); // "I am Hossem edine ali".split(" ");
+const text3 = Array.from("A web developper"); // "A web developper".split(" ");
 
 const Loader = () => {
   return (
-    <div className="justify-left items-top relative   h-screen w-full ">
+    <div className="font-black font-Allerta text-center text-4xl  sm:text-6xl md:text-6xl lg:text-7xl text-white ">
       <motion.div
-        className="absolute"
-        initial={{ top: "13rem", left: "10rem" }}
-        animate={{ top: "7rem", left: "7rem" }}
-        transition={{ delay: 2, duration: 1, ease: "easeInOut" }}
-      >
-        <motion.p
-          className="flex flex-wrap overflow-hidden break-words py-1"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          {text1.map((t, i) => {
-            return (
-              <motion.span
-                variants={child}
-                key={i}
-                className="mr-[5px] font-mono text-2xl text-white hover:text-[#120a03] md:mr-[9px] md:text-5xl  md:font-bold"
-              >
-                {t}
-              </motion.span>
-            );
-          })}
-        </motion.p>
+      style={{ overflow: "hidden", display: "flex" }}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {text1.map((letter, index) => (
+        <motion.span  variants={child} key={index}>
 
-        <motion.p
-          className="flex flex-wrap overflow-hidden relative break-words py-1"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.span
-            variants={child}
-            className="mr-[5px] font-mono text-2xl text-white hover:text-[#120a03] md:mr-[9px] md:text-5xl  md:font-bold"
-          >
-            I
-          </motion.span>
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </motion.div>
 
-          <motion.span
-            variants={child}
-            className="mr-[5px] font-mono text-2xl text-white hover:text-[#120a03] md:mr-[9px] md:text-5xl  md:font-bold"
-          >
-            am
-          </motion.span>
-          <motion.span
-            
-            transition={{ delay: 50, duration: 2 }}
-            variants={child}
-            className="absolute left-[25%] mr-[5px] font-mono text-2xl text-white hover:text-[#120a03] md:mr-[9px] md:text-5xl  md:font-bold"
-          >
-            Hossem
-          </motion.span>
-        </motion.p>
+    <motion.div
+      style={{ overflow: "hidden", display: "flex" }}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {text2.map((letter, index) => (
+        <motion.span  variants={child} key={index} className={`${index>4?'text-[#994AA6]':''}`}>
 
-        <motion.p
-          className="flex flex-wrap overflow-hidden break-words py-1"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          {text3.map((t, i) => {
-            return (
-              <motion.span
-                variants={child}
-                key={i}
-                className="mr-[5px] font-mono text-2xl text-white transition-all duration-150 hover:text-red-900 md:mr-[9px] md:text-5xl  md:font-bold"
-              >
-                {t}
-              </motion.span>
-            );
-          })}
-        </motion.p>
-      </motion.div>
-      
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </motion.div>
+
+    <motion.div
+      style={{ overflow: "hidden", display: "flex" }}
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
+      {text3.map((letter, index) => (
+        <motion.span  variants={child} key={index}>
+
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </motion.div>
+
+   
     </div>
   );
 };
