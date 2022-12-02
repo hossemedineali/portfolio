@@ -70,7 +70,7 @@ const child = {
           <Loader/>
           </div>}
         {!isLoading&&<div>
-        <Header />
+       
           
           </div>}
 

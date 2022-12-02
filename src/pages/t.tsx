@@ -84,7 +84,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="min-h-[800px]   bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        <Header />
+        
 
         <div className="relative h-screen     ">
           <div className="h-[200px] w-full pl-5  md:w-1/2 md:py-10 md:pl-10 ">
