@@ -39,16 +39,15 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   toggleOpen,
   isOpen,
 }) => {
-
-
-
   return (
     <div className="">
       <motion.button
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
-        className={`absolute top-2 right-2 z-20  h-14 w-14 rounded-full  hover:cursor-pointer p-2 ${isOpen?'bg-[#C7BCA1]':''}`}
+        className={`${isOpen?'fixed':'absolute'}  top-2 right-2 z-20  h-14 w-14 rounded-full  p-2 hover:cursor-pointer ${
+          isOpen ? "bg-[#D6D6D2]" : ""
+        }`}
         onClick={() => toggleOpen()}
       >
         {isOpen ? open : close}
@@ -60,16 +59,17 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
         className="relative flex py-5 px-5 "
       >
-        <h1 className=" flex-grow-1 font-mono mr-auto text-4xl font-extrabold text-[#994AA6] md:ml-10 ">
-         <span className="text-5xl ">{'<'}</span>HOSSEM<span className="text-5xl ">{'>'}</span>
+        <h1 className=" flex-grow-1 font-mono mr-auto text-4xl font-extrabold text-[#994AA6] md:ml-10  hover:cursor-pointer ">
+          <span className="text-5xl ">{"<"}</span>HOSSEM
+          <span className="text-5xl ">{">"}</span>
         </h1>
       </motion.div>
       <motion.div
-        className="h-[1px] bg-[#994AA6]"
+        className="h-[1px] bg-[#994AA6]   "
         initial={{ width: "0%" }}
         animate={{ width: "100%" }}
         transition={{ delay: 2, duration: 1 }}
-      />
+      ></motion.div>
     </div>
   );
 };

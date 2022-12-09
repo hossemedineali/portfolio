@@ -2,7 +2,7 @@
 import {motion} from 'framer-motion'
 
 
-const AnimatedText:React.FC<{text:string}> = ({text}) => {
+const AnimatedTexte:React.FC<{text:string}> = ({text}) => {
 
         const t=text.split(' ')
 
@@ -49,4 +49,4 @@ const AnimatedText:React.FC<{text:string}> = ({text}) => {
         </motion.div> );
     }
     
-    export default AnimatedText;
+    export default AnimatedTexte;
