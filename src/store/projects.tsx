@@ -1,17 +1,19 @@
-import { boolean } from 'zod'
 import create from 'zustand'
 
+
+
 interface Projects{
-    show:boolean,
-    toggleShow:()=>void,
+    //show:boolean,
+    prjectNumber:number,
+    //toggleShow:()=>void,
+    setProjectNumber:(x:number)=>void
 }
-
-
 const useProjectModal=create<Projects>()(
     (set,get)=>({
-        show:false,
-        
-        toggleShow:()=>set({show:!get().show}),
-        
+      //  show:false,
+        prjectNumber:0,
+        //toggleShow:()=>set({show:!get().show}),
+        setProjectNumber:(x)=>set({prjectNumber:x})
     })
 )
+export {useProjectModal}

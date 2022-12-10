@@ -5,11 +5,11 @@ import { useRef } from "react";
 
 const Section1 = () => {
   return (
-    <div className="relative mb-10">
+    <div className="relative  mb-10 xl:h-[calc(screen-100px)]">
    
      
       
-      <div className="items-top mt-20  flex    flex-col items-center  md:flex-row md:justify-evenly   ">
+      <div className="items-top md:mt-20   flex my-auto    flex-col items-center  md:flex-row md:justify-evenly   ">
         <div className="md:max-w-1/2  mb-10 md:mb-0">
           <Loader />
         </div>
@@ -30,7 +30,7 @@ const Section1 = () => {
         </motion.div>
       </div>
 
-      <div className=" mt-8 flex h-32 justify-center">
+      <div className=" mt-8 flex  h-32 justify-center">
         <Arrows />
       </div>
     </div>

@@ -57,7 +57,7 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
-        className="relative flex py-5 px-5 "
+        className="relative flex py-1 px-5 "
       >
         <h1 className=" flex-grow-1 font-mono mr-auto text-4xl font-extrabold text-[#994AA6] md:ml-10  hover:cursor-pointer ">
           <span className="text-5xl ">{"<"}</span>HOSSEM
