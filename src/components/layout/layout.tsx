@@ -8,7 +8,7 @@ type props={
 
 const Layout:React.FC<props> = (props) => {
     const [isOpen, toggleOpen] = useCycle(false, true);
-    return ( <div className="relative mx-auto bg-[#1d1d1d] ">
+    return ( <div className="relative min-h-screen mx-auto bg-[#1d1d1d] ">
             <Header toggleOpen={toggleOpen} isOpen={isOpen}/>
             {isOpen&&<Menu toggleOpen={toggleOpen} isOpen={isOpen}/>}
             <main>

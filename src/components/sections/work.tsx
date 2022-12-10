@@ -1,9 +1,10 @@
-import { motion, useAnimation, useInView } from "framer-motion";
+import { AnimatePresence, animations, motion, useAnimation, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
 import dari from "../../../public/dari.png";
 import mycoin from "../../../public/mycoin.png";
 import bb from "../../../public/bb.png";
+import soon from "../../../public/soon.png";
 
 const titleContainer = {
   hidden: { opacity: 0 },
@@ -41,6 +42,7 @@ const titleChild = {
 };
 
 const Work = () => {
+  //const project=
   const ref = useRef(null);
   const isInView = useInView(ref);
   const annimation = useAnimation();
@@ -83,54 +85,69 @@ const Work = () => {
       </motion.h1>
 
       <div className="grid grid-cols-1 gap-10 px-7 md:grid-cols-2 md:gap-20 ">
-        <motion.div className="mx-auto mb-20  aspect-square  w-full  max-w-[490px] bg-[#D6D6D2]   ">
-          <motion.div className="relative h-full w-full -translate-x-3  translate-y-3 bg-[#c0c01e] transition-all duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
-            <Image src={dari.src} fill sizes='100' alt="dari project" />
-            <div className="absolute -bottom-16 h-28 w-full md:pl-20 pl-5  text-primary  ">
-              <h1 className="font-Allerta md:text-5xl text-2xl font-extrabold">Dari</h1>
-              <h3 className="font-Allerta md:text-3xl text-xl font-bold">
-                Real estate app
-              </h3>
-            </div>
+        <Section position="left">
+          <motion.div className="mx-auto mb-20  aspect-square  w-full  max-w-[490px] bg-[#D6D6D2]   ">
+            <motion.div className="relative h-full w-full -translate-x-3  translate-y-3 bg-[#c0c01e] transition-all duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
+              <Image src={dari.src} fill sizes="100" alt="dari project" />
+              <div className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  ">
+                <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
+                  Dari
+                </h1>
+                <h3 className="font-Allerta text-xl font-bold md:text-3xl">
+                  Real estate app
+                </h3>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </Section>
 
-        <motion.div className="mx-auto mb-20  aspect-square w-full  max-w-[490px]  bg-[#D6D6D2] md:mt-20  ">
-          <motion.div className="relative h-full w-full translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
-            <Image src={mycoin.src} fill sizes='100' alt="dari project" />
-            <div className="absolute -bottom-16 h-28 w-full md:pl-20 pl-5  text-primary  ">
-              <h1 className="font-Allerta md:text-5xl text-2xl font-extrabold">My coin</h1>
-              <h3 className="font-Allerta md:text-3xl text-xl font-bold">
-                cryptocurrency app
-              </h3>
-            </div>
+        <Section position="right">
+          <motion.div className="mx-auto mb-20  aspect-square w-full  max-w-[490px]  bg-[#D6D6D2] md:mt-20  ">
+            <motion.div className="relative h-full w-full translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
+              <Image src={mycoin.src} fill sizes="100" alt="dari project" />
+              <div className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  ">
+                <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
+                  My coin
+                </h1>
+                <h3 className="font-Allerta text-xl font-bold md:text-3xl">
+                  cryptocurrency app
+                </h3>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </Section>
 
-        <motion.div className="mx-auto mb-20  mt-[-80px] aspect-square w-full  max-w-[490px] bg-[#D6D6D2]  ">
-          <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
-            <Image src={bb.src} fill sizes='100' alt="dari project" />
-            <div className="absolute -bottom-16 h-28 w-full md:pl-20 pl-5  text-primary  ">
-              <h1 className="font-Allerta md:text-5xl text-2xl font-extrabold">
-                Breaking bad
-              </h1>
-              <h3 className="font-Allerta md:text-3xl text-xl font-bold">
-                App for the best tv show ever
-              </h3>
-            </div>
+        <Section position="left">
+          <motion.div className="mx-auto mb-20  mt-[-80px] aspect-square w-full  max-w-[490px] bg-[#D6D6D2]  ">
+            <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
+              <Image src={bb.src} fill sizes="100" alt="dari project" />
+              <div className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  ">
+                <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
+                  Breaking bad
+                </h1>
+                <h3 className="font-Allerta text-xl font-bold md:text-3xl">
+                  App for the best tv show ever
+                </h3>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </Section>
 
-        <motion.div className="mx-auto mb-20   aspect-square  w-full  max-w-[490px] bg-[#D6D6D2]  ">
-          <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
-            <div className="absolute -bottom-16 h-28 w-full md:pl-20 pl-5  text-primary  ">
-              <h1 className="font-Allerta md:text-5xl text-2xl font-extrabold">Dari</h1>
-              <h3 className="font-Allerta md:text-3xl text-xl font-bold">
-                Real estate app
-              </h3>
-            </div>
+        <Section position="right">
+          <motion.div className="mx-auto mb-20   aspect-square  w-full  max-w-[490px] bg-[#D6D6D2]  ">
+            <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
+              <Image src={soon.src} fill sizes="100" alt="dari project" />
+              <div className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  ">
+                <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
+                  Shop app
+                </h1>
+                <h3 className="font-Allerta text-xl font-bold md:text-3xl">
+                  With accounting system
+                </h3>
+              </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </Section>
       </div>
 
       {/* old one with flex */}
@@ -167,13 +184,26 @@ const Work = () => {
   );
 };
 
-const item = {
-  visible: {
-    x: 0,
-  },
-  hidden: { x: "-100vw" },
-};
-const WorkItem: React.FC<{ self: string }> = ({ self }) => {
+interface Props {
+  children: JSX.Element;
+  position:string
+}
+const Section: React.FC<Props> = ({ children ,position}) => {
+  const container = {
+    hidden: {
+      x: -100,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        // delay:1,
+        duration: 2,
+      },
+    },
+  };
+
   const ref = useRef(null);
   const isInView = useInView(ref);
   const annimation = useAnimation();
@@ -185,11 +215,43 @@ const WorkItem: React.FC<{ self: string }> = ({ self }) => {
     }
   }, [isInView]);
 
-  const hover = {
-    x: self == "start" ? "20" : "-20",
-    y: "20",
-  };
+  return (
+    <AnimatePresence>
 
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      exit='hidden'
+      viewport={{ once: false }}
+      transition={{ duration: 1 }}
+      variants={{
+        visible: { opacity: 1,scale:1},
+        hidden: { opacity: 0,scale:0 }}}
+        >
+      {children}
+    </motion.section>
+      </AnimatePresence>
+  );
+};
+
+const item = {
+  visible: {
+    x: 0,
+  },
+  hidden: { x: "-100vw" },
+};
+
+const WorkItem: React.FC<{ self: string }> = ({ self }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const annimation = useAnimation();
+  useEffect(() => {
+    console.log("is in view:", isInView);
+    if (isInView) {
+      console.log("in view item", isInView);
+      annimation.start("visible");
+    }
+  }, [isInView]);
   return (
     <motion.div
       ref={ref}
