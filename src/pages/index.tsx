@@ -4,6 +4,7 @@ import { useScroll, useCycle } from "framer-motion";
 import { useEffect, useState } from "react";
 import Section1 from "../components/sections/section1";
 import Work from "../components/sections/work";
+import TT from "../components/test/test";
 
 const container = {
   hidden: { opacity: 0 },
@@ -76,6 +77,8 @@ const child = {
 
        <Work/>
 
+
+<TT/>
         
 
         

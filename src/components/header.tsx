@@ -61,7 +61,7 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
-        className={`${isOpen?'fixed':'absolute'} my-auto w-10 h-10 sm:w-14 md:h-14  z-20 top-[-1px] right-2  rounded-full  p-2 hover:cursor-pointer ${
+        className={`${isOpen?'fixed':'absolute'} my-auto z-50 w-10 h-10 sm:w-14 md:h-14   top-[-1px] right-2  rounded-full  p-2 hover:cursor-pointer ${
           isOpen ? "bg-[#D6D6D2]" : ""
         }`}
         onClick={() => toggleOpen()}
