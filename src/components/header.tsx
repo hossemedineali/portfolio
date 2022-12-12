@@ -40,12 +40,12 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   isOpen,
 }) => {
   return (
-    <div className="">
+    <div className=" ">
       <motion.button
         initial={{ y: "-100vh" }}
         animate={{ y: 0 }}
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
-        className={`${isOpen?'fixed':'absolute'}  top-2 right-2 z-20  h-14 w-14 rounded-full  p-2 hover:cursor-pointer ${
+        className={`${isOpen?'fixed':'absolute'}   top-[-10px] right-2 z-20   w-14 rounded-full  p-2 hover:cursor-pointer ${
           isOpen ? "bg-[#D6D6D2]" : ""
         }`}
         onClick={() => toggleOpen()}
@@ -59,9 +59,10 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
         className="relative flex py-1 px-5 "
       >
-        <h1 className=" flex-grow-1 font-mono mr-auto text-4xl font-extrabold text-[#994AA6] md:ml-10  hover:cursor-pointer ">
-          <span className="text-5xl ">{"<"}</span>HOSSEM
-          <span className="text-5xl ">{">"}</span>
+        <h1 className=" flex-grow-1 font-mono mr-auto text-xl sm:text-3xl md:text-5xl lg:text-8xl font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
+          {/* <span className="text-lg xs:text-2xl md:text-5xl lg:text-8xl ">{"<"}</span> */}
+          Hossem
+          {/* <span className="text-lg xs:text-2xl md:text-5xl lg:text-8xl ">{">"}</span> */}
         </h1>
       </motion.div>
       <motion.div

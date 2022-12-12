@@ -17,7 +17,7 @@ const Section1 = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 2, when: "beforeChildren" }}
-          className="shadow-4xl  relative -z-0 w-[320px] rounded-2xl bg-[#D6D6D2] px-10 pb-6 pt-5 text-3xl font-bold shadow-white"
+          className="shadow-4xl  relative -z-0 max-w-[320px] w-full rounded-2xl bg-[#D6D6D2] px-10 pb-6 pt-5 text-3xl font-bold shadow-white"
         >
           <div className="absolute top-0 left-0 flex h-10 w-20 items-center justify-center gap-2  align-middle">
             <div className="h-3 w-3 rounded-full  bg-[#8a0a0a]"></div>

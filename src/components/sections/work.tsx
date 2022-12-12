@@ -168,7 +168,7 @@ const P1: React.FC<Props> = ({  position }) => {
           hidden: { opacity: 0, scale: 0 },
         }}
       >
-        <motion.div className="mx-auto mb-20  aspect-square  w-10/12   bg-[#D6D6D2]   ">
+        <motion.div className="mx-auto mb-20  aspect-square  w-10/12   bg-[#D6D6D2] hover:cursor-pointer  ">
             <motion.div className="relative h-full w-full -translate-x-3  translate-y-3 bg-[#c0c01e] transition-all duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
               <Image src={dari.src} fill sizes="100" alt="dari project" />
               <motion.div
@@ -211,10 +211,10 @@ const P2: React.FC<Props> = ({  position }) => {
           hidden: { opacity: 0, scale: 0 },
         }}
       >
-      <motion.div className="mx-auto mb-20  aspect-square w-10/12    bg-[#D6D6D2] md:mt-20  ">
+      <motion.div className="mx-auto mb-20  aspect-square w-10/12    bg-[#D6D6D2] md:mt-20  hover:cursor-pointer">
             <motion.div className="relative h-full w-full translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
               <Image src={mycoin.src} fill sizes="100" alt="dari project" />
-              <motion.div style={{ y }} className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  ">
+              <motion.div style={{ y }} className="absolute -bottom-28 h-28 w-full pl-5 text-primary  md:pl-20  ">
                 <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
                   My coin
                 </h1>
@@ -250,7 +250,7 @@ const P3: React.FC<Props> = ({  position }) => {
         }}
       >
        
-       <motion.div className="mx-auto mb-20  mt-[-80px] aspect-square w-10/12   bg-[#D6D6D2]  ">
+       <motion.div className="mx-auto mb-20  mt-[-80px] aspect-square w-10/12   bg-[#D6D6D2] hover:cursor-pointer ">
             <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
               <Image src={bb.src} fill sizes="100" alt="dari project" />
               <motion.div style={{ y }} className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  ">
@@ -290,7 +290,7 @@ const P4: React.FC<Props> = ({  position }) => {
           hidden: { opacity: 0, scale: 0 },
         }}
       >
-       <motion.div className="mx-auto mb-20   aspect-square  w-10/12   bg-[#D6D6D2]  ">
+       <motion.div className="mx-auto mb-20   aspect-square  w-10/12   bg-[#D6D6D2] hover:cursor-pointer ">
             <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
               <Image src={soon.src} fill sizes="100" alt="dari project" />
               <motion.div style={{ y }} className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  ">
