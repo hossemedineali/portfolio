@@ -69,7 +69,7 @@ const child = {
       <main className={`min-h-screen relative  flex-row  bg-[#1d1d1d] ${isOpen?'scrollbar-hide':''}`}>
         
        {/*  {isOpen&&<Menu toggleOpen={toggleOpen} isOpen={isOpen}/>} */}
-     {/*   <Section1/> */}
+       <Section1/>
 
 
     
