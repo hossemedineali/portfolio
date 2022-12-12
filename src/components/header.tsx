@@ -8,7 +8,7 @@ const close = (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="h-10 w-10 text-white"
+    className="w-full h-full text-white"
   >
     <path
       strokeLinecap="round"
@@ -40,18 +40,10 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   isOpen,
 }) => {
   return (
-    <div className=" ">
-      <motion.button
-        initial={{ y: "-100vh" }}
-        animate={{ y: 0 }}
-        transition={{ delay: 3, type: "spring", stiffness: 30 }}
-        className={`${isOpen?'fixed':'absolute'}   top-[-10px] right-2 z-20   w-14 rounded-full  p-2 hover:cursor-pointer ${
-          isOpen ? "bg-[#D6D6D2]" : ""
-        }`}
-        onClick={() => toggleOpen()}
-      >
-        {isOpen ? open : close}
-      </motion.button>
+    <div>
+
+    <div className="flex align-middle justify-between ">
+      
 
       <motion.div
         initial={{ y: "-100vh" }}
@@ -59,19 +51,31 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         transition={{ delay: 3, type: "spring", stiffness: 30 }}
         className="relative flex py-1 px-5 "
       >
-        <h1 className=" flex-grow-1 font-mono mr-auto text-xl sm:text-3xl md:text-5xl lg:text-8xl font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
+        <h1 className=" flex-grow-1 font-mono mr-auto text-xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
           {/* <span className="text-lg xs:text-2xl md:text-5xl lg:text-8xl ">{"<"}</span> */}
           Hossem
           {/* <span className="text-lg xs:text-2xl md:text-5xl lg:text-8xl ">{">"}</span> */}
         </h1>
       </motion.div>
+      <motion.button
+        initial={{ y: "-100vh" }}
+        animate={{ y: 0 }}
+        transition={{ delay: 3, type: "spring", stiffness: 30 }}
+        className={`${isOpen?'fixed':'absolute'} my-auto w-10 h-10 sm:w-14 md:h-14  z-20 top-[-1px] right-2  rounded-full  p-2 hover:cursor-pointer ${
+          isOpen ? "bg-[#D6D6D2]" : ""
+        }`}
+        onClick={() => toggleOpen()}
+      >
+        {isOpen ? open : close}
+      </motion.button>
+      </div>
       <motion.div
         className="h-[1px] bg-[#994AA6]   "
         initial={{ width: "0%" }}
         animate={{ width: "100%" }}
         transition={{ delay: 2, duration: 1 }}
-      ></motion.div>
-    </div>
+        ></motion.div>
+        </div>
   );
 };
 

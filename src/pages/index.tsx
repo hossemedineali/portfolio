@@ -74,7 +74,7 @@ const child = {
 
     
 
-      {/*  <Work/> */}
+       <Work/>
 
         
 
