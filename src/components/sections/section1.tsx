@@ -30,9 +30,9 @@ const Section1 = () => {
         </motion.div>
       </div>
 
-      <div className=" mt-8 flex  h-32 justify-center">
+     {/*  <div className=" mt-8 flex  h-32 justify-center">
         <Arrows />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -39,7 +39,7 @@ const text3 = Array.from("A web developper"); // "A web developper".split(" ");
 
 const Loader = () => {
   return (
-    <div className="font-black font-Allerta text-center  text-4xl  sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  text-white ">
+    <div className="font-black font-Allerta text-center  text-2xl  sm:text-6xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  text-white ">
       <motion.div
       style={{ overflow: "hidden", display: "flex" }}
       variants={container}
