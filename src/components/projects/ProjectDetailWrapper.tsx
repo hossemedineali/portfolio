@@ -80,16 +80,17 @@ const child4 = {
 const ProjectDetailsWrapper = () => {
   const project = useProjectModal();
   return (
-    <>
+    <div className="relative">
       {
-        <motion.div className="fixed top-0 left-0 right-0 bottom-0 z-20 ">
+        <motion.div className="fixed    bottom-0   left-0 right-0 top-0 overflow-y-hidden z-20 ">
+         {/* Lines */}
           <motion.div
             initial={{ right: "100%" }}
             animate={{ right: 0 }}
             transition={{ duration: 0.3, ease: "linear" }}
             exit={{ right: "100%", transition: { delay: 3.4, duration: 0.3 } }}
             id="line1B"
-            className="absolute bottom-0 h-5 w-full bg-[#63635f]  "
+            className="absolute bottom-0 h-5 w-full bg-[#D6D6D2]  "
           ></motion.div>
 
           <motion.div
@@ -98,7 +99,7 @@ const ProjectDetailsWrapper = () => {
             transition={{ duration: 0.3, delay: 0.25, ease: "linear" }}
             exit={{ top: "100%", transition: { delay: 3.1, duration: 0.3 } }}
             id="line2R"
-            className="absolute right-0 top-0 bottom-0  w-5 bg-[#63635f] "
+            className="absolute right-0 top-0 bottom-0  w-5 bg-[#D6D6D2] "
           ></motion.div>
 
           <motion.div
@@ -107,7 +108,7 @@ const ProjectDetailsWrapper = () => {
             transition={{ duration: 0.3, delay: 0.55, ease: "linear" }}
             exit={{ left: "100%", transition: { delay: 2.8, duration: 0.3 } }}
             id="line3T"
-            className="absolute right-0 top-0 left-0  h-5 bg-[#63635f]  "
+            className="absolute right-0 top-0 left-0  h-5 bg-[#D6D6D2]  "
           ></motion.div>
 
           <motion.div
@@ -116,7 +117,7 @@ const ProjectDetailsWrapper = () => {
             transition={{ duration: 0.3, delay: 0.85, ease: "linear" }}
             exit={{ bottom: "100%", transition: { delay: 2.5, duration: 0.3 } }}
             id="line4L"
-            className="absolute left-0 top-0 bottom-0  w-5 bg-[#63635f]  "
+            className="absolute left-0 top-0 bottom-0  w-5 bg-[#D6D6D2]  "
           ></motion.div>
 
           <motion.div
@@ -124,20 +125,21 @@ const ProjectDetailsWrapper = () => {
             animate={{ right: 0 }}
             transition={{ delay: 1.15, duration: 1 }}
             exit={{ right: "100%", transition: { delay: 1.5, duration: 0.5 } }}
-            className="absolute top-0 bottom-0 h-screen   w-full bg-[#63635f] "
+            className="absolute top-0 bottom-0 h-screen   w-full bg-[#D6D6D2] "
           ></motion.div>
+{/* -------------------------------------------------------------------------------------------------- */}
 
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2 }}
-            className="z-50 h-full w-full    "
+            className="z-50      "
           ><Project1/>
             
           </motion.div>
         </motion.div>
       }
-    </>
+    </div>
   );
 };
 
