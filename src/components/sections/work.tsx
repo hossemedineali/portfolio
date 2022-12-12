@@ -95,7 +95,7 @@ const Work = () => {
         })}
       </motion.h1>
 
-      <div className="grid grid-cols-1 gap-10 px-7 md:grid-cols-2 md:gap-20 ">
+      <div className="md:grid flex  flex-col gap-10 sm:px-7 md:grid-cols-2 md:gap-20  ">
         <P1 position="left"/>
           
 
@@ -250,7 +250,7 @@ const P3: React.FC<Props> = ({  position }) => {
         }}
       >
        
-       <motion.div className="mx-auto mb-20  mt-[-80px] aspect-square w-10/12   bg-[#D6D6D2] hover:cursor-pointer ">
+       <motion.div className="mx-auto mb-20  md:mt-[-80px] aspect-square w-10/12   bg-[#D6D6D2] hover:cursor-pointer ">
             <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
               <Image src={bb.src} fill sizes="100" alt="dari project" />
               <motion.div style={{ y }} className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  ">
