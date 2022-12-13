@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import { useProjectModal } from "../../store/projects";
-
+import p1 from '../../../public/p1-1.png'
+import p11 from '../../../public/p1-11.png'
+import p2 from '../../../public/p1-2.png'
+import p3 from '../../../public/p1-3.png'
+import p4 from '../../../public/p1-4.png'
+import p5 from '../../../public/p1-5.png'
+import p6 from '../../../public/p1-6.png'
+import p7 from '../../../public/p1-7.png'
+import Image from "next/image";
 const Project1 = () => {
   const stack = [
     "Nextjs",
@@ -97,9 +105,9 @@ const Project1 = () => {
           opacity: 0,
           transition: { delay: 1, duration: 1 },
         }}
-        className="      lg:border-[20px]  h-screen scrollbar-hide overflow-y-scroll "
+        className="      lg:border-[20px]  h-screen lg:overflow-hidden overflow-y-scroll scrollbar-hide "
       >
-        <span className="absolute hidden bg-black h-10 w-10  top-[-12px] right-[-12px]  lg:flex">
+        <span className="absolute hidden bg-black h-10 w-10  top-[-8px] right-[-7px]  lg:flex">
           <motion.svg
             onClick={() => {
               project.setProjectNumber(0);
@@ -121,13 +129,13 @@ const Project1 = () => {
         </span>
 
 
-        <div className="flex h-full w-full   flex-col overflow-y-scroll scrollbar-hide lg:flex-row lg:overflow-visible">
+        <div className="flex    flex-col overflow-hidden  scrollbar-hide lg:flex-row ">
           <motion.div
             initial={{ x: "-100vw" }}
             animate={{ x: "0" }}
             transition={{ delay: 2.26, duration: 1 }}
             exit={{ x: "-100%", transition: { duration: 1 } }}
-            className="flex  flex-col items-center px-5 font-Allerta  font-bold text-black   lg:w-1/2  lg:items-start lg:px-14  lg:pt-20"
+            className="flex  flex-col items-center px-5 font-Allerta  font-bold text-black   lg:w-1/2  lg:items-start lg:px-14  lg:pt-20 overflow-hidden"
           >
             <h1 className="text-5xl ">Dari</h1>
             <h2 className="text-3xl ">Real estate web app</h2>
@@ -154,21 +162,19 @@ const Project1 = () => {
             animate={{ scale: 1 }}
             transition={{ delay: 2.26, duration: 1 }}
             exit={{ scale: 0, transition: { duration: 1 } }}
-            className="    lg:w-1/2 lg:overflow-y-scroll lg:scrollbar-hide  "
+            className=" lg:h-screen    lg:w-1/2 lg:overflow-y-scroll lg:scrollbar-hide  "
           >
-            <div className=" h-full pt-8">
-              <div className="mb-3 h-[350px] border-2 text-black">1</div>
-              <div className="mb-3 h-[350px] border-2 text-Cviolet">2</div>
-              <div className="mb-3 h-[350px] border-2 text-black">3</div>
-              <div className="mb-3 h-[350px] border-2 text-Cviolet">4</div>
-              <div className="mb-3 h-[350px] border-2 text-black">5</div>
-              <div className=" h-[350px] border-2 text-Cviolet mb-20">6</div>
-              <div className="mb-3 h-[350px] border-2 text-black">1</div>
-              <div className="mb-3 h-[350px] border-2 text-Cviolet">2</div>
-              <div className="mb-3 h-[350px] border-2 text-black">3</div>
-              <div className="mb-3 h-[350px] border-2 text-Cviolet">4</div>
-              <div className="mb-3 h-[350px] border-2 text-black">5</div>
-              <div className=" h-[350px] border-2 text-Cviolet mb-20">6</div>
+            <div className="flex flex-col gap-20 h-full pt-14 lg:pr-10 pb-20">
+              <Image src={p1} alt='screen-shot-1' />
+             
+              <Image src={p2} alt='screen-shot-1' />
+              <Image src={p3} alt='screen-shot-1' />
+              <Image src={p4} alt='screen-shot-1' />
+              <Image src={p5} alt='screen-shot-1' />
+              <Image src={p6} alt='screen-shot-1' />
+              <Image src={p7} alt='screen-shot-1' className="mb-20"/>
+              
+              <div className="h-20"></div>
             </div>
           </motion.div>
         </div>
