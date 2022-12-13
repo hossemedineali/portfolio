@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
 import { useProjectModal } from "../../store/projects";
 import Project1 from "./p1";
 import Project2 from "./p2";
@@ -80,12 +81,17 @@ const child4 = {
 };
 const Project1DetailsWrapper = () => {
   const project = useProjectModal();
+  const[isLoading,setIsLoading]=useState(false)
   const hundelNextButton = () => {
     if (project.prjectNumber == 4) {
       return;
     }
 
     project.setProjectNumber(project.prjectNumber + 1);
+    setIsLoading(true)
+    setTimeout(()=>{
+        setIsLoading(false)
+    },2500)
   };
 
   const hundelPreviousButton = () => {
@@ -93,6 +99,10 @@ const Project1DetailsWrapper = () => {
       return;
     }
     project.setProjectNumber(project.prjectNumber - 1);
+    setIsLoading(true)
+    setTimeout(()=>{
+        setIsLoading(false)
+    },2500)
   };
 
   const prevBtnDisabled = project.prjectNumber == 1;
@@ -234,14 +244,14 @@ const Project1DetailsWrapper = () => {
               exit={{
                 scale: 0.2,
                 opacity: 0,
-                transition: { delay: 0, duration: 1 },
+                transition: { delay: 1, duration: 1 },
               }}
               className="  z-50    h-screen  overflow-y-scroll border-Cblue scrollbar-hide lg:overflow-hidden lg:border-[20px]"
             >
               {/* {project.prjectNumber==1&&<Project1/>}
           {project.prjectNumber==2&&<Project2/>}  */}
              
-                <Project1 />
+                <Project1 isLoading={isLoading} hundelNextButton={hundelNextButton} hundelPreviousButton={hundelPreviousButton} />
              
             </motion.div>
         </motion.div>
