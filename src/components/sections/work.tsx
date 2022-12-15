@@ -55,8 +55,6 @@ const Work = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
   const annimation = useAnimation();
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [700,1900], ['0%', '-100%']);
   useEffect(() => {
     if (isInView) {
       annimation.start("visible");
@@ -86,7 +84,7 @@ const Work = () => {
         animate={annimation}
         className="py-10 text-center font-Allerta  text-5xl font-bold text-white md:text-8xl md:font-extrabold"
       >
-        {Array.from("My Work").map((l, i) => {
+        {Array.from("My work").map((l, i) => {
           return (
             <motion.span key={i} variants={titleChild}>
               {l}
@@ -140,6 +138,8 @@ const Work = () => {
         </motion.div>
         
       </div> */}
+
+      
     </section>
   );
 };

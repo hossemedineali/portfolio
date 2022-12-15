@@ -458,7 +458,7 @@ const P3:React.FC<{isLoading:boolean}> = ({isLoading}) => {
         <h1 className="text-5xl ">Breaking Bad</h1>
         <h2 className="text-3xl ">The greatest tv show ever</h2>
         <p className="opacity-85 mt-6 text-xl font-extralight ">
-          Trying Next.js for the first time i made this simple website where i used  <Link className="decoration-solid decoration-Cblue text-Cblue" target={'blank'} href={'https://breakingbadapi.com/'}>this API</Link> tha seems not working any more .
+          Trying Next.js for the first time i made this simple website where i used  <Link className="decoration-solid decoration-Cblue text-Cblue" target={'blank'} href={'https://breakingbadapi.com/'}>this API</Link> that seems not working any more .
         </p>
         <div className="mt-5 mb-10 flex flex-wrap gap-2 lg:mb-0">
           {stack.map((item, index) => {

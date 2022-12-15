@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 
 
 const container = {
-  hidden: { width: '0%' },
+  hidden: { opacity: 0 },
   visible: (i = 1) => ({
-    width: '100%',
+    opacity: 1,
     transition: { staggerChildren: 0.08, delayChildren: 0.04 * i },
   }),
 };
 
 const child = {
   visible: {
-    //opacity: 1,
-    scale:1,
-    rotateY:0,
+    opacity: 1,
+   // scale:1,
+    //rotateY:0,
     transition: {
       type: "spring",
       damping: 12,
@@ -22,9 +22,9 @@ const child = {
     },
   },
   hidden: {
-   // opacity: 0,
-    scale:0,
-    rotateY:180,
+    opacity: 0,
+   // scale:0,
+    //rotateY:180,
     transition: {
       type: "spring",
       damping: 12,
