@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "canvas": "^2.10.2",
     "framer-motion": "^7.6.15",
     "next": "13.0.2",
     "react": "18.2.0",
