@@ -33,32 +33,7 @@ const Layout: React.FC<props> = (props) => {
       </div>
 
 
- {/*      <motion.div
-        className="absolute top-0 left-0 z-50 h-4 w-4 rounded-full hidden sm:block bg-[#bf1010]"
-        animate={{
-          x: mousePosition.x-20,
-          y: mousePosition.y-20
-        }}
-       
-      ></motion.div>
 
-<motion.div
-        className="absolute top-0 left-0 z-50 h-4 w-4 rounded-full hidden sm:block bg-[#99bf10]"
-        animate={{
-          x: mousePosition.x-20,
-          y: mousePosition.y-20
-        }}
-        transition={{type:'spring'}}
-      ></motion.div>
-
-<motion.div
-        className="absolute top-0 left-0 z-50 h-4 w-4 rounded-full hidden sm:block bg-[#1088bf]"
-        animate={{
-          x: mousePosition.x-20,
-          y: mousePosition.y-20
-        }}
-        transition={{type:'just'}}
-      ></motion.div> */}
       <Header toggleOpen={toggleOpen} isOpen={isOpen} />
       <AnimatePresence>{isOpen && <Menu isOpen={isOpen} />}</AnimatePresence>
       <AnimatePresence>

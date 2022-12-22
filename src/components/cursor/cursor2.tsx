@@ -94,13 +94,20 @@ const Canvas = () => {
         star.y += star.vy
 
         // Fade the star out over time
-        star.alpha -= 0.01
+        star.alpha -= 0.008
 
         // Draw the star
         ctx.beginPath()
         ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI)
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`
+        ctx.fillStyle = star.color //`rgba(255, 255, 255, ${star.alpha})`
         ctx.fill()
+
+   /*      ctx.strokeStyle = 'rgba(255, 255, 255, ${star.alpha})';	
+			ctx.lineWidth = 4;			
+			ctx.beginPath();
+			ctx.moveTo(star.x, star.y);
+			ctx.lineTo(star.x, star.y);
+			ctx.stroke(); */
       }
 
       // Schedule the update function to be called on the next frame
@@ -121,11 +128,70 @@ const Canvas = () => {
 
       // Choose the color of the star based on the random number
       let color: string
-      if (randomNumber < 0.5) {
-        color = '#00FF00' // neon green
-      } else {
-        color = '#FF0000' // neon red
+      
+      
+      if (randomNumber < 0.1) {
+        color = '#FFACFC' 
+      }else  if(randomNumber<0.2) {
+        color = '#FFACFC' 
+      }  else if(randomNumber<0.3){
+        color = '#F148FB' 
       }
+      else if(randomNumber<0.4){
+        color = '#F148FB' 
+      }
+      else if(randomNumber<0.5){
+        color = '#7122FA' 
+      }
+      else if(randomNumber<0.6){
+        color = '#712FA' 
+      }
+      else if(randomNumber<0.7){
+        color = '#7122FA' 
+      }
+      else if(randomNumber<0.8){
+        color = '#560A86' 
+      }
+      else if(randomNumber<0.9){
+        color = '#560A86' 
+      }
+      
+      else {
+        color = '#560A86' 
+      }
+
+      
+
+      if (randomNumber < 0.1) {
+        color = '#08f7fe' 
+      }else  if(randomNumber<0.2) {
+        color = '#08f7fe' 
+      }  else if(randomNumber<0.3){
+        color = '#09fbd3' 
+      }
+      else if(randomNumber<0.4){
+        color = '#09fbd3' 
+      }
+      else if(randomNumber<0.5){
+        color = '#fe53bb' 
+      }
+      else if(randomNumber<0.6){
+        color = '#fe53bb' 
+      }
+      else if(randomNumber<0.7){
+        color = '#f5d300' 
+      }
+      else if(randomNumber<0.8){
+        color = '#f5d300' 
+      }
+      else if(randomNumber<0.9){
+        color = '#09fbd3' 
+      }
+      
+      else {
+        color = '#f5d300' 
+      }
+       
       // Add a new star based on the cursor's speed
       stars.push(
         new Star(
@@ -154,7 +220,7 @@ const Canvas = () => {
      width={width?width-10:0}
      
      height={1200}
-     style={{maxWidth:'100vw'}}
+     style={{maxWidth:'98vw'}}
     />
   )
 }

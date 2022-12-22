@@ -1,12 +1,150 @@
 import { motion,  } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-const CustomCursor = () => {
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
 
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+  const [windowSize, setWindowSize] = useState<{width:number|undefined,height:number|undefined}>({
+    width:undefined ,
+    height: undefined,
+  });
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      // Set window width/height to state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+  return windowSize;
+}
+const Canvas = () => {
+  // Create a reference to the canvas element
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  
+
+  const { width, height } = useWindowSize()
+
+
+
+  // Array of stars
+  const stars: Star[] = []
+
+  // Star class
+  class Star {
+    x: number
+    y: number
+    vx: number
+    vy: number
+    radius: number
+    alpha: number
+    color: string
+    constructor(x: number, y: number, vx: number, vy: number, radius: number, alpha: number,color :string) {
+      this.x = x
+      this.y = y
+      this.vx = vx
+      this.vy = vy
+      this.radius = radius
+      this.alpha = alpha
+      this.color = color
+    }
+  }
+
+  // Set up the canvas and start the update loop
+  useEffect(() => {
+    // Get a reference to the canvas element
+    const canvas = canvasRef.current
+
+    if(!canvas){
+        console.log('no canvas ,will return')
+        return
+    }
+    // Get a reference to the canvas rendering context
+    const ctx = canvas.getContext('2d')
+    if(!ctx){
+        console.log('no ctx ,will return')
+        return
+    }
+    // Update function
+    function update() {
+        if(!ctx){
+            console.log('no ctx ,will return')
+            return
+        }
+        if(!canvas){
+            console.log('no canvas ,will return')
+            return
+        }
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Loop through the array of stars
+      for (const star of stars) {
+        // Update the position of the star
+        star.x += star.vx
+        star.y += star.vy
+
+        // Fade the star out over time
+        star.alpha -= 0.01
+
+        // Draw the star
+      /*   ctx.beginPath()
+        ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI)
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`
+        ctx.fill()
+ */
+        ctx.strokeStyle = 'rgba(255, 255, 255, ${star.alpha})';	
+			ctx.lineWidth = 4;			
+			ctx.beginPath();
+			ctx.moveTo(star.x, star.y);
+			ctx.lineTo(star.x, star.y);
+			ctx.stroke();
+      }
+
+      // Schedule the update function to be called on the next frame
+      requestAnimationFrame(update)
+    }
+
+    // Start the update loop
+    update()
+  }, [])
+
+  // Add a star to the array when the mouse moves
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      setCursorPosition({ x: event.clientX, y: event.clientY })
+      // Calculate the cursor's speed
+      const speed = Math.sqrt(event.movementX ** 2 + event.movementY ** 2)
+       // Generate a random number between 0 and 1
+      const randomNumber = Math.random()
+
+      // Choose the color of the star based on the random number
+      let color: string
+      if (randomNumber < 0.5) {
+        color = '#00FF00' // neon green
+      } else {
+        color = '#FF0000' // neon red
+      }
+      // Add a new star based on the cursor's speed
+      stars.push(
+        new Star(
+          event.clientX,
+          event.clientY,
+          event.movementX / 10,
+          event.movementY / 10,
+          5 + speed / 2,
+          1,
+          color=color
+        )
+      )
     }
 
     window.addEventListener('mousemove', handleMouseMove)
@@ -17,55 +155,15 @@ const CustomCursor = () => {
   }, [])
 
   return (
-    <>
-    <motion.div
-      animate={{ x: cursorPosition.x, y: cursorPosition.y }}
-      transition={{type:'spring',stiffness:250,damping:200}}
-      className="custom-cursor"
-      style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: 20,
-          height: 20,
-          borderRadius: '50%',
-          backgroundColor: 'red',
-          zIndex: 999,
-        }}
-        />
-        <motion.div
-      animate={{ x: cursorPosition.x, y: cursorPosition.y }}
-      className="custom-cursor"
-      style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: 20,
-          height: 20,
-          borderRadius: '50%',
-          backgroundColor: 'blue',
-          zIndex: 999,
-        }}
-        transition={{type:'spring',stiffness:500}}
-        />
-        <motion.div
-      animate={{ x: cursorPosition.x, y: cursorPosition.y }}
-      className="custom-cursor"
-      transition={{type:'spring',stiffness:100}}
-      style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: 20,
-          height: 20,
-          borderRadius: '50%',
-          backgroundColor: 'yellow',
-          zIndex: 999,
-        }}
-        />
-        
-        </>
+    <motion.canvas
+      //animate={{ x: cursorPosition.x, y: cursorPosition.y }}
+      ref={canvasRef}
+     width={width?width-10:0}
+     
+     height={1200}
+     style={{maxWidth:'100vw'}}
+    />
   )
 }
 
-export default CustomCursor
+export default Canvas
