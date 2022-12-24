@@ -6,6 +6,7 @@ import Section1 from "../components/sections/section1";
 import Work from "../components/sections/work";
 import TT from "../components/test/test";
 import Section2 from "../components/sections/section2";
+import Aboutme from "../components/sections/aboutme";
 
 const container = {
   hidden: { opacity: 0 },
@@ -79,6 +80,8 @@ const child = {
        <Work/>
 
       <Section2/>
+
+      <Aboutme/>
 
      
 
