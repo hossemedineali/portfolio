@@ -1,25 +1,31 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import tag from '../../../public/tag.png'
+
+import controller from "../../../public/controller.png";
+import noise from "../../../public/noise.png";
+import bug from "../../../public/bug.png";
+import code from "../../../public/icons8-code-100.png";
+import Console from "../../../public/icons8-console-100.png";
+import api from "../../../public/icons8-rest-api-100.png";
 
 function useWindowSize() {
   // Initialize state with undefined width/height so server and client renders match
   // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
   const [windowSize, setWindowSize] = useState<{
-    width: number | undefined;
-    height: number | undefined;
+    width: number;
+    height: number;
   }>({
-    width: undefined,
-    height: undefined,
+    width: 0,
+    height: 0,
   });
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
       // Set window width/height to state
       setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: window.innerWidth || 0,
+        height: window.innerHeight || 0,
       });
     }
     // Add event listener
@@ -31,77 +37,130 @@ function useWindowSize() {
   }, []); // Empty array ensures that effect is only run on mount
   return windowSize;
 }
-const Aboutme = () => {
-  // Create a reference to the canvas element
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
+const Aboutme = () => {
+  // Initialize state for the x and y position of the mouse
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const [mouseDirection, setMouseDirection] = useState("none");
+  // Get the current width and height of the window
   const { width, height } = useWindowSize();
 
-  useEffect(() => {
-    // Get the canvas context
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+  const handelMouseMove = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const { clientX, clientY } = e;
+    // Determine the mouse direction based on the current position and the previous position
+    setMouseDirection(
+      clientX < mousePosition.x
+        ? "left"
+        : clientX > mousePosition.x
+        ? "right"
+        : clientY < mousePosition.y
+        ? "up"
+        : clientY > mousePosition.y
+        ? "down"
+        : "none"
+    );
+    // Update the mouse position state
+    setMousePosition({ x: clientX, y: clientY });
 
-    if (!ctx) return;
-    // Array of shapes to draw
-    const shapes = ["triangle", "circle", "box", "star", "arc"];
-
-    // for (const shape of shapes) {
-    // Choose a random position on the canvas
-    const x = Math.floor(Math.random() * canvas.width);
-    const y = Math.floor(Math.random() * canvas.height);
-
-    // Set the fill style
-    ctx.fillStyle = "blue";
-
-    // Begin the path
-    ctx.beginPath();
-
-    // Draw the circle
-    ctx.arc(x + 25, y + 25, 25, 0, 2 * Math.PI);
-
-    // Fill the circle
-    ctx.fill();
-
-    //}
-  }, []);
-
-  // Array of stars
-
-  // Set up the canvas and start the update loop
+    console.log(mouseDirection);
+    console.log(mousePosition);
+  };
 
   return (
-    <section className="relative h-screen bg-[#151a24] py-20">
-      <div className="absolute top-0 left-0 w-full overflow-hidden  ">
-{/*         <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z"
-            className="shape-fill"
-            fill="#FFFFFF"
-            fill-opacity="1"
-          ></path>
-        </svg> */}
+    <motion.section
+      onMouseMove={handelMouseMove}
+      className="relative h-screen bg-[#151a24] py-20"
+    >
+      {/* <canvas
+        ref={canvasRef}
+        style={canvasStyles}
+        className="absolute top-20 left-0 right-0 bottom-20 h-full w-full  text-[250px]"
+      /> */}
+
+      <div className="flex h-full items-center  justify-center">
+        <p className="text-md p-10 text-center leading-relaxed text-white sm:text-xl md:text-4xl ">
+          I am a skilled web developer with a passion for creating visually
+          appealing and user-friendly websites and applications. I will be happy
+          to bring my expertise in creating beautiful user interfaces to your
+          projects and help your team create meaningful and impactful solutions.
+          I am reliable, self-motivated, and able to work well in a team
+          environment.
+        </p>
       </div>
+      <motion.div
+        initial={{ x: 0, y: 0 }}
+        animate={{
+          x: (mousePosition.x / width) * 50,
+          y: (mousePosition.y / height) * 50,
+        }}
+        transition={{
+          type: "spring",
+          damping: 20,
+          stiffness: 300,
+        }}
+        className="absolute top-10 left-10 text-[#3498db]"
+      >
+        <Image
+          //  className="absolute top-2 left-1 text-[#3498db]"
+          src={controller.src}
+          width="50"
+          height="50"
+          alt="htmlTag"
+        />
+      </motion.div>
 
-      <Image className="text-[#3498db] absolute bottom-2 right-1" src={tag.src} width='70' height='70' alt='htmlTag'/>
-      <Image className="text-[#3498db] absolute bottom-1/2 right-3" src={tag.src} width='70' height='70' alt='htmlTag'/>
-      <Image className="text-[#3498db] absolute top-2 right-1" src={tag.src} width='70' height='70' alt='htmlTag'/>
+        <motion.div
+      initial={{ x: 0, y: 0 }}
+      animate={{
+        x: (mousePosition.x / width) * 50,
+        y: (mousePosition.y / height) * 50,
+      }}
+      transition={{
+        type: "spring",
+        damping: 20,
+        stiffness: 300,
+      }}
+        >
 
-      <Image className="text-[#3498db] absolute bottom-2 right-[50%] left-[50%]" src={tag.src} width='70' height='70' alt='htmlTag'/>
-      <Image className="text-[#3498db] absolute bottom-1/2 right-[20%]" src={tag.src} width='70' height='70' alt='htmlTag'/>
-      <Image className="text-[#3498db] absolute top-2 right-1" src={tag.src} width='70' height='70' alt='htmlTag'/>
+      <Image
+        className="absolute bottom-2  left-[50%] text-[#3498db] md:right-[50%]"
+        src={noise.src}
+        width="50"
+        height="50"
+        alt="htmlTag"
+        />
+        </motion.div>
+      <Image
+        className="absolute top-2/3 left-0  text-[#3498db]"
+        src={bug.src}
+        width="50"
+        height="50"
+        alt="htmlTag"
+      />
+      <Image
+        className="absolute top-2 right-10 text-[#3498db]  md:right-[50%]"
+        src={code.src}
+        width="50"
+        height="50"
+        alt="htmlTag"
+      />
 
-      <Image className="text-[#3498db] absolute bottom-2 right-1" src={tag.src} width='70' height='70' alt='htmlTag'/>
-      <Image className="text-[#3498db] absolute bottom-2 right-1" src={tag.src} width='70' height='70' alt='htmlTag'/>
-      <Image className="text-[#3498db] absolute bottom-2 right-1" src={tag.src} width='70' height='70' alt='htmlTag'/>
-      <Image className="text-[#3498db] absolute bottom-2 right-1" src={tag.src} width='70' height='70' alt='htmlTag'/>
-    </section>
+      <Image
+        className="absolute bottom-2 right-1 text-[#3498db]"
+        src={Console.src}
+        width="50"
+        height="50"
+        alt="htmlTag"
+      />
+      <Image
+        className="absolute top-40 right-4 text-[#3498db]"
+        src={api.src}
+        width="50"
+        height="50"
+        alt="htmlTag"
+      />
+    </motion.section>
   );
 };
 
