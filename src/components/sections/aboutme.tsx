@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -19,6 +19,7 @@ function useWindowSize() {
     width: 0,
     height: 0,
   });
+
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
@@ -43,34 +44,33 @@ const Aboutme = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const [mouseDirection, setMouseDirection] = useState("none");
+
+
+  const [lastTap, setLastTap] = useState<{ x: number; y: number } | null>(null);
+
   // Get the current width and height of the window
   const { width, height } = useWindowSize();
+  const x = useMotionValue(200);
+  const y = useMotionValue(200);
+
+  const moveX = useTransform(y, [0, width], [20, -20]);
+  const moveY = useTransform(x, [0, height], [20, -20]);
 
   const handelMouseMove = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    const { clientX, clientY } = e;
-    // Determine the mouse direction based on the current position and the previous position
-    setMouseDirection(
-      clientX < mousePosition.x
-        ? "left"
-        : clientX > mousePosition.x
-        ? "right"
-        : clientY < mousePosition.y
-        ? "up"
-        : clientY > mousePosition.y
-        ? "down"
-        : "none"
-    );
-    // Update the mouse position state
-    setMousePosition({ x: clientX, y: clientY });
+    const rect = e.currentTarget.getBoundingClientRect();
 
-    console.log(mouseDirection);
-    console.log(mousePosition);
+    x.set(e.clientX - rect.left);
+    y.set(e.clientY - rect.top);
   };
 
   return (
     <motion.section
+    onClick={(event) => {
+      setLastTap({ x: event.clientX, y: event.clientY });
+    }}
+
       onMouseMove={handelMouseMove}
-      className="relative h-screen bg-[#151a24] py-20"
+      className="relative h-screen overflow-hidden bg-[#151a24] py-20"
     >
       {/* <canvas
         ref={canvasRef}
@@ -78,9 +78,9 @@ const Aboutme = () => {
         className="absolute top-20 left-0 right-0 bottom-20 h-full w-full  text-[250px]"
       /> */}
 
-      <div className="flex h-full items-center  justify-center">
+      <div className="z-20 relative flex h-full items-center  justify-center">
         <p className="text-md p-10 text-center leading-relaxed text-white sm:text-xl md:text-4xl ">
-          I am a skilled web developer with a passion for creating visually
+          I am a web developer with a passion for creating visually
           appealing and user-friendly websites and applications. I will be happy
           to bring my expertise in creating beautiful user interfaces to your
           projects and help your team create meaningful and impactful solutions.
@@ -89,17 +89,8 @@ const Aboutme = () => {
         </p>
       </div>
       <motion.div
-        initial={{ x: 0, y: 0 }}
-        animate={{
-          x: (mousePosition.x / width) * 50,
-          y: (mousePosition.y / height) * 50,
-        }}
-        transition={{
-          type: "spring",
-          damping: 20,
-          stiffness: 300,
-        }}
-        className="absolute top-10 left-10 text-[#3498db]"
+        style={{ y: moveX, x: moveY }}
+        className="absolute top-10 md:left-10 left-0 text-[#3498db]"
       >
         <Image
           //  className="absolute top-2 left-1 text-[#3498db]"
@@ -110,56 +101,64 @@ const Aboutme = () => {
         />
       </motion.div>
 
-        <motion.div
-      initial={{ x: 0, y: 0 }}
-      animate={{
-        x: (mousePosition.x / width) * 50,
-        y: (mousePosition.y / height) * 50,
-      }}
-      transition={{
-        type: "spring",
-        damping: 20,
-        stiffness: 300,
-      }}
-        >
-
-      <Image
-        className="absolute bottom-2  left-[50%] text-[#3498db] md:right-[50%]"
-        src={noise.src}
-        width="50"
-        height="50"
-        alt="htmlTag"
+      <motion.div
+        className="absolute bottom-10 left-[50%] "
+        style={{ x: moveX, y: moveY }}
+      >
+        <Image
+          // className="absolute bottom-2  left-[50%] text-[#3498db] md:right-[50%]"
+          src={noise.src}
+          width="50"
+          height="50"
+          alt="htmlTag"
         />
-        </motion.div>
-      <Image
-        className="absolute top-2/3 left-0  text-[#3498db]"
-        src={bug.src}
-        width="50"
-        height="50"
-        alt="htmlTag"
-      />
-      <Image
-        className="absolute top-2 right-10 text-[#3498db]  md:right-[50%]"
-        src={code.src}
-        width="50"
-        height="50"
-        alt="htmlTag"
-      />
+      </motion.div>
 
-      <Image
-        className="absolute bottom-2 right-1 text-[#3498db]"
-        src={Console.src}
-        width="50"
-        height="50"
-        alt="htmlTag"
-      />
-      <Image
-        className="absolute top-40 right-4 text-[#3498db]"
-        src={api.src}
-        width="50"
-        height="50"
-        alt="htmlTag"
-      />
+      <motion.div
+        className="absolute top-2/3 left-10"
+        style={{ y: moveX, x: moveY }}
+      >
+        <Image
+          //className="absolute top-2/3 left-0  text-[#3498db]"
+          src={bug.src}
+          width="50"
+          height="50"
+          alt="htmlTag"
+        />
+      </motion.div>
+
+      <motion.div
+        className="absolute top-[15%] right-[20%]"
+        style={{ x: moveX, y: moveY }}
+      >
+        <Image
+          //   className="absolute top-2 right-10 text-[#3498db]  md:right-[50%]"
+          src={code.src}
+          width="50"
+          height="50"
+          alt="htmlTag"
+        />
+      </motion.div>
+
+      <motion.div className="absolute bottom-10 right-10" style={{ y: moveX, x: moveY }}>
+        <Image
+        //  className="absolute bottom-2 right-1 text-[#3498db]"
+          src={Console.src}
+          width="50"
+          height="50"
+          alt="htmlTag"
+        />
+      </motion.div>
+
+      <motion.div className="absolute top-40 right-10" style={{ y: moveX, x: moveY }}>
+        <Image
+        //  className="absolute top-40 right-4 text-[#3498db]"
+          src={api.src}
+          width="50"
+          height="50"
+          alt="htmlTag"
+        />
+      </motion.div>
     </motion.section>
   );
 };

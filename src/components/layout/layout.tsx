@@ -5,8 +5,7 @@ import Header from "../header";
 import Project1DetailsWrapper from "../projects/Project1DetailWrapper copy";
 import Menu from "../sections/menu";
 import { motion } from "framer-motion";
-import CustomCursor from "../cursor/cursor";
-import Canvas from "../cursor/cursor2";
+import Canvas from "../cursor/cursor";
 
 
 type props = {
@@ -23,14 +22,14 @@ const Layout: React.FC<props> = (props) => {
     <motion.div
       
  
-      className={`relative mx-auto min-h-screen bg-[#1d1d1d] ${
+      className={`relative mx-auto min-h-screen bg-[#1d1d1d] overflow-hidden  ${
         isOpen ? "scrollbar-hide" : ""
       } `}
     >
-      <div className="absolute top-0 left-0 right-0 bottom-0 max-w-[200vw]">
+       <div className="absolute top-0 left-0 right-0 bottom-0 max-w-[200vw]">
        <Canvas/>
 
-      </div>
+      </div> 
 
 
 

@@ -48,8 +48,8 @@ export const Code = () => {
     }, 13500);
   }, []);
 
-  const text = Array.from("while(alive){eat()sleep()code()repeat()}");
-  const text2 = Array.from("aerkj zeakrj zjekalrj zeaklrùj zaeklrùj azklerj");
+ // const text = Array.from("while(alive){eat()sleep()code()repeat()}");
+  //const text2 = Array.from("aerkj zeakrj zjekalrj zeaklrùj zaeklrùj azklerj");
 
   const t1 = Array.from("while(alive){");
   const t2 = Array.from("eat()");

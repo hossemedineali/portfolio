@@ -1,19 +1,15 @@
 import Loader from "../loader";
-import { motion, useScroll, useTransform } from "framer-motion";
-import Code from "../UI/code";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+
 
 const Section1 = () => {
   return (
-    <div className="relative  mb-10 xl:h-[calc(screen-100px)]">
-   
-     
-      
-      <div className="items-top md:mt-20   flex my-auto    flex-col items-center  md:flex-row md:justify-evenly   ">
+    <div className="relative  mb-10 h-[90vh]  ">
+      <div className="   flex   justify-center items-center   h-full ">
         <div className="md:max-w-1/2  mb-10 md:mb-0">
           <Loader />
         </div>
-        <motion.div
+       {/*  <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 2, when: "beforeChildren" }}
@@ -27,10 +23,10 @@ const Section1 = () => {
           <div>
             <Code />
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
 
-      <div className=" mt-8 flex  h-32 justify-center">
+      <div className=" absolute  bottom-0 mt-8 flex  h-32 justify-center  w-full">
         <Arrows />
       </div>
     </div>

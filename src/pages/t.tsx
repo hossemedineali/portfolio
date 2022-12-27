@@ -1,5 +1,5 @@
 import  CustomCursor  from "../components/cursor/cursor";
-import Canvas from "../components/cursor/cursor2";
+import Canvas from "../components/cursor/cursor";
 import CanvasSmoke from "../components/cursor/smoke";
 import Sphere from "../components/test/test";
 

@@ -183,7 +183,7 @@ const Section2 = () => {
           d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z"
           className="shape-fill"
           fill="#24324f"
-          fill-opacity="1"
+          fillOpacity="1"
           ></path>
       </svg>
           </div>
