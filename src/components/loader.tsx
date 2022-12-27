@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 
 
+const Container = {
+  hidden: { opacity: 0 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.04 * i },
+  }),
+};
+
 const container = {
   hidden: { opacity: 0 },
   visible: (i = 1) => ({
@@ -39,7 +47,7 @@ const text3 = Array.from("A web developper"); // "A web developper".split(" ");
 
 const Loader = () => {
   return (
-    <div className="font-black font-Allerta  md:text-[6vw] text-[10vw]    text-white ">
+    <motion.div  className="font-black font-Allerta  md:text-[6vw] text-[10vw]    text-white ">
       <motion.div
       style={{ overflow: "hidden", display: "flex" }}
       variants={container}
@@ -55,12 +63,17 @@ const Loader = () => {
       ))}
     </motion.div>
 
+
+
+
     <motion.div
       style={{ overflow: "hidden", display: "flex" }}
       variants={container}
       initial="hidden"
       animate="visible"
       className="py-2"
+     
+      
     >
       {text2.map((letter, index) => (
         <motion.span  variants={child} key={index} className={`${index>4?'text-[#994AA6]':''}`}>
@@ -69,6 +82,9 @@ const Loader = () => {
         </motion.span>
       ))}
     </motion.div>
+
+
+
 
     <motion.div
       style={{ overflow: "hidden", display: "flex" }}
@@ -86,7 +102,7 @@ const Loader = () => {
     </motion.div>
 
    
-    </div>
+    </motion.div>
   );
 };
 

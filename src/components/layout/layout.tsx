@@ -22,9 +22,7 @@ const Layout: React.FC<props> = (props) => {
     <motion.div
       
  
-      className={`relative mx-auto min-h-screen bg-[#1d1d1d] overflow-hidden  ${
-        isOpen ? "scrollbar-hide" : ""
-      } `}
+    className="relative mx-auto min-h-screen bg-[#1d1d1d] overflow-hidden"
     >
        <div className="absolute top-0 left-0 right-0 bottom-0 max-w-[200vw]">
        <Canvas/>
@@ -34,7 +32,7 @@ const Layout: React.FC<props> = (props) => {
 
 
       <Header toggleOpen={toggleOpen} isOpen={isOpen} />
-      <AnimatePresence>{isOpen && <Menu isOpen={isOpen} />}</AnimatePresence>
+      <AnimatePresence>{isOpen && <Menu isOpen={isOpen} toggleOpen={toggleOpen}/>}</AnimatePresence>
       <AnimatePresence>
         {projects.prjectNumber != 0 && <Project1DetailsWrapper />}
       </AnimatePresence>

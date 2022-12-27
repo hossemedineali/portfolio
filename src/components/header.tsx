@@ -8,7 +8,7 @@ const close = (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-full h-full text-white"
+    className="w-[15vw] h-[15vw] sm:w-[8vw] sm:h-[8vw] 2xl:w-[6vw] 2xl:h-[6vw] text-white"
   >
     <path
       strokeLinecap="round"
@@ -25,7 +25,7 @@ const open = (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="h-10 w-10 text-black"
+    className="w-[15vw] h-[15vw] sm:w-[8vw] sm:h-[8vw] 2xl:w-[6vw] 2xl:h-[6vw] text-black"
   >
     <path
       strokeLinecap="round"
@@ -40,9 +40,41 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   isOpen,
 }) => {
   return (
-    <div>
+    <div className="  ">
+ 
 
-    <div className="flex align-middle justify-between ">
+<motion.div
+        initial={{ x: "-100vh" }}
+        animate={{ x: 0 }}
+        transition={{ delay: 1, type: "spring", stiffness: 30 }}
+        className="fixed flex py-1 z-20 px-5 "
+      >
+        <h1 className=" flex-grow-1 fixed font-mono mr-auto text-[10vw] sm:text-[5vw] 2xl:text-[4vw] font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
+          Hossem
+        </h1>
+      </motion.div>
+      <motion.div
+        initial={{ x: "100vw" }}
+        animate={{ x: 0 }}
+        transition={{ delay: 1.3, type: "spring", stiffness: 30 }}
+        className="fixed flex z-50 py-1 px-5 right-0"
+        onClick={() => toggleOpen()}
+      >
+        <h1 className=" flex-grow-1  font-mono mr-auto text-[10vw] sm:text-[5vw] font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
+        {isOpen ? open : close}
+        </h1>
+      </motion.div>
+  
+        </div>
+  );
+};
+
+export default Header;
+
+
+
+/**
+   <div className="flex align-middle justify-between ">
       
 
       <motion.div
@@ -52,9 +84,7 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         className="relative flex py-1 px-5 "
       >
         <h1 className=" flex-grow-1 font-mono mr-auto text-xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
-          {/* <span className="text-lg xs:text-2xl md:text-5xl lg:text-8xl ">{"<"}</span> */}
           Hossem
-          {/* <span className="text-lg xs:text-2xl md:text-5xl lg:text-8xl ">{">"}</span> */}
         </h1>
       </motion.div>
       <motion.button
@@ -69,14 +99,5 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
         {isOpen ? open : close}
       </motion.button>
       </div>
-      <motion.div
-        className="h-[1px] bg-[#994AA6]   "
-        initial={{ width: "0%" }}
-        animate={{ width: "100%" }}
-        transition={{ delay: 2, duration: 1 }}
-        ></motion.div>
-        </div>
-  );
-};
-
-export default Header;
+ 
+ */

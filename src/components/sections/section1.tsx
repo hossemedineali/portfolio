@@ -1,29 +1,18 @@
 import Loader from "../loader";
-import { motion } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
+import Header from "../header";
 
 
 const Section1 = () => {
+  const [isOpen, toggleOpen] = useCycle(false, true);
   return (
-    <div className="relative md:-mt-0 -mt-20  mb-10 h-[90vh]  ">
+    <div className="relative  z-0 h-screen ">
+      
       <div className="   flex   justify-center items-center   h-full ">
         <div className="md:max-w-1/2  mb-10 md:mb-0">
           <Loader />
         </div>
-       {/*  <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 2, when: "beforeChildren" }}
-          className="shadow-4xl  relative -z-0 max-w-[320px] w-full rounded-2xl bg-[#D6D6D2] px-1 sm:px-10 pb-6 pt-5 text-3xl font-bold shadow-white"
-        >
-          <div className="absolute top-0 left-0 flex h-10 w-20 items-center justify-center gap-2  align-middle">
-            <div className="h-3 w-3 rounded-full  bg-[#8a0a0a]"></div>
-            <div className="h-3 w-3 rounded-full  bg-[#8a830a]"></div>
-            <div className="h-3 w-3 rounded-full  bg-[#238a0a]"></div>
-          </div>
-          <div>
-            <Code />
-          </div>
-        </motion.div> */}
+    
       </div>
 
       <div className=" absolute  bottom-0 mt-8 flex  h-32 justify-center  w-full">
