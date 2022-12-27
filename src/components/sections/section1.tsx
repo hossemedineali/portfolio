@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Section1 = () => {
   return (
-    <div className="relative  mb-10 h-[90vh]  ">
+    <div className="relative md:-mt-0 -mt-20  mb-10 h-[90vh]  ">
       <div className="   flex   justify-center items-center   h-full ">
         <div className="md:max-w-1/2  mb-10 md:mb-0">
           <Loader />
