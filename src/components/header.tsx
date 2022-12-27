@@ -8,7 +8,7 @@ const close = (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-[15vw] h-[15vw] sm:w-[8vw] sm:h-[8vw] 2xl:w-[6vw] 2xl:h-[6vw] text-white"
+    className="h-[15vw] w-[15vw] text-white sm:h-[8vw] sm:w-[8vw] 2xl:h-[6vw] 2xl:w-[6vw]"
   >
     <path
       strokeLinecap="round"
@@ -25,7 +25,7 @@ const open = (
     viewBox="0 0 24 24"
     strokeWidth={1.5}
     stroke="currentColor"
-    className="w-[15vw] h-[15vw] sm:w-[8vw] sm:h-[8vw] 2xl:w-[6vw] 2xl:h-[6vw] text-black"
+    className="h-[15vw] w-[15vw] text-black sm:h-[8vw] sm:w-[8vw] 2xl:h-[6vw] 2xl:w-[6vw]"
   >
     <path
       strokeLinecap="round"
@@ -41,37 +41,50 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
 }) => {
   return (
     <div className="  ">
- 
-
-<motion.div
+      <motion.div
         initial={{ x: "-100vh" }}
         animate={{ x: 0 }}
         transition={{ delay: 1, type: "spring", stiffness: 30 }}
-        className="fixed flex py-1 z-20 px-5 "
+        className="fixed z-10 flex py-1  "
       >
-        <h1 className=" flex-grow-1 fixed font-mono mr-auto text-[10vw] sm:text-[5vw] 2xl:text-[4vw] font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
-          Hossem
+        <h1 className=" flex-grow-1 font-mono fixed mr-auto text-[10vw] font-extrabold text-[#994AA6] hover:cursor-pointer  sm:text-[5vw]   2xl:text-[4vw] ">
+          HOSSEM
         </h1>
       </motion.div>
+
       <motion.div
         initial={{ x: "100vw" }}
         animate={{ x: 0 }}
         transition={{ delay: 1.3, type: "spring", stiffness: 30 }}
-        className="fixed flex z-50 py-1 px-5 right-0"
-        onClick={() => toggleOpen()}
+        className={`fixed right-1 z-20 mr-2 mt-2  flex h-[60px] w-[60px] items-center     justify-center rounded-full  `}
       >
-        <h1 className=" flex-grow-1  font-mono mr-auto text-[10vw] sm:text-[5vw] font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
+        <label
+          htmlFor="check"
+          className={`bar relative  h-[40px]   w-[50px] cursor-pointer   `}
+        >
+          <input
+            onClick={() => toggleOpen()}
+            id="check"
+            type="checkbox"
+            className="peer hidden"
+          />
+
+          <span className=" top absolute left-0 top-0 inline-block h-[7px] w-[50px] rounded-[100px] bg-[#994AA6] transition-all duration-300 ease-linear peer-checked:left-[5px] peer-checked:w-[48px]  peer-checked:origin-top-left peer-checked:rotate-45  ">
+            {" "}
+          </span>
+          <span className=" middle peer-checked:translateX-[-20px] absolute left-0 top-[17px] inline-block h-[7px] w-[50px] rounded-[100px] bg-[#994AA6] transition-all duration-300 ease-linear peer-checked:opacity-0"></span>
+          <span className=" bottom absolute left-0 bottom-0 inline-block h-[7px] w-[50px] rounded-[100px] bg-[#994AA6] transition-all duration-300 ease-linear peer-checked:-bottom-[1px] peer-checked:w-[45px] peer-checked:origin-top-left peer-checked:-rotate-45"></span>
+        </label>
+
+        {/*    <h1 className=" flex-grow-1  font-mono mr-auto text-[10vw] sm:text-[5vw] font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
         {isOpen ? open : close}
-        </h1>
+        </h1>  */}
       </motion.div>
-  
-        </div>
+    </div>
   );
 };
 
 export default Header;
-
-
 
 /**
    <div className="flex align-middle justify-between ">

@@ -61,8 +61,8 @@ const Work = () => {
     }
   }, [isInView]);
   return (
-    <section className="relative min-h-screen bg-[#151a24] py-20">
-      <div className="absolute top-0 left-0 w-full overflow-hidden  ">
+    <section className="relative  min-h-screen bg-[#151a24] py-20">
+      <div className="absolute  top-0 left-0 w-full overflow-hidden  ">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"

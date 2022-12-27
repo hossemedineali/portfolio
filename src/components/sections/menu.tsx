@@ -80,7 +80,7 @@ const Menu: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   toggleOpen,
 }) => {
   return (
-    <div className="absolute z-20 ">
+    <div className="absolute z-10 ">
       <motion.div
         variants={menu}
         initial="hidden"
