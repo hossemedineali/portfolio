@@ -62,6 +62,7 @@ const Work = () => {
   }, [isInView]);
   return (
     <section className="relative  min-h-screen bg-[#151a24] py-20">
+      {/* SVG Wave devider */}
       <div className="absolute  top-0 left-0 w-full overflow-hidden  ">
         <svg
           data-name="Layer 1"
@@ -76,7 +77,8 @@ const Work = () => {
           ></path>
         </svg>
       </div>
-
+      {/* --------------------------------------------------------------------------- */}
+      {/* Tittle */}
       <motion.h1
         ref={ref}
         variants={titleContainer}
@@ -92,49 +94,17 @@ const Work = () => {
           );
         })}
       </motion.h1>
-
-      <div className="flex flex-col  gap-10 sm:px-7 md:grid md:grid-cols-2 md:gap-20  ">
+      {/* -------------------------------------------- */}
+      {/* Projects */}
+      <div className="flex flex-col  gap-10  md:gap-20  ">
         <P1 position="left" />
 
-        <P2 position="right" />
+        <P1 position="right" />
 
-        <P3 position="left" />
+        <P1 position="left" />
 
-        <P4 position="right" />
+        <P1 position="right" />
       </div>
-
-      {/* old one with flex */}
-      {/*   <div className="mt-28 md:px-62 flex flex-col justify-center gap-[30px] px-10 pb-40  md:flex-row">
-        <motion.div className="self-left mx-auto h-[420px] w-full  max-w-[520px] bg-[#D6D6D2] md:w-1/2 ">
-          <motion.div className="h-full w-full border-2 hover:translate-x-5 hover:translate-y-5">
-
-          </motion.div>
-        </motion.div>
-
-        <motion.div className="self-left mx-auto mt-20 h-[420px] w-full max-w-[520px] bg-[#D6D6D2] md:w-1/2 ">
-          <motion.div className="h-full w-full border-2 hover:-translate-x-5 hover:translate-y-5">
-            
-          </motion.div>
-        </motion.div>
-        
-      </div>
-
-      <div className="md:px-62 flex flex-col justify-center gap-[30px] px-10 pb-40  md:flex-row">
-        <motion.div className="self-left mx-auto h-[420px] w-full  max-w-[520px] bg-[#D6D6D2] md:w-1/2 ">
-          <motion.div className="h-full w-full border-2 hover:translate-x-5 hover:translate-y-5">
-
-          </motion.div>
-        </motion.div>
-
-        <motion.div className="self-left mx-auto mt-20 h-[420px] w-full max-w-[520px] bg-[#D6D6D2] md:w-1/2 ">
-          <motion.div className="h-full w-full border-2 hover:-translate-x-5 hover:translate-y-5">
-            
-          </motion.div>
-        </motion.div>
-        
-      </div> */}
-
-
     </section>
   );
 };
@@ -145,34 +115,45 @@ interface Props {
 const P1: React.FC<Props> = ({ position }) => {
   const project = useProjectModal();
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const isInView = useInView(ref);
+
   return (
     <AnimatePresence>
-      <motion.section
-        onClick={() => {
-          project.setProjectNumber(1);
-        }}
-        ref={ref}
-        initial="hidden"
-        whileInView="visible"
-        exit="hidden"
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: position == "right" ? 0.5 : 0 }}
-        variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 },
-        }}
-      >
-        <motion.div className="mx-auto mb-20  aspect-square  w-10/12   bg-[#D6D6D2] hover:cursor-pointer  ">
-          <motion.div className="relative h-full w-full -translate-x-3  translate-y-3 bg-[#c0c01e] transition-all duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
+      <div className="mx-auto w-[100vw] md:w-[80vw] ">
+        <motion.section
+          onClick={() => {
+            project.setProjectNumber(1);
+          }}
+          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
+        >
+          <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={dari.src} fill sizes="100" alt="dari project" />
+            <div
+              style={{
+                background:
+                  "linear-gradient(270deg,rgba(35,90,166,0.8),rgba(16,27,59,0.8))",
+              }}
+              className="absolute top-0 bottom-0 left-0 right-[100%] transition-all duration-300 ease-in-out group-hover:right-0"
+            ></div>
+
+            {isInView && (
+              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+                <div className="relative">
+                  <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
+                    01
+                  </p>
+                </div>
+              </div>
+            )}
+
             <motion.div
-              style={{ y }}
-              className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  "
+              style={{
+                backgroundColor: "#212121",
+                boxShadow: "15px 15px 30px #191919,15px -15px 30px #292929",
+                transition:
+                  "border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
+              }}
+              className="absolute bottom-[20%] left-10  rounded-br-[50px] rounded-tl-[50px] p-10  pl-5 text-primary transition-all duration-300 ease-in-out group-hover:scale-110 md:pl-20  "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
                 Dari
@@ -181,9 +162,19 @@ const P1: React.FC<Props> = ({ position }) => {
                 Real estate app
               </h3>
             </motion.div>
+            <div ref={ref} className="absolute top-[70%]  w-full "></div>
+            <motion.div
+              style={{
+                left: isInView ? "100%" : "0",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                background:
+                  "linear-gradient(270deg,rgba(35,90,166,1),rgba(16,27,59,1))",
+              }}
+              className="opacity-1 absolute top-0 left-0 right-0 bottom-0 bg-Cblue"
+            ></motion.div>
           </motion.div>
-        </motion.div>
-      </motion.section>
+        </motion.section>
+      </div>
     </AnimatePresence>
   );
 };
@@ -198,22 +189,14 @@ const P2: React.FC<Props> = ({ position }) => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
   return (
     <AnimatePresence>
-      <motion.section
-        onClick={() => {
-          project.setProjectNumber(2);
-        }}
-        ref={ref}
-        initial="hidden"
-        whileInView="visible"
-        exit="hidden"
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: position == "right" ? 0.5 : 0 }}
-        variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 },
-        }}
-      >
-        <motion.div className="mx-auto mb-20  aspect-square w-10/12    bg-[#D6D6D2] hover:cursor-pointer  md:mt-20">
+      <div className="mx-auto w-[100vw] border-2 md:w-[80vw]">
+        <motion.section
+          onClick={() => {
+            project.setProjectNumber(2);
+          }}
+          ref={ref}
+          className="mx-auto aspect-square w-[90%] border-2  border-white sm:aspect-[2/1] sm:border-Cviolet md:mx-0   md:ml-auto md:border-white"
+        >
           <motion.div className="relative h-full w-full translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
             <Image src={mycoin.src} fill sizes="100" alt="dari project" />
             <motion.div
@@ -227,9 +210,15 @@ const P2: React.FC<Props> = ({ position }) => {
                 cryptocurrency app
               </h3>
             </motion.div>
+            <motion.div
+              initial={{ width: "100%" }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              whileInView={{ width: 0 }}
+              className="absolute  top-0 left-0 right-0 bottom-0 bg-Cblue"
+            ></motion.div>
           </motion.div>
-        </motion.div>
-      </motion.section>
+        </motion.section>
+      </div>
     </AnimatePresence>
   );
 };
@@ -326,38 +315,7 @@ const P4: React.FC<Props> = ({ position }) => {
   );
 };
 
-const item = {
-  visible: {
-    x: 0,
-  },
-  hidden: { x: "-100vw" },
-};
 
-const WorkItem: React.FC<{ self: string }> = ({ self }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-  const annimation = useAnimation();
-  useEffect(() => {
-    console.log("is in view:", isInView);
-    if (isInView) {
-      console.log("in view item", isInView);
-      annimation.start("visible");
-    }
-  }, [isInView]);
-  return (
-    <motion.div
-      ref={ref}
-      variants={item}
-      initial="hidden"
-      animate="visible"
-      transition={{ delay: 2, duration: 5 }}
-      className={`relative h-[420px] w-full max-w-[450px]  bg-white md:w-1/2   self-${self} `}
-    >
-      <motion.div
-        className={`absolute top-0 left-0  hidden h-full   w-full  bg-[#D6D6D2] hover:-translate-x-5 hover:translate-y-5  md:block`}
-      ></motion.div>
-    </motion.div>
-  );
-};
+
 
 export default Work;
