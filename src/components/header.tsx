@@ -79,16 +79,12 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
             className="peer hidden"
           />
 
-          <span className=" top absolute left-0 top-0 inline-block h-[7px] w-[50px] rounded-[100px] bg-[#994AA6] transition-all duration-300 ease-linear peer-checked:left-[5px] peer-checked:w-[48px]  peer-checked:origin-top-left peer-checked:rotate-45  ">
+          <span className="  absolute left-0 top-0 inline-block h-[7px] w-[50px] rounded-[100px] bg-[#994AA6] transition-all duration-300 ease-linear peer-checked:left-[5px] peer-checked:w-[48px]  peer-checked:origin-top-left peer-checked:rotate-45  ">
             {" "}
           </span>
           <span className=" middle peer-checked:translateX-[-20px] absolute left-0 top-[17px] inline-block h-[7px] w-[50px] rounded-[100px] bg-[#994AA6] transition-all duration-300 ease-linear peer-checked:opacity-0"></span>
           <span className=" bottom absolute left-0 bottom-0 inline-block h-[7px] w-[50px] rounded-[100px] bg-[#994AA6] transition-all duration-300 ease-linear peer-checked:-bottom-[1px] peer-checked:w-[45px] peer-checked:origin-top-left peer-checked:-rotate-45"></span>
         </label>
-
-        {/*    <h1 className=" flex-grow-1  font-mono mr-auto text-[10vw] sm:text-[5vw] font-extrabold  text-[#994AA6] md:ml-10  hover:cursor-pointer ">
-        {isOpen ? open : close}
-        </h1>  */}
       </motion.div>
     </div>
   );
