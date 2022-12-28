@@ -1,13 +1,7 @@
 import { motion } from "framer-motion";
 
 
-const Container = {
-  hidden: { opacity: 0 },
-  visible: (i = 1) => ({
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.04 * i },
-  }),
-};
+
 
 const container = {
   hidden: { opacity: 0 },

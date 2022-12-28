@@ -1,5 +1,6 @@
 import { motion, useCycle, Cycle } from "framer-motion";
 import Menu from "./sections/menu";
+import LogoSVG from "./UI/logosvg";
 
 const close = (
   <svg
@@ -42,15 +43,24 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   return (
     <div className="  ">
       <motion.div
-        initial={{ x: "-100vh" }}
-        animate={{ x: 0 }}
-        transition={{ delay: 1, type: "spring", stiffness: 30 }}
+      //  initial={{ x: "-100vh" }}
+       // animate={{ x: 0 }}
+       // transition={{ delay: 1, type: "spring", stiffness: 30 }}
         className="fixed z-10 flex py-1  "
       >
         <h1 className=" flex-grow-1 font-mono fixed mr-auto text-[10vw] font-extrabold text-[#994AA6] hover:cursor-pointer  sm:text-[5vw]   2xl:text-[4vw] ">
-          HOSSEM
+          {/* HOSSEM */}
+
+          <LogoSVG/>
+
+
         </h1>
       </motion.div>
+
+
+      <div>
+        
+      </div>
 
       <motion.div
         initial={{ x: "100vw" }}

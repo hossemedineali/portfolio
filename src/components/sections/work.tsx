@@ -97,22 +97,20 @@ const Work = () => {
       {/* -------------------------------------------- */}
       {/* Projects */}
       <div className="flex flex-col  gap-10  md:gap-20  ">
-        <P1 position="left" />
+        <P1  />
 
-        <P1 position="right" />
+        <P2  />
 
-        <P1 position="left" />
+        <P3 />
 
-        <P1 position="right" />
+        <P4 />
       </div>
     </section>
   );
 };
 
-interface Props {
-  position: string;
-}
-const P1: React.FC<Props> = ({ position }) => {
+
+const P1: React.FC = () => {
   const project = useProjectModal();
   const ref = useRef(null);
   const isInView = useInView(ref);
@@ -179,42 +177,68 @@ const P1: React.FC<Props> = ({ position }) => {
   );
 };
 
-const P2: React.FC<Props> = ({ position }) => {
+
+
+
+const P2= () => {
   const project = useProjectModal();
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const isInView = useInView(ref);
+
   return (
     <AnimatePresence>
-      <div className="mx-auto w-[100vw] border-2 md:w-[80vw]">
+      <div className="mx-auto w-[100vw] md:w-[80vw] ">
         <motion.section
           onClick={() => {
-            project.setProjectNumber(2);
+            project.setProjectNumber(1);
           }}
-          ref={ref}
-          className="mx-auto aspect-square w-[90%] border-2  border-white sm:aspect-[2/1] sm:border-Cviolet md:mx-0   md:ml-auto md:border-white"
+          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
         >
-          <motion.div className="relative h-full w-full translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
-            <Image src={mycoin.src} fill sizes="100" alt="dari project" />
+          <motion.div className="relative h-full w-full  transition-all duration-300 ">
+            <Image src={dari.src} fill sizes="100" alt="dari project" />
+            <div
+              style={{
+                background:
+                  "linear-gradient(270deg,rgba(35,90,166,0.8),rgba(16,27,59,0.8))",
+              }}
+              className="absolute top-0 bottom-0 left-0 right-[100%] transition-all duration-300 ease-in-out group-hover:right-0"
+            ></div>
+
+            {isInView && (
+              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+                <div className="relative">
+                  <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
+                    01
+                  </p>
+                </div>
+              </div>
+            )}
+
             <motion.div
-              style={{ y }}
-              className="absolute -bottom-28 h-28 w-full pl-5 text-primary  md:pl-20  "
+              style={{
+                backgroundColor: "#212121",
+                boxShadow: "15px 15px 30px #191919,15px -15px 30px #292929",
+                transition:
+                  "border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
+              }}
+              className="absolute bottom-[20%] left-10  rounded-br-[50px] rounded-tl-[50px] p-10  pl-5 text-primary transition-all duration-300 ease-in-out group-hover:scale-110 md:pl-20  "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
-                My coin
+                Dari
               </h1>
               <h3 className="font-Allerta text-xl font-bold md:text-3xl">
-                cryptocurrency app
+                Real estate app
               </h3>
             </motion.div>
+            <div ref={ref} className="absolute top-[70%]  w-full "></div>
             <motion.div
-              initial={{ width: "100%" }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              whileInView={{ width: 0 }}
-              className="absolute  top-0 left-0 right-0 bottom-0 bg-Cblue"
+              style={{
+                left: isInView ? "100%" : "0",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                background:
+                  "linear-gradient(270deg,rgba(35,90,166,1),rgba(16,27,59,1))",
+              }}
+              className="opacity-1 absolute top-0 left-0 right-0 bottom-0 bg-Cblue"
             ></motion.div>
           </motion.div>
         </motion.section>
@@ -223,94 +247,138 @@ const P2: React.FC<Props> = ({ position }) => {
   );
 };
 
-const P3: React.FC<Props> = ({ position }) => {
+
+const P3= () => {
   const project = useProjectModal();
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const isInView = useInView(ref);
+
   return (
     <AnimatePresence>
-      <motion.section
-        onClick={() => {
-          project.setProjectNumber(3);
-        }}
-        ref={ref}
-        initial="hidden"
-        whileInView="visible"
-        exit="hidden"
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: position == "right" ? 0.5 : 0 }}
-        variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 },
-        }}
-      >
-        <motion.div className="mx-auto mb-20  aspect-square w-10/12 bg-[#D6D6D2]   hover:cursor-pointer md:mt-[-80px] ">
-          <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:translate-x-3 md:hover:translate-y-3">
-            <Image src={bb.src} fill sizes="100" alt="dari project" />
+      <div className="mx-auto w-[100vw] md:w-[80vw] ">
+        <motion.section
+          onClick={() => {
+            project.setProjectNumber(1);
+          }}
+          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
+        >
+          <motion.div className="relative h-full w-full  transition-all duration-300 ">
+            <Image src={dari.src} fill sizes="100" alt="dari project" />
+            <div
+              style={{
+                background:
+                  "linear-gradient(270deg,rgba(35,90,166,0.8),rgba(16,27,59,0.8))",
+              }}
+              className="absolute top-0 bottom-0 left-0 right-[100%] transition-all duration-300 ease-in-out group-hover:right-0"
+            ></div>
+
+            {isInView && (
+              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+                <div className="relative">
+                  <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
+                    01
+                  </p>
+                </div>
+              </div>
+            )}
+
             <motion.div
-              style={{ y }}
-              className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  "
+              style={{
+                backgroundColor: "#212121",
+                boxShadow: "15px 15px 30px #191919,15px -15px 30px #292929",
+                transition:
+                  "border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
+              }}
+              className="absolute bottom-[20%] left-10  rounded-br-[50px] rounded-tl-[50px] p-10  pl-5 text-primary transition-all duration-300 ease-in-out group-hover:scale-110 md:pl-20  "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
-                Breaking bad
+                Dari
               </h1>
               <h3 className="font-Allerta text-xl font-bold md:text-3xl">
-                App for the best tv show ever
+                Real estate app
               </h3>
             </motion.div>
+            <div ref={ref} className="absolute top-[70%]  w-full "></div>
+            <motion.div
+              style={{
+                left: isInView ? "100%" : "0",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                background:
+                  "linear-gradient(270deg,rgba(35,90,166,1),rgba(16,27,59,1))",
+              }}
+              className="opacity-1 absolute top-0 left-0 right-0 bottom-0 bg-Cblue"
+            ></motion.div>
           </motion.div>
-        </motion.div>
-      </motion.section>
+        </motion.section>
+      </div>
     </AnimatePresence>
   );
 };
 
-const P4: React.FC<Props> = ({ position }) => {
+
+const P4 = () => {
   const project = useProjectModal();
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const isInView = useInView(ref);
+
   return (
     <AnimatePresence>
-      <motion.section
-        onClick={() => {
-          project.setProjectNumber(4);
-        }}
-        ref={ref}
-        initial="hidden"
-        whileInView="visible"
-        exit="hidden"
-        viewport={{ once: true }}
-        transition={{ duration: 1, delay: position == "right" ? 0.5 : 0 }}
-        variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 },
-        }}
-      >
-        <motion.div className="mx-auto mb-20   aspect-square  w-10/12   bg-[#D6D6D2] hover:cursor-pointer ">
-          <motion.div className="relative h-full w-full -translate-x-3 translate-y-3 bg-[#c0c01e] duration-300 md:translate-x-0 md:translate-y-0 md:hover:-translate-x-3 md:hover:translate-y-3">
-            <Image src={soon.src} fill sizes="100" alt="dari project" />
+      <div className="mx-auto w-[100vw] md:w-[80vw] ">
+        <motion.section
+          onClick={() => {
+            project.setProjectNumber(1);
+          }}
+          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
+        >
+          <motion.div className="relative h-full w-full  transition-all duration-300 ">
+            <Image src={dari.src} fill sizes="100" alt="dari project" />
+            <div
+              style={{
+                background:
+                  "linear-gradient(270deg,rgba(35,90,166,0.8),rgba(16,27,59,0.8))",
+              }}
+              className="absolute top-0 bottom-0 left-0 right-[100%] transition-all duration-300 ease-in-out group-hover:right-0"
+            ></div>
+
+            {isInView && (
+              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+                <div className="relative">
+                  <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
+                    01
+                  </p>
+                </div>
+              </div>
+            )}
+
             <motion.div
-              style={{ y }}
-              className="absolute -bottom-16 h-28 w-full pl-5 text-primary  md:pl-20  "
+              style={{
+                backgroundColor: "#212121",
+                boxShadow: "15px 15px 30px #191919,15px -15px 30px #292929",
+                transition:
+                  "border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
+              }}
+              className="absolute bottom-[20%] left-10  rounded-br-[50px] rounded-tl-[50px] p-10  pl-5 text-primary transition-all duration-300 ease-in-out group-hover:scale-110 md:pl-20  "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
-                Shop app
+                Dari
               </h1>
               <h3 className="font-Allerta text-xl font-bold md:text-3xl">
-                With accounting system
+                Real estate app
               </h3>
             </motion.div>
+            <div ref={ref} className="absolute top-[70%]  w-full "></div>
+            <motion.div
+              style={{
+                left: isInView ? "100%" : "0",
+                transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+                background:
+                  "linear-gradient(270deg,rgba(35,90,166,1),rgba(16,27,59,1))",
+              }}
+              className="opacity-1 absolute top-0 left-0 right-0 bottom-0 bg-Cblue"
+            ></motion.div>
           </motion.div>
-        </motion.div>
-      </motion.section>
+        </motion.section>
+      </div>
     </AnimatePresence>
   );
 };
