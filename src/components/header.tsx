@@ -1,4 +1,4 @@
-import { motion, useCycle, Cycle } from "framer-motion";
+import { motion, useCycle, Cycle, useScroll, useTransform } from "framer-motion";
 import Menu from "./sections/menu";
 import LogoSVG from "./UI/logosvg";
 
@@ -40,6 +40,10 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   toggleOpen,
   isOpen,
 }) => {
+
+  const { scrollY } = useScroll()
+  const x=useTransform(scrollY,[125,300],['0','100px'])
+
   return (
     <div className="  ">
       <motion.div
@@ -63,9 +67,10 @@ const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
       </div>
 
       <motion.div
+      style={{x}}
         initial={{ x: "100vw" }}
         animate={{ x: 0 }}
-        transition={{ delay: 1.3, type: "spring", stiffness: 30 }}
+        transition={{ delay: 3.5, type: "spring", stiffness: 30 }}
         className={`fixed right-1 z-20 mr-2 mt-2  flex h-[60px] w-[60px] items-center     justify-center rounded-full  `}
       >
         <label

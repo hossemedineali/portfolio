@@ -80,7 +80,7 @@ const Work = () => {
       {/* --------------------------------------------------------------------------- */}
       {/* Tittle */}
       <motion.h1
-        ref={ref}
+       
         variants={titleContainer}
         initial="hidden"
         animate={annimation}
@@ -96,7 +96,7 @@ const Work = () => {
       </motion.h1>
       {/* -------------------------------------------- */}
       {/* Projects */}
-      <div className="flex flex-col  gap-10  md:gap-20  ">
+      <div  ref={ref} className="flex flex-col  gap-10  md:gap-20  ">
         <P1  />
 
         <P2  />
@@ -146,12 +146,10 @@ const P1: React.FC = () => {
 
             <motion.div
               style={{
-                backgroundColor: "#212121",
-                boxShadow: "15px 15px 30px #191919,15px -15px 30px #292929",
-                transition:
-                  "border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
-              }}
-              className="absolute bottom-[20%] left-10  rounded-br-[50px] rounded-tl-[50px] p-10  pl-5 text-primary transition-all duration-300 ease-in-out group-hover:scale-110 md:pl-20  "
+                backgroundColor: "#e0e0e0",
+                boxShadow: "7px 7px 30px #bebebe,7px -7px 30px #ffffff",
+                }}
+              className="absolute bottom-[20%] left-10  rounded-xl px-6 py-3  text-primary transition-all duration-300 ease-in-out group-hover:scale-110   "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
                 Dari
@@ -160,7 +158,9 @@ const P1: React.FC = () => {
                 Real estate app
               </h3>
             </motion.div>
-            <div ref={ref} className="absolute top-[70%]  w-full "></div>
+
+            
+            <div ref={ref} className="absolute top-[50%]  w-full "></div>
             <motion.div
               style={{
                 left: isInView ? "100%" : "0",
@@ -187,7 +187,7 @@ const P2= () => {
 
   return (
     <AnimatePresence>
-      <div className="mx-auto w-[100vw] md:w-[80vw] ">
+      <div className="ml-auto w-[100vw] md:w-[80vw] ">
         <motion.section
           onClick={() => {
             project.setProjectNumber(1);
@@ -205,7 +205,7 @@ const P2= () => {
             ></div>
 
             {isInView && (
-              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+              <div className="absolute -left-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
                 <div className="relative">
                   <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
                     01
@@ -214,14 +214,12 @@ const P2= () => {
               </div>
             )}
 
-            <motion.div
+             <motion.div
               style={{
-                backgroundColor: "#212121",
-                boxShadow: "15px 15px 30px #191919,15px -15px 30px #292929",
-                transition:
-                  "border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
-              }}
-              className="absolute bottom-[20%] left-10  rounded-br-[50px] rounded-tl-[50px] p-10  pl-5 text-primary transition-all duration-300 ease-in-out group-hover:scale-110 md:pl-20  "
+                backgroundColor: "#e0e0e0",
+                boxShadow: "7px 7px 30px #bebebe,7px -7px 30px #ffffff",
+                }}
+              className="absolute bottom-[20%] right-10  rounded-xl px-6 py-3  text-primary transition-all duration-300 ease-in-out group-hover:scale-110   "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
                 Dari
@@ -282,14 +280,12 @@ const P3= () => {
               </div>
             )}
 
-            <motion.div
+             <motion.div
               style={{
-                backgroundColor: "#212121",
-                boxShadow: "15px 15px 30px #191919,15px -15px 30px #292929",
-                transition:
-                  "border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
-              }}
-              className="absolute bottom-[20%] left-10  rounded-br-[50px] rounded-tl-[50px] p-10  pl-5 text-primary transition-all duration-300 ease-in-out group-hover:scale-110 md:pl-20  "
+                backgroundColor: "#e0e0e0",
+                boxShadow: "7px 7px 30px #bebebe,7px -7px 30px #ffffff",
+                }}
+              className="absolute bottom-[20%] left-10  rounded-xl px-6 py-3  text-primary transition-all duration-300 ease-in-out group-hover:scale-110   "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
                 Dari
@@ -323,7 +319,7 @@ const P4 = () => {
 
   return (
     <AnimatePresence>
-      <div className="mx-auto w-[100vw] md:w-[80vw] ">
+      <div className="ml-auto w-[100vw] md:w-[80vw] ">
         <motion.section
           onClick={() => {
             project.setProjectNumber(1);
@@ -341,7 +337,7 @@ const P4 = () => {
             ></div>
 
             {isInView && (
-              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+              <div className="absolute -left-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
                 <div className="relative">
                   <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
                     01
@@ -350,14 +346,12 @@ const P4 = () => {
               </div>
             )}
 
-            <motion.div
+             <motion.div
               style={{
-                backgroundColor: "#212121",
-                boxShadow: "15px 15px 30px #191919,15px -15px 30px #292929",
-                transition:
-                  "border-radius cubic-bezier(0.075, 0.82, 0.165, 1) 1s,transform cubic-bezier(0.075, 0.82, 0.165, 1) 1s",
-              }}
-              className="absolute bottom-[20%] left-10  rounded-br-[50px] rounded-tl-[50px] p-10  pl-5 text-primary transition-all duration-300 ease-in-out group-hover:scale-110 md:pl-20  "
+                backgroundColor: "#e0e0e0",
+                boxShadow: "7px 7px 30px #bebebe,7px -7px 30px #ffffff",
+                }}
+              className="absolute bottom-[20%] right-10  rounded-xl px-6 py-3  text-primary transition-all duration-300 ease-in-out group-hover:scale-110   "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
                 Dari

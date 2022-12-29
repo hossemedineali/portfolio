@@ -79,7 +79,7 @@ const Aboutme = () => {
       /> */}
 
       <div className="z-20 relative flex h-full items-center  justify-center">
-        <p className="text-md p-10 text-center leading-relaxed text-white sm:text-xl md:text-4xl ">
+        <p className=" p-10 text-center leading-relaxed text-white text-[6vw] sm:text-Cyellow sm:text-[4vw] md:text-white md:text-[3vw] lg:text-Cviolet ">
           I am a web developer with a passion for creating visually
           appealing and user-friendly websites and applications. I will be happy
           to bring my expertise in creating beautiful user interfaces to your
@@ -90,10 +90,10 @@ const Aboutme = () => {
       </div>
       <motion.div
         style={{ y: moveX, x: moveY }}
-        className="absolute top-10 md:left-10 left-0 text-[#3498db]"
+        className="absolute hidden sm:block top-10 md:left-10 left-0 text-[#3498db]"
       >
         <Image
-          //  className="absolute top-2 left-1 text-[#3498db]"
+          //  className="absolute hidden sm:block top-2 left-1 text-[#3498db]"
           src={controller.src}
           width="50"
           height="50"
@@ -102,11 +102,11 @@ const Aboutme = () => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-10 left-[50%] "
+        className="absolute hidden sm:block bottom-10 left-[50%] "
         style={{ x: moveX, y: moveY }}
       >
         <Image
-          // className="absolute bottom-2  left-[50%] text-[#3498db] md:right-[50%]"
+          // className="absolute hidden sm:block bottom-2  left-[50%] text-[#3498db] md:right-[50%]"
           src={noise.src}
           width="50"
           height="50"
@@ -115,11 +115,11 @@ const Aboutme = () => {
       </motion.div>
 
       <motion.div
-        className="absolute top-2/3 left-10"
+        className="absolute hidden sm:block top-2/3 left-10"
         style={{ y: moveX, x: moveY }}
       >
         <Image
-          //className="absolute top-2/3 left-0  text-[#3498db]"
+          //className="absolute hidden sm:block top-2/3 left-0  text-[#3498db]"
           src={bug.src}
           width="50"
           height="50"
@@ -128,11 +128,11 @@ const Aboutme = () => {
       </motion.div>
 
       <motion.div
-        className="absolute top-[15%] right-[20%]"
+        className="absolute hidden sm:block top-[15%] right-[20%]"
         style={{ x: moveX, y: moveY }}
       >
         <Image
-          //   className="absolute top-2 right-10 text-[#3498db]  md:right-[50%]"
+          //   className="absolute hidden sm:block top-2 right-10 text-[#3498db]  md:right-[50%]"
           src={code.src}
           width="50"
           height="50"
@@ -140,9 +140,9 @@ const Aboutme = () => {
         />
       </motion.div>
 
-      <motion.div className="absolute bottom-10 right-10" style={{ y: moveX, x: moveY }}>
+      <motion.div className="absolute hidden sm:block bottom-10 right-10" style={{ y: moveX, x: moveY }}>
         <Image
-        //  className="absolute bottom-2 right-1 text-[#3498db]"
+        //  className="absolute hidden sm:block bottom-2 right-1 text-[#3498db]"
           src={Console.src}
           width="50"
           height="50"
@@ -150,9 +150,9 @@ const Aboutme = () => {
         />
       </motion.div>
 
-      <motion.div className="absolute top-40 right-10" style={{ y: moveX, x: moveY }}>
+      <motion.div className="absolute hidden sm:block top-40 right-10" style={{ y: moveX, x: moveY }}>
         <Image
-        //  className="absolute top-40 right-4 text-[#3498db]"
+        //  className="absolute hidden sm:block top-40 right-4 text-[#3498db]"
           src={api.src}
           width="50"
           height="50"
