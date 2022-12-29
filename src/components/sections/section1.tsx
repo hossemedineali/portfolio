@@ -22,6 +22,9 @@ const Section1 = () => {
   );
 };
 
+
+
+
 const Arrows = () => {
   return (
     <motion.svg
@@ -50,6 +53,20 @@ const Arrows = () => {
     </motion.svg>
   );
 };
+
+const Arrows2 = () => {
+  return (
+<svg className="hero-family__arrow-svg --transition" viewBox="0 0 209 209" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle className="hero-family__arrow-circle" cx="104.5" cy="104.5" r="0" fill="white"></circle>
+                    <circle className="hero-family__arrow-circle2" opacity="0.6" cx="104.5" cy="104.5" r="103.75" stroke="white" stroke-width="0.5" style="stroke-dashoffset: 0; stroke-dasharray: none;"></circle>
+                    <rect className="hero-family__arrow-rect" x="104.302" y="84" width="1.19328" height="40.5714" fill="white" style="height: 41px; fill: white;"></rect>
+                    <path className="path-1" d="M104.898 124.571C104.898 118.604 108.419 106.194 122.499 104.285" stroke="white" style="stroke-dashoffset: 0; stroke-dasharray: none; stroke: white;"></path>
+                    <path className="path-2" d="M104.601 124.571C104.601 118.604 101.08 106.194 86.9997 104.285" stroke="white" style="stroke-dashoffset: 0; stroke-dasharray: none; stroke: white;"></path>
+                  </svg>
+
+  );
+};
+
 
 export default Section1;
 

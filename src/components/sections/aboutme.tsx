@@ -79,7 +79,7 @@ const Aboutme = () => {
       /> */}
 
       <div className="z-20 relative flex h-full items-center  justify-center">
-        <p className=" p-10 text-center leading-relaxed text-white text-[6vw] sm:text-Cyellow sm:text-[4vw] md:text-white md:text-[3vw] lg:text-Cviolet ">
+        <p className=" p-10 text-center leading-relaxed text-white font-medium font-Allerta text-[6vw]  sm:text-[4vw] md:text-white md:text-[3vw]  ">
           I am a web developer with a passion for creating visually
           appealing and user-friendly websites and applications. I will be happy
           to bring my expertise in creating beautiful user interfaces to your

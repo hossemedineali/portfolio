@@ -195,7 +195,7 @@ const P2= () => {
           className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
-            <Image src={dari.src} fill sizes="100" alt="dari project" />
+            <Image src={mycoin.src} fill sizes="100" alt="dari project" />
             <div
               style={{
                 background:
@@ -261,7 +261,7 @@ const P3= () => {
           className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
-            <Image src={dari.src} fill sizes="100" alt="dari project" />
+            <Image src={bb.src} fill sizes="100" alt="dari project" />
             <div
               style={{
                 background:
@@ -327,7 +327,7 @@ const P4 = () => {
           className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
-            <Image src={dari.src} fill sizes="100" alt="dari project" />
+            <Image src={soon.src} fill sizes="100" alt="dari project" />
             <div
               style={{
                 background:
