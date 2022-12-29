@@ -117,12 +117,12 @@ const P1: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="mx-auto w-[100vw] md:w-[80vw] ">
+      <div className="mx-auto w-[100vw] md:w-[80vw] cursor-pointer ">
         <motion.section
           onClick={() => {
             project.setProjectNumber(1);
           }}
-          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
+          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto shadow-md shadow-black  "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={dari.src} fill sizes="100" alt="dari project" />
@@ -147,7 +147,7 @@ const P1: React.FC = () => {
             <motion.div
               style={{
                 backgroundColor: "#e0e0e0",
-                boxShadow: "7px 7px 30px #bebebe,7px -7px 30px #ffffff",
+                boxShadow: "1px 1px 10px #bebebe,1px -1px 2px #ffffff",
                 }}
               className="absolute bottom-[20%] left-10  rounded-xl px-6 py-3  text-primary transition-all duration-300 ease-in-out group-hover:scale-110   "
             >
@@ -192,7 +192,7 @@ const P2= () => {
           onClick={() => {
             project.setProjectNumber(1);
           }}
-          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
+          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto  cursor-pointer shadow-md shadow-black "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={mycoin.src} fill sizes="100" alt="dari project" />
@@ -217,15 +217,15 @@ const P2= () => {
              <motion.div
               style={{
                 backgroundColor: "#e0e0e0",
-                boxShadow: "7px 7px 30px #bebebe,7px -7px 30px #ffffff",
+                boxShadow: "1px 1px 10px #bebebe,1px -1px 2px #ffffff",
                 }}
               className="absolute bottom-[20%] right-10  rounded-xl px-6 py-3  text-primary transition-all duration-300 ease-in-out group-hover:scale-110   "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
-                Dari
+                Mycoin
               </h1>
               <h3 className="font-Allerta text-xl font-bold md:text-3xl">
-                Real estate app
+              cryptocurrency app
               </h3>
             </motion.div>
             <div ref={ref} className="absolute top-[70%]  w-full "></div>
@@ -258,7 +258,7 @@ const P3= () => {
           onClick={() => {
             project.setProjectNumber(1);
           }}
-          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
+          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto  cursor-pointer shadow-md shadow-black "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={bb.src} fill sizes="100" alt="dari project" />
@@ -283,15 +283,15 @@ const P3= () => {
              <motion.div
               style={{
                 backgroundColor: "#e0e0e0",
-                boxShadow: "7px 7px 30px #bebebe,7px -7px 30px #ffffff",
+                boxShadow: "1px 1px 10px #bebebe,1px -1px 2px #ffffff",
                 }}
               className="absolute bottom-[20%] left-10  rounded-xl px-6 py-3  text-primary transition-all duration-300 ease-in-out group-hover:scale-110   "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
-                Dari
+                Bracking Bad
               </h1>
               <h3 className="font-Allerta text-xl font-bold md:text-3xl">
-                Real estate app
+                The best tv show ever
               </h3>
             </motion.div>
             <div ref={ref} className="absolute top-[70%]  w-full "></div>
@@ -324,7 +324,7 @@ const P4 = () => {
           onClick={() => {
             project.setProjectNumber(1);
           }}
-          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto   "
+          className="group mx-auto  aspect-square w-[90%] sm:aspect-[2/1] md:mx-0  md:mr-auto  cursor-pointer shadow-md shadow-black "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={soon.src} fill sizes="100" alt="dari project" />
@@ -349,15 +349,15 @@ const P4 = () => {
              <motion.div
               style={{
                 backgroundColor: "#e0e0e0",
-                boxShadow: "7px 7px 30px #bebebe,7px -7px 30px #ffffff",
+                boxShadow: "1px 1px 10px #bebebe,1px -1px 2px #ffffff",
                 }}
               className="absolute bottom-[20%] right-10  rounded-xl px-6 py-3  text-primary transition-all duration-300 ease-in-out group-hover:scale-110   "
             >
               <h1 className="font-Allerta text-2xl font-extrabold md:text-5xl">
-                Dari
+                Store app
               </h1>
               <h3 className="font-Allerta text-xl font-bold md:text-3xl">
-                Real estate app
+                With accounting system
               </h3>
             </motion.div>
             <div ref={ref} className="absolute top-[70%]  w-full "></div>
