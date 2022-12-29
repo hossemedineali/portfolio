@@ -1,5 +1,4 @@
 import { motion ,useScroll, useTransform} from "framer-motion";
-import { useEffect } from "react";
 
 const LogoSVG = () => {
 
@@ -7,12 +6,6 @@ const LogoSVG = () => {
     const x=useTransform(scrollY,[125,300],['0','-100px'])
 
     const pathLength=useTransform(scrollY,[0,120],[1,0])
-
-    useEffect(() => {
-      return scrollY.onChange((latest) => {
-        console.log("Page scroll: ", latest)
-      })
-    }, [])
   return (
     <motion.div initial={{left:'50%',top:'50%',translateX:'-50%',translateY:'-50%'}} animate={{left:'5px',top:'15px',translateX:0,translateY:0}} transition={{duration:2,delay:2}} className='fixed' >
         
