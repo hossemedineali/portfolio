@@ -37,9 +37,7 @@ const Layout: React.FC<props> = (props) => {
         </div>
       )}
 
-      <div className="fixed bottom-5 left-5 z-20">
-        <Arrows2 />
-      </div>
+    
       <Header toggleOpen={toggleOpen} isOpen={isOpen} />
       {!isLoading && (
         <AnimatePresence>
