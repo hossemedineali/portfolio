@@ -10,10 +10,9 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import Section1 from "../components/sections/section1";
+import Section1 from "../components/sections/home";
 import Work from "../components/sections/work";
-import TT from "../components/test/test";
-import Section2 from "../components/sections/section2";
+import Section2 from "../components/sections/skills";
 import Aboutme from "../components/sections/aboutme";
 
 const container = {
@@ -50,12 +49,9 @@ const child = {
   },
 };
 
-const text1 = "Hi!".split(" ");
-const text2 = "My name is Hossem edine ali ".split(" ");
-const text3 = "I am a web developper".split(" ");
 
 const Home: NextPage = () => {
-  //const { scrollYProgress, scrollY } = useScroll();
+ 
 
   const home = useRef(null);
   const work = useRef(null);
@@ -70,7 +66,6 @@ const Home: NextPage = () => {
 
   const [sectionInView, setSectionInView] = useState("home");
 
-  console.log("sectioninview=>", sectionInView);
   const { scrollY, scrollYProgress } = useScroll({ target: work });
 
   const { scrollY: scrollYhome } = useScroll({
@@ -79,14 +74,7 @@ const Home: NextPage = () => {
   });
 
   useEffect(() => {
-    console.log(
-      "work:",
-      isInViewwork,
-      "skills:",
-      isInViewskills,
-      "about:",
-      isInViewabout
-    );
+ 
     if (isInViewabout) {
       setSectionInView("about");
       return;
@@ -169,11 +157,11 @@ const Home: NextPage = () => {
         </div>
         <div className="relative">
           <div ref={about} className="absolute  top-20 bottom-0 border-2"></div>
-          <Aboutme />
+           <Aboutme /> 
         </div>
       </main>
 
-      <div className="fixed bottom-5 left-5 z-20">
+      <div className="fixed bottom-5 left-5 ">
         <AnimatePresence>
           <Arrows2 opacity={opacity} sectionInView={sectionInView} />
         </AnimatePresence>

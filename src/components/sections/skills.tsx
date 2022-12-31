@@ -2,6 +2,7 @@ import {
   motion,
   useAnimation,
   useInView,
+  useMotionValue,
   useScroll,
   useTransform,
 } from "framer-motion";
@@ -11,6 +12,8 @@ import reactIcon from "../../../public/react.png";
 import next from "../../../public/next.png";
 import ts from "../../../public/ts.png";
 import tailwind from "../../../public/tailwind.png";
+import useWindowSize from "../../helper/useWindowSize";
+
 
 const titleContainer = {
   hidden: { opacity: 0 },
@@ -48,6 +51,20 @@ const titleChild = {
 };
 
 const Section2 = () => {
+  const { width, height } = useWindowSize();
+  const x = useMotionValue(200);
+  const y1 = useMotionValue(200);
+
+  const moveX = useTransform(y1, [0, height], [20, -20]);
+  const moveY = useTransform(x, [0, width], [20, -20]);
+
+  const handelMouseMove = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    x.set(e.clientX - rect.left);
+    y1.set(e.clientY - rect.top);
+  };
+
   const ref = useRef(null);
   const isInView = useInView(ref);
   const annimation = useAnimation();
@@ -64,7 +81,10 @@ const Section2 = () => {
     }
   }, [isInView]);
   return (
-    <section className="relative h-[850px] min-h-screen bg-[#24324f] py-20">
+    <motion.section
+      onMouseMove={handelMouseMove}
+      className="relative h-[850px] min-h-screen bg-[#24324f] py-20"
+    >
       <div className="absolute top-0 left-0 w-full overflow-hidden  ">
         <svg
           data-name="Layer 1"
@@ -101,57 +121,98 @@ const Section2 = () => {
         className=" font-Allerta font-bold text-[#afadad] opacity-50 sm:text-xl"
       >
         <div className="mt-10 flex flex-wrap ">
-          <p className="w-1/3  text-center">HTML</p>
-          <p className="w-1/3  text-center">CSS</p>
-          <p className="w-1/3  text-center">JS</p>
+          <motion.p
+            style={{ y: moveX, x: moveY }}
+            className="w-1/3  text-center"
+          >
+            HTML
+          </motion.p>
+          <motion.p
+            style={{ y: moveY, x: moveY }}
+            className="w-1/3  text-center"
+          >
+            CSS
+          </motion.p>
+          <motion.p
+            style={{ y: moveY, x: moveX }}
+            className="w-1/3  text-center"
+          >
+            JS
+          </motion.p>
         </div>
 
         <div className="mt-10 flex flex-wrap  sm:px-10">
-          <p className="w-1/2 text-left">Material ui</p>
-          <p className="w-1/2 text-right">Framer motion</p>
+          <motion.p style={{ y: moveX, x: moveX }} className="w-1/2 text-left">
+            Material ui
+          </motion.p>
+          <motion.p style={{ y: moveY, x: moveY }} className="w-1/2 text-right">
+            Framer motion
+          </motion.p>
         </div>
 
         <div className="mt-10 flex flex-col flex-wrap gap-10 sm:flex-row sm:gap-0">
           <div className="flex justify-around sm:w-1/2 sm:justify-evenly">
-            <p className=" text-left">Redux</p>
-            <p className=" text-center ">Axios</p>
+            <motion.p style={{ y: moveY, x: moveX }} className=" text-left">
+              Redux
+            </motion.p>
+            <motion.p style={{ y: moveX, x: moveX }} className=" text-center ">
+              Axios
+            </motion.p>
           </div>
           <div className="flex justify-between sm:w-1/2 sm:justify-evenly">
-            <p className=" text-center">Chart.js</p>
-            <p className=" text-right">Firebase</p>
+            <motion.p style={{ y: moveY, x: moveY }} className=" text-center">
+              Chart.js
+            </motion.p>
+            <motion.p style={{ y: moveY, x: moveY }} className=" text-right">
+              Firebase
+            </motion.p>
           </div>
         </div>
 
         <div className="mt-10 flex flex-wrap justify-evenly">
-          <p className="">Prisma</p>
-          <p className="">Planet scale</p>
-          <p className="">TRPC</p>
+          <motion.p style={{ y: moveX, x: moveX }} className="">
+            Prisma
+          </motion.p>
+          <motion.p style={{ y: moveX, x: moveX }} className="">
+            Planet scale
+          </motion.p>
+          <motion.p style={{ y: moveX, x: moveX }} className="">
+            TRPC
+          </motion.p>
         </div>
 
         <div className="mt-10 flex flex-col flex-wrap gap-10 sm:flex-row sm:gap-0">
           <div className="flex justify-around sm:w-1/2 sm:justify-evenly">
-            <p className=" text-left">NextAuth.js</p>
-            <p className=" text-center ">Cloudinary</p>
+            <motion.p style={{ y: moveX, x: moveY }} className=" text-left">
+              NextAuth.js
+            </motion.p>
+            <motion.p style={{ y: moveY, x: moveX }} className=" text-center ">
+              Cloudinary
+            </motion.p>
           </div>
           <div className="flex justify-between sm:w-1/2 sm:justify-evenly">
-            <p className=" text-center">Bcrypt</p>
-            <p className=" text-right">Node mailer</p>
+            <motion.p style={{ y: moveX, x: moveX }} className=" text-center">
+              Bcrypt
+            </motion.p>
+            <motion.p style={{ y: moveX, x: moveY }} className=" text-right">
+              Node mailer
+            </motion.p>
           </div>
         </div>
 
         <div className="mt-10 flex justify-between px-1 sm:px-10">
-          <p>React form hook</p>
-          <p>Zod</p>
+          <motion.p style={{ y: moveY, x: moveY }}>React form hook</motion.p>
+          <motion.p style={{ y: moveX, x: moveY }}>Zod</motion.p>
         </div>
         <div className="mt-10 flex justify-evenly px-1 sm:px-10">
-          <p>Zustand</p>
-          <p>Leaflet</p>
+          <motion.p style={{ y: moveX, x: moveY }}>Zustand</motion.p>
+          <motion.p style={{ y: moveX, x: moveY }}>Leaflet</motion.p>
         </div>
       </motion.div>
 
       <div
         ref={ref1}
-        className="absolute top-[350px] left-1/2 bottom-1/2 right-1/2 flex w-fit -translate-x-1/2 flex-col sm:flex-row gap-4   "
+        className="absolute top-[350px] left-1/2 bottom-1/2 right-1/2 flex w-fit -translate-x-1/2 flex-col gap-4 sm:flex-row   "
       >
         <div className="flex gap-4">
           <div className="h-20 w-20 md:h-32 md:w-32  lg:h-40 lg:w-40  ">
@@ -171,23 +232,8 @@ const Section2 = () => {
         </div>
       </div>
 
-      <div className="absolute bg-[#151a24] bottom-0 w-full overflow-hidden">
-
-      <svg
-        data-name="Layer 1"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 120"
-        preserveAspectRatio="none"
-        >
-        <path
-          d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z"
-          className="shape-fill"
-          fill="#24324f"
-          fillOpacity="1"
-          ></path>
-      </svg>
-          </div>
-    </section>
+    
+    </motion.section>
   );
 };
 
