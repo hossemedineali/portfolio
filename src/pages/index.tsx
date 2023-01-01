@@ -159,6 +159,10 @@ const Home: NextPage = () => {
           <div ref={about} className="absolute  top-20 bottom-0 border-2"></div>
           <Aboutme />
         </div>
+
+        <div className=" w-full h-[100vh] bg-Cyellow">
+
+        </div>
       </main>
 
       <div className="fixed bottom-5 left-5 ">
