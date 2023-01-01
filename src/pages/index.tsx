@@ -157,7 +157,7 @@ const Home: NextPage = () => {
         </div>
         <div className="relative">
           <div ref={about} className="absolute  top-20 bottom-0 border-2"></div>
-           <Aboutme /> 
+          <Aboutme />
         </div>
       </main>
 
