@@ -30,7 +30,7 @@ const Layout: React.FC<props> = (props) => {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <motion.div className="relative mx-auto min-h-screen overflow-hidden bg-[#1d1d1d]">
+    <motion.div className={`relative mx-auto min-h-screen overflow-hidden bg-[#1d1d1d] ${isOpen?'max-h-screen':''}`}>
       {!isLoading && (
         <div className="absolute top-0 left-0 right-0 bottom-0 max-w-[200vw]">
           <Canvas />

@@ -118,7 +118,7 @@ console.log(reff.current)
         </p>
       </div>
 
-      <div ref={ref} className=" bottom-0 top-[150vh] w-1 ">
+      <div ref={ref} className=" bottom-0 top-[150vh] w-1 bg-Cviolet absolute">
         {" "}
       </div>
       <motion.div className=" h-[500vh]  w-full ">

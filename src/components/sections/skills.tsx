@@ -118,7 +118,7 @@ const Section2 = () => {
 
       <motion.div
         style={{ y }}
-        className=" font-Allerta font-bold text-[#afadad] opacity-50 sm:text-xl"
+        className=" font-Allerta font-bold text-[#afadad] opacity-50 text-[5vw] md:text[4vw] lg:[text-4vw] xl:text-[3vw] 2xl:text-[2vw] "
       >
         <div className="mt-10 flex flex-wrap ">
           <motion.p

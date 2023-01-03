@@ -60,7 +60,7 @@ const Work = () => {
   return (
     <section className="relative  min-h-screen bg-[#151a24] py-20">
       {/* SVG Wave devider */}
-      <div className="absolute  top-0 left-0 w-full overflow-hidden  ">
+    {/*   <div className="absolute  top-0 left-0 w-full overflow-hidden  ">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ const Work = () => {
             className="fill-[#1d1d1d]"
           ></path>
         </svg>
-      </div>
+      </div> */}
       {/* --------------------------------------------------------------------------- */}
       {/* Tittle */}
       <motion.h1
@@ -124,9 +124,9 @@ const P1: React.FC = () => {
         <motion.section
           onMouseEnter={mouseEnter}
           onMouseLeave={mouseLeave}
-          initial={{ opacity: 0, x: 350 }}
-          exit={{ opacity: 0, x: -350 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0 }}
+          exit={{ opacity: 0, scale:0 }}
+          whileInView={{ opacity: 1, scale:1 }}
           transition={{ duration: 1 }}
           onClick={() => {
             project.setProjectNumber(1);
@@ -329,9 +329,9 @@ const P2 = () => {
         <motion.section
           onMouseEnter={mouseEnter}
           onMouseLeave={mouseLeave}
-          initial={{ opacity: 0, x: -350 }}
-          exit={{ opacity: 0, x: 350 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0 }}
+          exit={{ opacity: 0, scale:0 }}
+          whileInView={{ opacity: 1, scale:1 }}
           transition={{ duration: 1 }}
           onClick={() => {
             project.setProjectNumber(1);
@@ -578,9 +578,9 @@ const P3 = () => {
         <motion.section
           onMouseEnter={mouseEnter}
           onMouseLeave={mouseLeave}
-          initial={{ opacity: 0, x: 350 }}
-          exit={{ opacity: 0, x: -350 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0 }}
+          exit={{ opacity: 0, scale:0 }}
+          whileInView={{ opacity: 1, scale:1 }}
           transition={{ duration: 1 }}
           onClick={() => {
             project.setProjectNumber(1);
@@ -862,9 +862,9 @@ const P4 = () => {
         <motion.section
           onMouseEnter={mouseEnter}
           onMouseLeave={mouseLeave}
-          initial={{ opacity: 0, x: -350 }}
-          exit={{ opacity: 0, x: 350 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0 }}
+          exit={{ opacity: 0, scale:0 }}
+          whileInView={{ opacity: 1, scale:1 }}
           transition={{ duration: 1 }}
           onClick={() => {
             project.setProjectNumber(1);
