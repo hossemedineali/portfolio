@@ -5,14 +5,16 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      Allerta: ["Allerta Stencil"],
+      passion: ["Passions Conflict", "cursive"],
+      rubik: ["Rubik Bubbles", "cursive"],
+      Sevillana: ["Sevillana", "cursive"],
     },
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      primary:'#994AA6',
-      white:'#fff',
-      black:'#000',
+      primary: "#994AA6",
+      white: "#fff",
+      black: "#000",
       Cviolet: "#8a0a0a",
       Cyellow: "#596606",
       Cblue: "#06529e",

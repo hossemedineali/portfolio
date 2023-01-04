@@ -73,6 +73,7 @@ const Tedt = () => {
         </div>
       </div>
       {/*  <LogoSVG/> */}
+      
     </main>
   );
 };

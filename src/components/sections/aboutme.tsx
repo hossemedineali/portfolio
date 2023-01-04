@@ -121,7 +121,7 @@ console.log(reff.current)
       <div ref={ref} className=" bottom-0 top-[50vh] w-1 absolute">
         {" "}
       </div>
-      <motion.div className=" h-[500vh]  w-full ">
+      <motion.div className=" h-[400vh]  w-full ">
         {/* new sec one  */}
         {showUlistration && (
           <motion.svg
