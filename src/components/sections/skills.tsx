@@ -6,7 +6,6 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { root } from "postcss";
 import { useEffect, useRef } from "react";
 import reactIcon from "../../../public/react.png";
 import next from "../../../public/next.png";
@@ -27,8 +26,7 @@ const titleContainer = {
 const titleChild = {
   visible: {
     opacity: 1,
-    //x: 0,
-    // y: 0,
+
 
     transition: {
       type: "spring",
@@ -39,8 +37,7 @@ const titleChild = {
   },
   hidden: {
     opacity: 0,
-    //x: -20,
-    //y: 10,
+ 
 
     transition: {
       type: "spring",
@@ -50,10 +47,10 @@ const titleChild = {
   },
 };
 
-const Section2 = () => {
+const Skills = () => {
   const { width, height } = useWindowSize();
-  const x = useMotionValue(200);
-  const y1 = useMotionValue(200);
+  const x = useMotionValue(0);
+  const y1 = useMotionValue(0);
 
   const moveX = useTransform(y1, [0, height], [20, -20]);
   const moveY = useTransform(x, [0, width], [20, -20]);
@@ -85,7 +82,7 @@ const Section2 = () => {
       onMouseMove={handelMouseMove}
       className="relative h-[850px] min-h-screen bg-[#24324f] py-20"
     >
-      <div className="absolute top-0 left-0 w-full overflow-hidden  ">
+    {/*   <div className="absolute top-0 left-0 w-full overflow-hidden  ">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +95,7 @@ const Section2 = () => {
             className="fill-[#151a24]"
           ></path>
         </svg>
-      </div>
+      </div> */}
 
       <motion.h1
         ref={ref}
@@ -118,7 +115,7 @@ const Section2 = () => {
 
       <motion.div
         style={{ y }}
-        className=" font-Allerta font-bold text-[#afadad] opacity-50 text-[5vw] md:text[4vw] lg:[text-4vw] xl:text-[3vw] 2xl:text-[2vw] "
+        className=" font-Allerta font-bold text-[#afadad] opacity-50 text-[4vw] md:text[2vw] lg:[text-4vw] xl:text-[3vw] 2xl:text-[2vw] "
       >
         <div className="mt-10 flex flex-wrap ">
           <motion.p
@@ -237,4 +234,4 @@ const Section2 = () => {
   );
 };
 
-export default Section2;
+export default Skills;

@@ -59,21 +59,7 @@ const Work = () => {
   }, [isInView]);
   return (
     <section className="relative  min-h-screen bg-[#151a24] py-20">
-      {/* SVG Wave devider */}
-    {/*   <div className="absolute  top-0 left-0 w-full overflow-hidden  ">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          className="relative block h-[76px] w-[calc(100%+1.3px)] md:h-[151px]"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            className="fill-[#1d1d1d]"
-          ></path>
-        </svg>
-      </div> */}
+     
       {/* --------------------------------------------------------------------------- */}
       {/* Tittle */}
       <motion.h1
@@ -105,6 +91,11 @@ const Work = () => {
   );
 };
 
+
+
+
+
+
 const P1: React.FC = () => {
   const project = useProjectModal();
   const ref = useRef(null);
@@ -121,7 +112,7 @@ const P1: React.FC = () => {
   return (
     <AnimatePresence>
       <div className="mx-auto w-[100vw] cursor-pointer md:w-[80vw] ">
-        <motion.section
+        <motion.div
           onMouseEnter={mouseEnter}
           onMouseLeave={mouseLeave}
           initial={{ opacity: 0, scale: 0 }}
@@ -131,7 +122,7 @@ const P1: React.FC = () => {
           onClick={() => {
             project.setProjectNumber(1);
           }}
-          className="group mx-auto  aspect-square w-[90%] shadow-md shadow-black  sm:aspect-[2/1] md:mx-0 md:mr-auto  "
+          className="group  mx-auto aspect-square w-[100%]  shadow-md shadow-Cblue  sm:aspect-[2/1]   "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={dari.src} fill sizes="100" alt="dari project" />
@@ -144,7 +135,7 @@ const P1: React.FC = () => {
             ></div>
 
             {isInView && (
-              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+              <div className="absolute -right-2 md:-right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
                 <div className="relative">
                   <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
                     01
@@ -304,7 +295,7 @@ const P1: React.FC = () => {
 
             <div ref={ref} className="absolute top-[50%]  w-full "></div>
           </motion.div>
-        </motion.section>
+        </motion.div>
       </div>
     </AnimatePresence>
   );
@@ -336,7 +327,7 @@ const P2 = () => {
           onClick={() => {
             project.setProjectNumber(1);
           }}
-          className="group mx-auto  aspect-square w-[90%] shadow-md shadow-black  sm:aspect-[2/1] md:mx-0 md:mr-auto  "
+          className="group mx-auto  aspect-square w-[100%] shadow-md shadow-Cblue  sm:aspect-[2/1] md:mx-0 md:mr-auto  "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={mycoin.src} fill sizes="100" alt="dari project" />
@@ -349,7 +340,7 @@ const P2 = () => {
             ></div>
 
             {isInView && (
-              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+              <div className="absolute -right-2 md:-right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
                 <div className="relative">
                   <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
                     02
@@ -585,7 +576,7 @@ const P3 = () => {
           onClick={() => {
             project.setProjectNumber(1);
           }}
-          className="group mx-auto  aspect-square w-[90%] shadow-md shadow-black  sm:aspect-[2/1] md:mx-0 md:mr-auto  "
+          className="group mx-auto  aspect-square w-[100%] shadow-md shadow-Cblue  sm:aspect-[2/1]   "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={bb.src} fill sizes="100" alt="dari project" />
@@ -598,7 +589,7 @@ const P3 = () => {
             ></div>
 
             {isInView && (
-              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+              <div className="absolute -right-2 md:-right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
                 <div className="relative">
                   <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
                     03
@@ -869,7 +860,7 @@ const P4 = () => {
           onClick={() => {
             project.setProjectNumber(1);
           }}
-          className="group mx-auto  aspect-square w-[90%] shadow-md shadow-black  sm:aspect-[2/1] md:mx-0 md:mr-auto  "
+          className="group mx-auto  aspect-square w-[100%] shadow-md shadow-Cblue  sm:aspect-[2/1]   "
         >
           <motion.div className="relative h-full w-full  transition-all duration-300 ">
             <Image src={soon.src} fill sizes="100" alt="dari project" />
@@ -882,7 +873,7 @@ const P4 = () => {
             ></div>
 
             {isInView && (
-              <div className="absolute -right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
+              <div className="absolute -right-2 md:-right-6 -top-10 h-40    translate-y-5 overflow-hidden leading-none  text-[#2c2a2a] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ">
                 <div className="relative">
                   <p className=" text-[161px] font-extrabold transition-all delay-300 duration-300 group-hover:text-[#D6D6D2]">
                     04

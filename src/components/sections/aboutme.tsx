@@ -4,51 +4,58 @@ import {
   useScroll,
   useTransform,
   useInView,
+  AnimatePresence,
+  useAnimation,
 } from "framer-motion";
 
 import { useEffect, useRef, useState } from "react";
-//import { useInView } from "react-intersection-observer";
 import useWindowSize from "../../helper/useWindowSize";
 
+const text =
+  "I / am / a web / developer / with / a / passion / for / creating / visually / appealing / and / user-friendly / websites / and / applications. / I / will / be / happy / to / bring / my / expertise / in / creating / beautiful / user / interfaces / to / your / projects / and / help / your / team / create / meaningful / and / impactful / solutions. / I / am / reliable, / self-motivated, / and / able / to / work / well / in / a / team / environment.";
+
+const t = [
+  "I / am / a web / developer / with / a / passion /",
+  [
+    " for / creating / visually / appealing / and / user-friendly / websites / and /",
+  ],
+  [" applications. / I / will / be / happy / to / bring / my / expertise / in"],
+  [
+    " / creating / beautiful / user / interfaces / to / your / projects / and /",
+  ],
+  [" help / your / team / create / meaningful / and / impactful /"],
+  [" solutions. / I / am / reliable, / self-motivated, / and / able / to /"],
+  [" work / well / in / a / team / environment."],
+];
+
+const tt= "I / am / a web / developer / with / a / passion /"
+const tt2=" for / creating / visually / appealing / and / user-friendly / websites / and /"
+const tt3=" applications. / I / will / be / happy / to / bring / my / expertise / in"
+const tt4=" / creating / beautiful / user / interfaces / to / your / projects / and /"
+const tt5=" help / your / team / create / meaningful / and / impactful /"
+const tt6=" solutions. / I / am / reliable, / self-motivated, / and / able / to /"
+const tt7=" work / well / in / a / team / environment."
+
 const Aboutme = () => {
-  // Initialize state for the x and y position of the mouse
-
-  // Get the current width and height of the window
-  /*   const { width, height } = useWindowSize();
-  const reff = useRef(null);
-  const { scrollY } = useScroll({ target:reff });
-console.log(reff.current)
-  scrollY.onChange(() => {
-    console.log();
-  });
-
- */
-
   const { scrollY } = useScroll();
   const ref = useRef<HTMLDivElement>(null);
-  const { width, height } = useWindowSize();
+  const { height } = useWindowSize();
   const isInView = useInView(ref);
   const [showUlistration, setShowUlistration] = useState(false);
   const [range, setRange] = useState<number[]>([0, 0]);
   const [range1, setRange1] = useState<number[]>([0, 0]);
   const [range2, setRange2] = useState<number[]>([0, 0]);
   const [range3, setRang3] = useState<number[]>([0, 0]);
-  const [positionRange,setPositionRange]=useState<number[]>([0,0,0])
+  const [positionRange, setPositionRange] = useState<number[]>([0, 0, 0]);
   const [colorRange, setColorRange] = useState<number[]>([0, 0, 0, 0, 0, 0]);
   const pathLength = useTransform(scrollY, range, [0, 1]);
   const pathLength1 = useTransform(scrollY, range1, [0, 1]);
   const pathLength2 = useTransform(scrollY, range2, [0, 1]);
   const pathLength3 = useTransform(scrollY, range3, [0, 1]);
-  const position = useTransform(scrollY, positionRange, ['fixed','fixed','flex']);
- 
-  //const colors=useTransform(scrollY,colorRange,['#e71a5f','#f5663a','#fcb15d','#17347a','#0d1f47','#fff'])
-  const colors = useTransform(scrollY, colorRange, [
-    "#ff321a",
-    "#ff901b",
-    "#e200f7",
-    "#450eff",
-    "#220070",
-    "#fff",
+  const position = useTransform(scrollY, positionRange, [
+    "fixed",
+    "fixed",
+    "flex",
   ]);
 
   useEffect(() => {
@@ -69,63 +76,83 @@ console.log(reff.current)
         y + height * 4,
         y + height * 5,
       ]);
-      setPositionRange([y,y+height*2,y+height*2.1])
+      setPositionRange([y, y + height * 2, y + height * 2.1]);
 
       console.log(range, range1, range2, range3);
     } else {
       //setShowUlistration(false);
     }
-    /*  const element = ref.current;
-    if (!element) return;
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry?.isIntersecting) {
-        console.log('Element has entered the viewport! Scroll position:', scrollY.get());
-      }
-    });
-    observer.observe(element);
-
-    return () => {
-      observer.unobserve(element);
-    }; */
   }, [isInView]);
+
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 1, delayChildren: 1 * i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      //y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      //y: 200,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
+  console.log(text.split(" ").map);
 
   return (
     <motion.section className="   bg-[#151a24] ">
-      <div className=" w-full overflow-hidden bg-[#151a24]">
-        <svg
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="#24324f"
-            fillOpacity="1"
-            d="M1200 0L0 0 598.97 114.72 1200 0z"
-            className="shape-fill"
-          ></path>
-        </svg>
-      </div>
-
-      <div className=" flex items-center   justify-center  text-clip  ">
-        <p className=" p-10  text-left font-Allerta text-[6vw] font-medium leading-relaxed text-white  sm:text-[4vw] md:text-[4vw] md:text-white  ">
+      {/*  <div className=" flex items-center   justify-center  text-clip  ">
+        <p className=" p-10  text-left font-Allerta font-medium leading-relaxed text-white text-[6vw]  sm:text-[4vw] md:text-[4vw] md:text-white  ">
           I am a web developer with a passion for creating visually appealing
           and user-friendly websites and applications. I will be happy to bring
           my expertise in creating beautiful user interfaces to your projects
           and help your team create meaningful and impactful solutions. I am
           reliable, self-motivated, and able to work well in a team environment.
         </p>
+      </div> */}
+
+      <div className=" flex  flex-wrap items-center justify-center text-clip   text-[6vw]  sm:text-[4vw] md:text-[4vw] md:text-white ">
+        
+         {/*  {isInView&&<motion.div variants={container} initial="hidden" animate="visible">
+            {t.map((word, wordIndex) => {
+              return (
+                <motion.span variants={child}>
+                  <Word text={word} />
+                </motion.span>
+              );
+            })}
+          </motion.div>}
+         */}
+      {true&&<Paragraphe/>}
       </div>
 
-      <div ref={ref} className=" bottom-0 top-[50vh] w-1 absolute">
+      <div
+        ref={ref}
+        className=" absolute bottom-0 top-[100vh] h-1 w-full  bg-primary"
+      >
         {" "}
       </div>
       <motion.div className=" h-[400vh]  w-full ">
         {/* new sec one  */}
         {showUlistration && (
           <motion.svg
-          style={{position}}
+            style={{ position }}
             className={`top-0 left-0 bottom-0 h-screen w-full `}
             width="623"
             height="381"
@@ -167,14 +194,247 @@ console.log(reff.current)
         )}
 
         {/* new one with stroke // */}
-  
 
         {/* new one with just  flatten */}
-  
       </motion.div>
     </motion.section>
   );
 };
+
+const Word: React.FC<{ text: string }> = ({ text }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+  const container = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.04 * i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 200,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
+  return (
+    <AnimatePresence>
+      <motion.span
+        ref={ref}
+        className=""
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        {Array.from(text).map((letter, index) => {
+          return <motion.span key={index} variants={child}>{letter}</motion.span>;
+        })}
+      </motion.span>
+    </AnimatePresence>
+  );
+};
+
+
+
+
+
+
+const Paragraphe=()=>{
+
+  const tref=useRef(null)
+  const tref2=useRef(null)
+  const tref3=useRef(null)
+  const tref4=useRef(null)
+  const tref5=useRef(null)
+  const tref6=useRef(null)
+  const tref7=useRef(null)
+
+  const isInView=useInView(tref)
+  const isInView2=useInView(tref2)
+  const isInView3=useInView(tref3)
+  const isInView4=useInView(tref4)
+  const isInView5=useInView(tref5)
+  const isInView6=useInView(tref6)
+  const isInView7=useInView(tref7)
+
+
+  const container = {
+    hidden: {width:'0%' },
+    visible: (i = 1) => ({
+      width: '100%',
+      transition: { duration:2,staggerChildren: 0.04, delayChildren: 0.2* i },
+    }),
+  };
+
+  const child = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      x: 200,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+
+  const childWord = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 200,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+        duration:0.1
+      },
+    },
+  };
+
+
+  const controls=useAnimation()
+  const controls2=useAnimation()
+  const controls3=useAnimation()
+  const controls4=useAnimation()
+  const controls5=useAnimation()
+  const controls6=useAnimation()
+  const controls7=useAnimation()
+
+  useEffect(()=>{
+    if(isInView){
+      controls.start('visible')
+    }else{controls.start('hidden')}  
+  },[isInView])
+
+
+  useEffect(()=>{
+    if(isInView2){
+      controls2.start('visible')
+    }else{controls2.start('hidden')}  
+  },[isInView2])
+
+
+  useEffect(()=>{
+    if(isInView3){
+      controls3.start('visible')
+    }else{controls3.start('hidden')}  
+  },[isInView3])
+
+  useEffect(()=>{
+    if(isInView4){
+      controls4.start('visible')
+    }else{controls4.start('hidden')}  
+  },[isInView4])
+
+  useEffect(()=>{
+    if(isInView5){
+      controls5.start('visible')
+    }else{controls5.start('hidden')}  
+  },[isInView5])
+
+  useEffect(()=>{
+    if(isInView6){
+      controls6.start('visible')
+    }else{controls6.start('hidden')}  
+  },[isInView6])
+
+
+  const test=Array.from('i am a web developer with a passion for creating')
+  const ttest="i /am /a /web /developer /with /a"
+  return <motion.div className="relative grid grid-col-6  h-screen w-full" >
+
+    <motion.div ref={tref}   variants={container} 
+    animate={controls}  className="   flex overflow-hidden">
+      {test.map((word, wordIndex) => {
+              if (word == " ") return <span>&nbsp;</span>;
+              return <motion.span variants={childWord}>{word}</motion.span>;
+            })}
+    </motion.div>
+
+
+    <motion.div ref={tref2}   variants={container} 
+    animate={controls2}  className="   flex overflow-hidden">
+      {test.map((word, wordIndex) => {
+              if (word == " ") return <span>&nbsp;</span>;
+              return <motion.span variants={childWord}>{word}</motion.span>;
+            })}
+    </motion.div>
+
+    <motion.div ref={tref3}   variants={container} 
+    animate={controls3}  className="   flex overflow-hidden">
+      {test.map((word, wordIndex) => {
+              if (word == " ") return <span>&nbsp;</span>;
+              return <motion.span variants={childWord}>{word}</motion.span>;
+            })}
+    </motion.div>
+
+    <motion.div ref={tref4}   variants={container} 
+    animate={controls4}  className="   flex overflow-hidden">
+      {test.map((word, wordIndex) => {
+              if (word == " ") return <span>&nbsp;</span>;
+              return <motion.span variants={childWord}>{word}</motion.span>;
+            })}
+    </motion.div>
+
+    <motion.div ref={tref5}   variants={container} 
+    animate={controls5}  className="   flex overflow-hidden">
+      {test.map((word, wordIndex) => {
+              if (word == " ") return <span>&nbsp;</span>;
+              return <motion.span variants={childWord}>{word}</motion.span>;
+            })}
+    </motion.div>
+
+    <motion.div ref={tref6}   variants={container} 
+    animate={controls6}  className="   flex overflow-hidden">
+      {test.map((word, wordIndex) => {
+              if (word == " ") return <span>&nbsp;</span>;
+              return <motion.span variants={childWord}>{word}</motion.span>;
+            })}
+    </motion.div>
+
+  
+
+
+
+
+     
+      
+  </motion.div>
+}
 
 export default Aboutme;
 /**
@@ -185,5 +445,52 @@ export default Aboutme;
  
 
 
+{test.map((word, wordIndex) => {
+              if (word == " ") return <span>&nbsp;</span>;
+              return <motion.span variants={childWord}>{word}</motion.span>;
+            })}
 
+
+
+
+
+
+
+            <svg
+              className="aspect-square w-[16vw] "
+              viewBox="0 0 244 133"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <motion.ellipse
+                initial={{ pathLength: 0 }}
+                animate={{
+                  pathLength: [0, 0.5, 1, 1],
+                  stroke: ["#D9D9D9", "#000", "#D9D9D9", "#000"],
+                }}
+                transition={{
+                  duration: 1,
+                  delay: 5,
+                  repeat: Infinity,
+                  repeatDelay: 10,
+                  easings: "bounce",
+                }}
+                cx="122"
+                cy="66.5"
+                rx="223"
+                ry="82.5"
+                transform="rotate(-11.5129 122 66.5)"
+                stroke="#D9D9D9"
+                strokeWidth="10"
+              />
+              <text
+                x="30"
+                y="100"
+                stroke="black"
+                strokeWidth="6"
+                className=" bg-primary text-5xl "
+              >mailmeklj 
+              </text>
+            </svg>
  */
+ 

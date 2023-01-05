@@ -4,7 +4,7 @@ import Header from "../header";
 import useWindowSize from "../../helper/useWindowSize";
 
 import {useEffect,useState} from 'react'
-const Section1 = () => {
+const Home = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const [range,setRange]=useState([0,0,0,0,0,0])
   const {scrollY}=useScroll()
@@ -41,7 +41,7 @@ const Section1 = () => {
 
    
       <svg
-        className="h-1/2 sm:h-full w-full sm:w-1/2 border-2 "
+        className="h-1/2 sm:h-full w-full sm:w-1/2  "
         viewBox="0 0 489 218"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const Section1 = () => {
 
 
 
-<svg className="h-1/2 sm:h-full w-full sm:w-1/2 border-2" viewBox="0 0 878 528" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg className="h-1/2 sm:h-full w-full sm:w-1/2 " viewBox="0 0 878 528" fill="none" xmlns="http://www.w3.org/2000/svg">
 
   {/* ---------coffee mug----------------- */}
 <motion.path style={{pathLength}} d="M480.414 385.139C459.498 385.199 448.463 386.643 431.534 394.855C428.338 397.392 427.686 398.617 426.981 400.725C424.695 408.136 425.394 412.775 427.436 421.245C430.947 425.916 430.931 428.597 431.616 433.36C431.655 435.621 433.403 436.35 437.008 437.505L477.993 438.594C480.877 438.685 482.474 438.638 484.151 432.755C485.03 425.814 485.58 421.977 495.412 423.051C498.686 422.328 500.498 421.518 503.569 417.265C506.381 408.53 509.829 403.394 503.733 392.261C501.096 390.076 494.871 388.414 480.414 385.139Z" stroke="blue"/>
@@ -173,7 +173,7 @@ style="stroke-dashoffset: 0; stroke-dasharray: none; stroke: white;" */
 };
 
 
-export default Section1;
+export default Home;
 
 /*
 
