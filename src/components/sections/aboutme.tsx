@@ -381,7 +381,7 @@ const Paragraphe=()=>{
     animate={controls}  className="   flex overflow-hidden">
       {test.map((word, wordIndex) => {
               if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span variants={childWord}>{word}</motion.span>;
+              return <motion.span key={wordIndex+"1"} variants={childWord}>{word}</motion.span>;
             })}
     </motion.div>
 
@@ -390,7 +390,7 @@ const Paragraphe=()=>{
     animate={controls2}  className="   flex overflow-hidden">
       {test.map((word, wordIndex) => {
               if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span variants={childWord}>{word}</motion.span>;
+              return <motion.span key={wordIndex+"2"} variants={childWord}>{word}</motion.span>;
             })}
     </motion.div>
 
@@ -398,7 +398,7 @@ const Paragraphe=()=>{
     animate={controls3}  className="   flex overflow-hidden">
       {test.map((word, wordIndex) => {
               if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span variants={childWord}>{word}</motion.span>;
+              return <motion.span key={wordIndex+"3"} variants={childWord}>{word}</motion.span>;
             })}
     </motion.div>
 
@@ -406,7 +406,7 @@ const Paragraphe=()=>{
     animate={controls4}  className="   flex overflow-hidden">
       {test.map((word, wordIndex) => {
               if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span variants={childWord}>{word}</motion.span>;
+              return <motion.span key={wordIndex+"4"} variants={childWord}>{word}</motion.span>;
             })}
     </motion.div>
 
@@ -414,7 +414,7 @@ const Paragraphe=()=>{
     animate={controls5}  className="   flex overflow-hidden">
       {test.map((word, wordIndex) => {
               if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span variants={childWord}>{word}</motion.span>;
+              return <motion.span key={wordIndex+"5"} variants={childWord}>{word}</motion.span>;
             })}
     </motion.div>
 
@@ -422,7 +422,7 @@ const Paragraphe=()=>{
     animate={controls6}  className="   flex overflow-hidden">
       {test.map((word, wordIndex) => {
               if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span variants={childWord}>{word}</motion.span>;
+              return <motion.span key={wordIndex+"6"} variants={childWord}>{word}</motion.span>;
             })}
     </motion.div>
 
