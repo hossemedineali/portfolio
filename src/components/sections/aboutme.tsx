@@ -28,13 +28,17 @@ const t = [
   [" work / well / in / a / team / environment."],
 ];
 
-const tt= "I / am / a web / developer / with / a / passion /"
-const tt2=" for / creating / visually / appealing / and / user-friendly / websites / and /"
-const tt3=" applications. / I / will / be / happy / to / bring / my / expertise / in"
-const tt4=" / creating / beautiful / user / interfaces / to / your / projects / and /"
-const tt5=" help / your / team / create / meaningful / and / impactful /"
-const tt6=" solutions. / I / am / reliable, / self-motivated, / and / able / to /"
-const tt7=" work / well / in / a / team / environment."
+const tt = "I / am / a web / developer / with / a / passion /";
+const tt2 =
+  " for / creating / visually / appealing / and / user-friendly / websites / and /";
+const tt3 =
+  " applications. / I / will / be / happy / to / bring / my / expertise / in";
+const tt4 =
+  " / creating / beautiful / user / interfaces / to / your / projects / and /";
+const tt5 = " help / your / team / create / meaningful / and / impactful /";
+const tt6 =
+  " solutions. / I / am / reliable, / self-motivated, / and / able / to /";
+const tt7 = " work / well / in / a / team / environment.";
 
 const Aboutme = () => {
   const { scrollY } = useScroll();
@@ -61,7 +65,6 @@ const Aboutme = () => {
   useEffect(() => {
     if (isInView && !showUlistration) {
       const y = scrollY.get();
-      console.log(scrollY.get());
       setShowUlistration(true);
 
       setRange([y, y + height * 4]);
@@ -77,8 +80,6 @@ const Aboutme = () => {
         y + height * 5,
       ]);
       setPositionRange([y, y + height * 2, y + height * 2.1]);
-
-      console.log(range, range1, range2, range3);
     } else {
       //setShowUlistration(false);
     }
@@ -113,8 +114,6 @@ const Aboutme = () => {
     },
   };
 
-  console.log(text.split(" ").map);
-
   return (
     <motion.section className="   bg-[#151a24] ">
       {/*  <div className=" flex items-center   justify-center  text-clip  ">
@@ -127,9 +126,8 @@ const Aboutme = () => {
         </p>
       </div> */}
 
-      <div className=" flex  flex-wrap items-center justify-center text-clip   text-[6vw]  sm:text-[4vw] md:text-[4vw] md:text-white ">
-        
-         {/*  {isInView&&<motion.div variants={container} initial="hidden" animate="visible">
+      <div className=" flex w-full flex-wrap items-center justify-center text-clip  ">
+        {/*  {isInView&&<motion.div variants={container} initial="hidden" animate="visible">
             {t.map((word, wordIndex) => {
               return (
                 <motion.span variants={child}>
@@ -139,7 +137,11 @@ const Aboutme = () => {
             })}
           </motion.div>}
          */}
-      {true&&<Paragraphe/>}
+        <div className="hidden sm:grid">{true && <Paragraphe />}</div>
+        <div className="grid sm:hidden">
+          {" "}
+          <SmallScreenParagraph />
+        </div>
       </div>
 
       <div
@@ -201,84 +203,32 @@ const Aboutme = () => {
   );
 };
 
-const Word: React.FC<{ text: string }> = ({ text }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-  const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.04 * i },
-    }),
-  };
+const Paragraphe = () => {
+  const tref = useRef(null);
+  const tref2 = useRef(null);
+  const tref3 = useRef(null);
+  const tref4 = useRef(null);
+  const tref5 = useRef(null);
+  const tref6 = useRef(null);
+  const tref7 = useRef(null);
 
-  const child = {
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      y: 200,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-  };
-
-  return (
-    <AnimatePresence>
-      <motion.span
-        ref={ref}
-        className=""
-        variants={container}
-        initial="hidden"
-        animate="visible"
-      >
-        {Array.from(text).map((letter, index) => {
-          return <motion.span key={index} variants={child}>{letter}</motion.span>;
-        })}
-      </motion.span>
-    </AnimatePresence>
-  );
-};
-
-
-
-
-
-
-const Paragraphe=()=>{
-
-  const tref=useRef(null)
-  const tref2=useRef(null)
-  const tref3=useRef(null)
-  const tref4=useRef(null)
-  const tref5=useRef(null)
-  const tref6=useRef(null)
-  const tref7=useRef(null)
-
-  const isInView=useInView(tref)
-  const isInView2=useInView(tref2)
-  const isInView3=useInView(tref3)
-  const isInView4=useInView(tref4)
-  const isInView5=useInView(tref5)
-  const isInView6=useInView(tref6)
-  const isInView7=useInView(tref7)
-
+  const isInView = useInView(tref, { amount: "all", once: false });
+  const isInView2 = useInView(tref2, { amount: "all", once: false });
+  const isInView3 = useInView(tref3, { amount: "all", once: false });
+  const isInView4 = useInView(tref4, { amount: "all", once: false });
+  const isInView5 = useInView(tref5, { amount: "all", once: false });
+  const isInView6 = useInView(tref6, { amount: "all", once: false });
+  const isInView7 = useInView(tref7, { amount: "all", once: false });
 
   const container = {
-    hidden: {width:'0%' },
+    hidden: { width: "0%" },
     visible: (i = 1) => ({
-      width: '100%',
-      transition: { duration:2,staggerChildren: 0.04, delayChildren: 0.2* i },
+      width: "100%",
+      transition: {
+        duration: 2,
+        staggerChildren: 0.04,
+        delayChildren: 0.2 * i,
+      },
     }),
   };
 
@@ -307,6 +257,367 @@ const Paragraphe=()=>{
     visible: {
       opacity: 1,
       y: 0,
+      // x:0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      //x:200,
+      y: 200,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+        duration: 0.1,
+      },
+    },
+  };
+  const controls = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controls4 = useAnimation();
+  const controls5 = useAnimation();
+  const controls6 = useAnimation();
+  const controls7 = useAnimation();
+
+  useEffect(() => {
+    console.count("useEffect1 run");
+    if (isInView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [isInView]);
+
+  useEffect(() => {
+    console.count("useEffect2 run");
+    if (isInView2) {
+      controls2.start("visible");
+    } else {
+      controls2.start("hidden");
+    }
+  }, [isInView2]);
+
+  useEffect(() => {
+    console.count("useEffect3 run");
+    if (isInView3) {
+      controls3.start("visible");
+    } else {
+      controls3.start("hidden");
+    }
+  }, [isInView3]);
+
+  useEffect(() => {
+    console.count("useEffect4 run");
+    if (isInView4) {
+      controls4.start("visible");
+    } else {
+      controls4.start("hidden");
+    }
+  }, [isInView4]);
+
+  useEffect(() => {
+    console.count("useEffect5 run");
+    if (isInView5) {
+      controls5.start("visible");
+    } else {
+      controls5.start("hidden");
+    }
+  }, [isInView5]);
+
+  useEffect(() => {
+    console.count("useEffect6 run");
+    if (isInView6) {
+      controls6.start("visible");
+    } else {
+      controls6.start("hidden");
+    }
+  }, [isInView6]);
+
+  /* medium screen and up  text */
+
+  const l1 = Array.from("I am a web developer with a passion for");
+  const l2 = Array.from("creating visually appealing and user-friendly");
+  const l3 = Array.from("websites and applications.I will be happy to bring");
+  const l4 = Array.from("my expertise in creating beautiful user interfaces");
+  const l5 = Array.from("to your projects and help your team create ");
+  const l6 = Array.from("meaningful and impactful solutions. ");
+
+  /* small screens text */
+
+  const p1 = Array.from("I am a web developer");
+  const p2 = Array.from("with a passion for creating");
+  const p3 = Array.from("visually appealing  user-friendly");
+  const p4 = Array.from("and");
+  const p5 = Array.from("user-friendly websites.");
+  const p6 = Array.from("I will be happy to bring my expertise");
+  const p7 = Array.from("in creating beautiful user interfaces");
+  const p8 = Array.from("to your project and help your team");
+  const p9 = Array.from("create meaningful");
+  const p10 = Array.from("and");
+  const p11 = Array.from("impactful solutions.");
+
+  return (
+    <motion.div className="relative w-full text-white ">
+      {/*this is for  640px scrrens and up */}
+      <motion.div className="grid-row-6 hidden h-screen w-full items-center justify-center px-1 text-center font-passion font-medium sm:grid">
+        <motion.p
+          ref={tref}
+          variants={container}
+          animate={controls}
+          className="  mx-auto  flex max-w-min  overflow-hidden text-[4vw]"
+        >
+          {l1.map((word, wordIndex) => {
+            if (word == " ") return <span>&nbsp;</span>;
+            return (
+              <motion.span key={wordIndex + "1"} variants={childWord}>
+                {word}
+              </motion.span>
+            );
+          })}
+        </motion.p>
+
+        <motion.p
+          ref={tref2}
+          variants={container}
+          animate={controls2}
+          className=" mx-auto  flex max-w-min  overflow-hidden text-[4vw]"
+        >
+          {l2.map((word, wordIndex) => {
+            if (word == " ") return <span>&nbsp;</span>;
+            return (
+              <motion.span key={wordIndex + "2"} variants={childWord}>
+                {word}
+              </motion.span>
+            );
+          })}
+        </motion.p>
+
+        <motion.p
+          ref={tref3}
+          variants={container}
+          animate={controls3}
+          className=" mx-auto  flex max-w-min  overflow-hidden text-[4vw]"
+        >
+          {l3.map((word, wordIndex) => {
+            if (word == " ") return <span>&nbsp;</span>;
+            return (
+              <motion.span key={wordIndex + "3"} variants={childWord}>
+                {word}
+              </motion.span>
+            );
+          })}
+        </motion.p>
+
+        <motion.p
+          ref={tref4}
+          variants={container}
+          animate={controls4}
+          className=" mx-auto  flex max-w-min  overflow-hidden text-[4vw]"
+        >
+          {l4.map((word, wordIndex) => {
+            if (word == " ") return <span>&nbsp;</span>;
+            return (
+              <motion.span key={wordIndex + "4"} variants={childWord}>
+                {word}
+              </motion.span>
+            );
+          })}
+        </motion.p>
+
+        <motion.p
+          ref={tref5}
+          variants={container}
+          animate={controls5}
+          className=" mx-auto  flex max-w-min  overflow-hidden text-[4vw]"
+        >
+          {l5.map((word, wordIndex) => {
+            if (word == " ") return <span>&nbsp;</span>;
+            return (
+              <motion.span key={wordIndex + "5"} variants={childWord}>
+                {word}
+              </motion.span>
+            );
+          })}
+        </motion.p>
+
+        <motion.p
+          ref={tref6}
+          variants={container}
+          animate={controls6}
+          className="  mx-auto  flex max-w-min  overflow-hidden text-[4vw]"
+        >
+          {l6.map((word, wordIndex) => {
+            if (word == " ") return <span>&nbsp;</span>;
+            if (word == "developer") return <span>##</span>;
+            return (
+              <motion.span
+                key={wordIndex + "6"}
+                variants={childWord}
+                className=""
+              >
+                {word}{" "}
+              </motion.span>
+            );
+          })}
+        </motion.p>
+        {/*  <motion.p ref={tref6}   variants={container} 
+    animate={controls6}  className="  text-[4vw]  flex overflow-hidden  max-w-min mx-auto">
+      {l6.map((word, wordIndex) => {
+              if (word == " ") return <span>&nbsp;</span>;
+              return <motion.span key={wordIndex+"6"} variants={childWord} className="">{word} </motion.span>;
+            })}
+    </motion.p> */}
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const SmallScreenParagraph = () => {
+  const tref = useRef(null);
+  const tref2 = useRef(null);
+  const tref3 = useRef(null);
+  const tref4 = useRef(null);
+  const tref5 = useRef(null);
+  const tref6 = useRef(null);
+  const tref7 = useRef(null);
+  const tref8 = useRef(null);
+  const tref9 = useRef(null);
+  const tref10 = useRef(null);
+  const tref11 = useRef(null);
+
+  const isInView = useInView(tref, { amount: "some", once: true });
+  const isInView2 = useInView(tref2, { amount: "some", once: true });
+  const isInView3 = useInView(tref3, { amount: "some", once: true });
+  const isInView4 = useInView(tref4, { amount: "some", once: false });
+  const isInView5 = useInView(tref5, { amount: "some", once: true });
+  const isInView6 = useInView(tref6, { amount: "some", once: true });
+  const isInView7 = useInView(tref7, { amount: "some", once: true });
+  const isInView8 = useInView(tref8, { amount: "some", once: true });
+  const isInView9 = useInView(tref9, { amount: "some", once: true });
+  const isInView10 = useInView(tref10, { amount: "some", once: false });
+  const isInView11 = useInView(tref11, { amount: "some", once: true });
+
+  const controls = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controls4 = useAnimation();
+  const controls5 = useAnimation();
+  const controls6 = useAnimation();
+  const controls7 = useAnimation();
+  const controls8 = useAnimation();
+  const controls9 = useAnimation();
+  const controls10 = useAnimation();
+  const controls11 = useAnimation();
+
+  useEffect(() => {
+    console.count("useEffect1 run");
+    if (isInView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [isInView]);
+
+  useEffect(() => {
+    console.count("useEffect2 run");
+    if (isInView2) {
+      controls2.start("visible");
+    } else {
+      controls2.start("hidden");
+    }
+  }, [isInView2]);
+
+  useEffect(() => {
+    console.count("useEffect3 run");
+    if (isInView3) {
+      controls3.start("visible");
+    } else {
+      controls3.start("hidden");
+    }
+  }, [isInView3]);
+
+  useEffect(() => {
+    console.count("useEffect4 run");
+    if (isInView4) {
+      controls4.start("visible");
+    } else {
+      controls4.start("hidden");
+    }
+  }, [isInView4]);
+
+  useEffect(() => {
+    console.count("useEffect5 run");
+    if (isInView5) {
+      controls5.start("visible");
+    } else {
+      controls5.start("hidden");
+    }
+  }, [isInView5]);
+
+  useEffect(() => {
+    console.count("useEffect6 run");
+    if (isInView6) {
+      controls6.start("visible");
+    } else {
+      controls6.start("hidden");
+    }
+  }, [isInView6]);
+
+  useEffect(() => {
+    console.count("useEffect6 run");
+    if (isInView7) {
+      controls7.start("visible");
+    } else {
+      controls7.start("hidden");
+    }
+  }, [isInView7]);
+
+  useEffect(() => {
+    console.count("useEffect6 run");
+    if (isInView8) {
+      controls8.start("visible");
+    } else {
+      controls8.start("hidden");
+    }
+  }, [isInView8]);
+
+  useEffect(() => {
+    console.count("useEffect6 run");
+    if (isInView9) {
+      controls9.start("visible");
+    } else {
+      controls9.start("hidden");
+    }
+  }, [isInView9]);
+
+  useEffect(() => {
+    console.count("useEffect6 run");
+    if (isInView10) {
+      controls10.start("visible");
+    } else {
+      controls10.start("hidden");
+    }
+  }, [isInView10]);
+
+  useEffect(() => {
+    console.count("useEffect6 run");
+    if (isInView11) {
+      controls11.start("visible");
+    } else {
+      controls11.start("hidden");
+    }
+  }, [isInView11]);
+
+  const child = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale:1,
       transition: {
         type: "spring",
         damping: 12,
@@ -316,125 +627,154 @@ const Paragraphe=()=>{
     hidden: {
       opacity: 0,
       y: 200,
+      scale:0,
       transition: {
         type: "spring",
         damping: 12,
         stiffness: 100,
-        duration:0.1
       },
     },
   };
+ 
 
+  const child2 = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale:1,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+        delay:1.5
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: -20,
+      scale:0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
+  return (
+    <div className="grid-row-12 mt-4 grid h-screen justify-center text-center leading-relaxed text-white sm:hidden">
+      <p className="  w-full  "></p>
+      <motion.p
+        ref={tref}
+        variants={child}
+        initial="hidden"
+        animate={controls}
+        className=" max-h-fit w-full text-[8vw] leading-none"
+      >
+        I am a web developer
+      </motion.p>
 
-  const controls=useAnimation()
-  const controls2=useAnimation()
-  const controls3=useAnimation()
-  const controls4=useAnimation()
-  const controls5=useAnimation()
-  const controls6=useAnimation()
-  const controls7=useAnimation()
+      <motion.p
+        ref={tref2}
+        variants={child}
+        initial="hidden"
+        animate={controls2}
+        className=" w-full    text-[8vw]"
+      >
+        with a passion for creating
+      </motion.p>
 
-  useEffect(()=>{
-    if(isInView){
-      controls.start('visible')
-    }else{controls.start('hidden')}  
-  },[isInView])
+      <motion.p
+        ref={tref3}
+        variants={child}
+        initial="hidden"
+        animate={controls3}
+        className=" w-full   text-[8vw] "
+      >
+        visually appealing
+      </motion.p>
 
+      <motion.p
+        ref={tref4}
+        variants={child2}
+        initial="hidden"
+        animate={controls4}
+        className=" w-full   text-[10vw] leading-none"
+      >
+        and
+      </motion.p>
 
-  useEffect(()=>{
-    if(isInView2){
-      controls2.start('visible')
-    }else{controls2.start('hidden')}  
-  },[isInView2])
-
-
-  useEffect(()=>{
-    if(isInView3){
-      controls3.start('visible')
-    }else{controls3.start('hidden')}  
-  },[isInView3])
-
-  useEffect(()=>{
-    if(isInView4){
-      controls4.start('visible')
-    }else{controls4.start('hidden')}  
-  },[isInView4])
-
-  useEffect(()=>{
-    if(isInView5){
-      controls5.start('visible')
-    }else{controls5.start('hidden')}  
-  },[isInView5])
-
-  useEffect(()=>{
-    if(isInView6){
-      controls6.start('visible')
-    }else{controls6.start('hidden')}  
-  },[isInView6])
-
-
-  const test=Array.from('i am a web developer with a passion for creating')
-  const ttest="i /am /a /web /developer /with /a"
-  return <motion.div className="relative grid grid-col-6  h-screen w-full" >
-
-    <motion.div ref={tref}   variants={container} 
-    animate={controls}  className="   flex overflow-hidden">
-      {test.map((word, wordIndex) => {
-              if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span key={wordIndex+"1"} variants={childWord}>{word}</motion.span>;
-            })}
-    </motion.div>
-
-
-    <motion.div ref={tref2}   variants={container} 
-    animate={controls2}  className="   flex overflow-hidden">
-      {test.map((word, wordIndex) => {
-              if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span key={wordIndex+"2"} variants={childWord}>{word}</motion.span>;
-            })}
-    </motion.div>
-
-    <motion.div ref={tref3}   variants={container} 
-    animate={controls3}  className="   flex overflow-hidden">
-      {test.map((word, wordIndex) => {
-              if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span key={wordIndex+"3"} variants={childWord}>{word}</motion.span>;
-            })}
-    </motion.div>
-
-    <motion.div ref={tref4}   variants={container} 
-    animate={controls4}  className="   flex overflow-hidden">
-      {test.map((word, wordIndex) => {
-              if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span key={wordIndex+"4"} variants={childWord}>{word}</motion.span>;
-            })}
-    </motion.div>
-
-    <motion.div ref={tref5}   variants={container} 
-    animate={controls5}  className="   flex overflow-hidden">
-      {test.map((word, wordIndex) => {
-              if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span key={wordIndex+"5"} variants={childWord}>{word}</motion.span>;
-            })}
-    </motion.div>
-
-    <motion.div ref={tref6}   variants={container} 
-    animate={controls6}  className="   flex overflow-hidden">
-      {test.map((word, wordIndex) => {
-              if (word == " ") return <span>&nbsp;</span>;
-              return <motion.span key={wordIndex+"6"} variants={childWord}>{word}</motion.span>;
-            })}
-    </motion.div>
-
-  
-
-
-
-
-     
+      <motion.p
+        ref={tref5}
+        variants={child}
+        initial="hidden"
+        animate={controls5}
+        className=" w-full   text-[8vw]"
+      >
+        user-friendly websites.
+      </motion.p>
       
-  </motion.div>
-}
+
+
+
+
+      <motion.p
+        ref={tref6}
+        variants={child}
+        initial="hidden"
+        animate={controls6}
+        className=" w-full   text-[5vw]"
+      >
+        I will be happy to bring my expertise
+      </motion.p>
+
+      <motion.p
+        ref={tref7}
+        variants={child}
+        initial="hidden"
+        animate={controls7}
+        className=" w-full   text-[5vw]"
+      >
+        in creating beautiful user interfaces
+      </motion.p>
+      <motion.p
+        ref={tref8}
+        variants={child}
+        initial="hidden"
+        animate={controls8}
+        className=" w-full   text-[5vw]"
+      >
+        to your project and help your team
+      </motion.p>
+      <motion.p
+        ref={tref9}
+        variants={child}
+        initial="hidden"
+        animate={controls9}
+        className=" w-full   text-[5vw]"
+      >
+        create meaningful
+      </motion.p>
+      <motion.p
+        ref={tref10}
+        variants={child2}
+        initial="hidden"
+        animate={controls10}
+        className=" w-full   text-[10vw] leading-none"
+      >
+        and
+      </motion.p>
+      <motion.p
+        ref={tref11}
+        variants={child}
+        initial="hidden"
+        animate={controls11}
+        className=" w-full   text-[5vw]"
+      >
+        impactful solutions.
+      </motion.p>
+    </div>
+  );
+};
 
 export default Aboutme;
 /**
@@ -493,4 +833,3 @@ export default Aboutme;
               </text>
             </svg>
  */
- 

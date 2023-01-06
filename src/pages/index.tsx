@@ -238,8 +238,9 @@ const Arrows2: React.FC<Props> = ({ opacity, sectionInView }) => {
       // fillOpacity={0.4}
       xmlns="http://www.w3.org/2000/svg"
       //className="h-[96px] w-[90px] md:h-[198px] md:w-[188px]"
-      className='lg:w-[15vw] md:w-[20vw] w-[33vw] aspect-square'
+      className='w-[25vw] sm:w-[20vw] md:w-[15vw] lg:w-[12vw] aspect-square'
     >
+      {/* lg:w-[15vw] md:w-[20vw] w-[33vw] */}
       <AnimatePresence mode="wait">
         {/* text */}
 
