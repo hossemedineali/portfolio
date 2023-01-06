@@ -667,7 +667,7 @@ const SmallScreenParagraph = () => {
         initial="hidden"
         animate={controls}
   */
- initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+ initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
         className="max-h-fit w-full border text-[8vw] leading-none"
       >
         I am a web developer
@@ -679,7 +679,7 @@ const SmallScreenParagraph = () => {
         initial="hidden"
         animate={controls2}
  */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
         className="w-full border    text-[8vw]"
       >
         with a passion for creating
@@ -691,7 +691,7 @@ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
         initial="hidden"
         animate={controls3}
  */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
         className=" w-full border  text-[8vw] leading-none"
       >
         visually appealing
@@ -703,7 +703,7 @@ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
         initial="hidden"
         animate={controls4}
  */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1,}}
         className=" w-full border  text-[10vw] leading-none"
       >
         and
@@ -715,7 +715,7 @@ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
         initial="hidden"
         animate={controls5}
  */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
         className=" w-full border  text-[8vw]"
       >
         user-friendly websites.
@@ -727,7 +727,7 @@ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
         initial="hidden"
         animate={controls6}
  */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
         className=" w-full border  text-[5vw]"
       >
         I will be happy to bring my expertise
@@ -739,7 +739,7 @@ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
         initial="hidden"
         animate={controls7}
  */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
         className=" w-full border  text-[5vw]"
       >
         in creating beautiful user interfaces
@@ -750,7 +750,7 @@ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
         initial="hidden"
         animate={controls8}
  */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
         className=" w-full border  text-[5vw]"
       >
         to your project and help your team
@@ -761,7 +761,7 @@ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
         initial="hidden"
         animate={controls9}
  */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
         className=" w-full border  text-[5vw]"
       >
         create meaningful
@@ -771,7 +771,7 @@ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
         variants={child2}
         initial="hidden"
         animate={controls10} */
-initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+initial={{y:200,opacity:0}} whileInView={{y:0,opacity:1}}
 
         className=" w-full border   text-[10vw] leading-none"
       >
