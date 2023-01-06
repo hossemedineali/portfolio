@@ -490,17 +490,17 @@ const SmallScreenParagraph = () => {
   const tref10 = useRef(null);
   const tref11 = useRef(null);
 
-  const isInView = useInView(tref, { amount: "some", once: true });
-  const isInView2 = useInView(tref2, { amount: "some", once: true });
-  const isInView3 = useInView(tref3, { amount: "some", once: true });
-  const isInView4 = useInView(tref4, { amount: "some", once: false });
-  const isInView5 = useInView(tref5, { amount: "some", once: true });
-  const isInView6 = useInView(tref6, { amount: "some", once: true });
-  const isInView7 = useInView(tref7, { amount: "some", once: true });
-  const isInView8 = useInView(tref8, { amount: "some", once: true });
-  const isInView9 = useInView(tref9, { amount: "some", once: true });
-  const isInView10 = useInView(tref10, { amount: "some", once: false });
-  const isInView11 = useInView(tref11, { amount: "some", once: true });
+  const isInView = useInView(tref, { once: true });
+  const isInView2 = useInView(tref2, { once: true });
+  const isInView3 = useInView(tref3, { once: true });
+  const isInView4 = useInView(tref4, { once: false });
+  const isInView5 = useInView(tref5, { once: true });
+  const isInView6 = useInView(tref6, { once: true });
+  const isInView7 = useInView(tref7, { once: true });
+  const isInView8 = useInView(tref8, { once: true });
+  const isInView9 = useInView(tref9, { once: true });
+  const isInView10 = useInView(tref10, { once: false });
+  const isInView11 = useInView(tref11, { once: true });
 
   const controls = useAnimation();
   const controls2 = useAnimation();
@@ -617,7 +617,7 @@ const SmallScreenParagraph = () => {
     visible: {
       opacity: 1,
       y: 0,
-      scale:1,
+      scale: 1,
       transition: {
         type: "spring",
         damping: 12,
@@ -627,7 +627,7 @@ const SmallScreenParagraph = () => {
     hidden: {
       opacity: 0,
       y: 200,
-      scale:0,
+      scale: 0,
       transition: {
         type: "spring",
         damping: 12,
@@ -635,24 +635,23 @@ const SmallScreenParagraph = () => {
       },
     },
   };
- 
 
   const child2 = {
     visible: {
       opacity: 1,
       y: 0,
-      scale:1,
+      scale: 1,
       transition: {
         type: "spring",
         damping: 12,
         stiffness: 100,
-        delay:1.5
+        delay: 1.5,
       },
     },
     hidden: {
       opacity: 0,
       y: -20,
-      scale:0,
+      scale: 0,
       transition: {
         type: "spring",
         damping: 12,
@@ -661,114 +660,131 @@ const SmallScreenParagraph = () => {
     },
   };
   return (
-    <div className="grid-row-12 mt-4 grid h-screen justify-center text-center leading-relaxed text-white sm:hidden">
-      <p className="  w-full  "></p>
+    <div className="grid-row-12 mt-4 grid h-screen justify-center text-center leading-none text-white sm:hidden">
       <motion.p
-        ref={tref}
+        /* ref={tref}
         variants={child}
         initial="hidden"
         animate={controls}
-        className=" max-h-fit w-full text-[8vw] leading-none"
+  */
+ initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className="max-h-fit w-full border text-[8vw] leading-none"
       >
         I am a web developer
       </motion.p>
 
       <motion.p
-        ref={tref2}
+        /* ref={tref2}
         variants={child}
         initial="hidden"
         animate={controls2}
-        className=" w-full    text-[8vw]"
+ */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className="w-full border    text-[8vw]"
       >
         with a passion for creating
       </motion.p>
 
       <motion.p
-        ref={tref3}
+        /* ref={tref3}
         variants={child}
         initial="hidden"
         animate={controls3}
-        className=" w-full   text-[8vw] "
+ */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className=" w-full border  text-[8vw] leading-none"
       >
         visually appealing
       </motion.p>
 
       <motion.p
-        ref={tref4}
+        /* ref={tref4}
         variants={child2}
         initial="hidden"
         animate={controls4}
-        className=" w-full   text-[10vw] leading-none"
+ */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className=" w-full border  text-[10vw] leading-none"
       >
         and
       </motion.p>
 
       <motion.p
-        ref={tref5}
+        /* ref={tref5}
         variants={child}
         initial="hidden"
         animate={controls5}
-        className=" w-full   text-[8vw]"
+ */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className=" w-full border  text-[8vw]"
       >
         user-friendly websites.
       </motion.p>
-      
-
-
-
 
       <motion.p
-        ref={tref6}
+        /* ref={tref6}
         variants={child}
         initial="hidden"
         animate={controls6}
-        className=" w-full   text-[5vw]"
+ */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className=" w-full border  text-[5vw]"
       >
         I will be happy to bring my expertise
       </motion.p>
 
       <motion.p
-        ref={tref7}
+        /* ref={tref7}
         variants={child}
         initial="hidden"
         animate={controls7}
-        className=" w-full   text-[5vw]"
+ */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className=" w-full border  text-[5vw]"
       >
         in creating beautiful user interfaces
       </motion.p>
       <motion.p
-        ref={tref8}
+        /* ref={tref8}
         variants={child}
         initial="hidden"
         animate={controls8}
-        className=" w-full   text-[5vw]"
+ */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className=" w-full border  text-[5vw]"
       >
         to your project and help your team
       </motion.p>
       <motion.p
-        ref={tref9}
+        /* ref={tref9}
         variants={child}
         initial="hidden"
         animate={controls9}
-        className=" w-full   text-[5vw]"
+ */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+        className=" w-full border  text-[5vw]"
       >
         create meaningful
       </motion.p>
       <motion.p
-        ref={tref10}
+        /* ref={tref10}
         variants={child2}
         initial="hidden"
-        animate={controls10}
-        className=" w-full   text-[10vw] leading-none"
+        animate={controls10} */
+initial={{y:20,opacity:0}} whileInView={{y:0,opacity:1}}
+
+        className=" w-full border   text-[10vw] leading-none"
       >
         and
       </motion.p>
       <motion.p
-        ref={tref11}
-        variants={child}
-        initial="hidden"
-        animate={controls11}
-        className=" w-full   text-[5vw]"
+        //  ref={tref11}
+        // variants={child}
+        // initial="hidden"
+        // animate={controls11}
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        className=" w-full  border text-[5vw]"
       >
         impactful solutions.
       </motion.p>
