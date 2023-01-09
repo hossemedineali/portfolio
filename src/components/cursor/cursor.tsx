@@ -35,7 +35,6 @@ const Canvas = () => {
   const { width, height } = useWindowSize()
 
 
-
   // Array of stars
   const stars: Star[] = []
 
@@ -61,6 +60,8 @@ const Canvas = () => {
 
   // Set up the canvas and start the update loop
   useEffect(() => {
+    console.log("cursor :,",width,height)
+
     // Get a reference to the canvas element
     const canvas = canvasRef.current
 
@@ -70,6 +71,7 @@ const Canvas = () => {
     }
     // Get a reference to the canvas rendering context
     const ctx = canvas.getContext('2d')
+    
     if(!ctx){
         console.log('no ctx ,will return')
         return

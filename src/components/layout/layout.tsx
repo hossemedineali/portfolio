@@ -12,7 +12,6 @@ import Project1DetailsWrapper from "../projects/Project1DetailWrapper copy";
 import Menu from "../sections/menu";
 import { motion } from "framer-motion";
 import Canvas from "../cursor/cursor";
-import { Socket } from "dgram";
 
 type props = {
   children: JSX.Element;
@@ -21,9 +20,10 @@ type props = {
 const Layout: React.FC<props> = (props) => {
   const projects = useProjectModal();
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 3800);
@@ -31,7 +31,7 @@ const Layout: React.FC<props> = (props) => {
   }, []);
   return (
     <motion.div className={`relative mx-auto min-h-screen overflow-hidden bg-[#1d1d1d] ${isOpen?'max-h-screen':''}`}>
-      {!isLoading && (
+      {!true && (
         <div className="absolute top-0 left-0 right-0 bottom-0 max-w-[200vw]">
           <Canvas />
         </div>
