@@ -24,11 +24,25 @@ const AboutMe = () => {
     const adjustX=10
     const adjustY=20
     //0.015 for  about 800px w and up
-    let fontSize=canvas.width*0.025+'px'
+    //0.025 less than 800
+    let fontSize=''
+    let paragraphe:string[]=[]
+    if(canvas.width<600) {
+      fontSize=canvas.width*0.026+'px'
+      const textsm=' I am a web \ndeveloper with \na passion  for \ncreating \na visualy \nappealing and \nuser friendly \nwebsite. \nI will be happy to \nbring  my \nexpertise  \nin making  your \nidea a reality'
 
-    addEventListener('resize',(event)=>{
+      paragraphe=textsm.split('\n')
+    }
+    else {
+      fontSize=canvas.width*0.015+'px'
+      const text='I am a web developer with \n a passion  for creating \n a visualy appealing and \n user friendly  website. \n I will be happy to bring \n my expertise  in making \n your idea a reality '
+    paragraphe=text.split('\n')  
+}    
+addEventListener('resize',(event)=>{
 
       if(!canvas)return
+      setWidth(window.innerWidth)
+      setHeight(window.innerHeight)
       canvas.width=window.innerWidth
 
       canvas.height=window.innerHeight
@@ -38,19 +52,17 @@ const AboutMe = () => {
    
     
     const text='I am a web developer with \n a passion  for creating \n a visualy appealing and \n user friendly  website. \n I will be happy to bring \n my expertise  in making \n your idea a reality '
-    
-    
+    const tab=text.split('\n')  
     const textsm=' I am a web \ndeveloper with \na passion  for \ncreating \na visualy \nappealing and \nuser friendly \nwebsite. \nI will be happy to \nbring  my \nexpertise  \nin making  your \nidea a reality'
     const tabsm=textsm.split('\n')
     
-    const tab=text.split('\n')
     ctx.fillStyle = "white";
     ctx.font = `${fontSize} arial`;
-    let lineHeight=0
-    for(let i=0;i<tabsm.length;i++){
+    let lineHeight=10
+    for(let i=0;i<paragraphe.length;i++){
       lineHeight += ctx.measureText('M').width
       console.log('Lineheight',lineHeight)
-      ctx.fillText(tabsm[i] as string, 2, lineHeight+2*i );
+      ctx.fillText(paragraphe[i] as string, 2, lineHeight+2*i );
     }
     
 
@@ -159,7 +171,7 @@ const AboutMe = () => {
     animate()
 
 
-  }, []);
+  }, [width,height]);
 
   return (
     <div className="  h-screen w-full text-6xl">
