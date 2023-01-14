@@ -16,7 +16,7 @@ const Paragraphe = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     canvas.width = window.innerWidth;
-    canvas.height = 800;
+    canvas.height = window.innerHeight*2;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -26,8 +26,8 @@ const Paragraphe = () => {
     let fontSize=''
     let paragraphe:string[]=[]
     if(canvas.width<600) {
-      fontSize=canvas.width*0.026+'px'
-      const textsm=' I am a web \ndeveloper with \na passion  for \ncreating \na visualy \nappealing and \nuser friendly \nwebsite. \nI will be happy to \nbring  my \nexpertise  \nin making  your \nidea a reality'
+      fontSize=canvas.width*0.035+'px'
+      const textsm='I am a web \ndeveloper \nwith a \npassion  for \ncreating \na visualy \nappealing \nwebsites. \nI will be \nhappy to \nbring  my \nexpertise  \nin making  \nyour idea \na reality'
 
       paragraphe=textsm.split('\n')
     }
