@@ -15,7 +15,7 @@ const AboutMe = () => {
    
     const canvas = canvasRef.current;
     if (!canvas) return;
-    canvas.width = width;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     const ctx = canvas.getContext("2d");
@@ -23,7 +23,8 @@ const AboutMe = () => {
 
     const adjustX=10
     const adjustY=20
-    let fontSize=canvas.width*0.03+'px'
+    //0.015 for  about 800px w and up
+    let fontSize=canvas.width*0.025+'px'
 
     addEventListener('resize',(event)=>{
 
@@ -31,18 +32,20 @@ const AboutMe = () => {
       canvas.width=window.innerWidth
 
       canvas.height=window.innerHeight
-      fontSize=canvas.width*0.01+'px'
+      //
+      fontSize=canvas.width*0.005+'px'
     })
    
     
-    const text='I am a web developer with a passion \n for creating a visualy appealing  \n and user friendly  website \n i will be happy to bring my expertise \n in making your idea a reality '
+    const text='I am a web developer with \n a passion  for creating \n a visualy appealing and \n user friendly  website. \n I will be happy to bring \n my expertise  in making \n your idea a reality '
     const tab=text.split('\n')
     ctx.fillStyle = "white";
     ctx.font = `${fontSize} arial`;
-    let lineHeight=60
+    let lineHeight=10
     for(let i=0;i<tab.length;i++){
       lineHeight += ctx.measureText('M').width
-      ctx.fillText(tab[i] as string, 0, lineHeight-50);
+      console.log('Lineheight',lineHeight)
+      ctx.fillText(tab[i] as string, 2, lineHeight+2*i );
     }
     
 
