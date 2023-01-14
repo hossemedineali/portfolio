@@ -5,10 +5,17 @@ import useWindowSize from "../helper/useWindowSize";
 const AboutMe = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const [width,setWidth]=useState(1)
+  const [height,setHeight]=useState(1)
+
   useEffect(() => {
+    setWidth(window.innerWidth)
+    setHeight(window.innerHeight)
+
+   
     const canvas = canvasRef.current;
     if (!canvas) return;
-    canvas.width = window.innerWidth;
+    canvas.width = width;
     canvas.height = window.innerHeight;
 
     const ctx = canvas.getContext("2d");
@@ -16,10 +23,27 @@ const AboutMe = () => {
 
     const adjustX=10
     const adjustY=20
+    let fontSize=canvas.width*0.03+'px'
+
+    addEventListener('resize',(event)=>{
+
+      if(!canvas)return
+      canvas.width=window.innerWidth
+
+      canvas.height=window.innerHeight
+      fontSize=canvas.width*0.01+'px'
+    })
+   
     
+    const text='I am a web developer with a passion \n for creating a visualy appealing  \n and user friendly  website \n i will be happy to bring my expertise \n in making your idea a reality '
+    const tab=text.split('\n')
     ctx.fillStyle = "white";
-    ctx.font = "20px veranda";
-    ctx.fillText("Hossem", 0, 20);
+    ctx.font = `${fontSize} arial`;
+    let lineHeight=60
+    for(let i=0;i<tab.length;i++){
+      lineHeight += ctx.measureText('M').width
+      ctx.fillText(tab[i] as string, 0, lineHeight-50);
+    }
     
 
     
@@ -30,7 +54,7 @@ const AboutMe = () => {
     const mouse: { x: number | null; y: number | null; radius: number } = {
       x: null,
       y: null,
-      radius: 50,
+      radius: 80,
     };
 
     window.addEventListener("mousemove", function (event) {
@@ -52,13 +76,13 @@ const AboutMe = () => {
         this.size = 3;
         this.baseX = this.x;
         this.baseY = this.y;
-        this.density=(Math.random()*40)+5;
+        this.density=(Math.random()*10)+1;
       }
       draw(){
         if(!ctx) return
-        ctx.fillStyle = 'red'
+        ctx.fillStyle = 'white'
         ctx.beginPath()
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2)
+        ctx.arc(this.x,this.y,this.size,15,Math.PI*2)
         ctx.closePath()
         ctx.fill()
       }
@@ -131,7 +155,7 @@ const AboutMe = () => {
 
   return (
     <div className="  h-screen w-full text-6xl">
-      <canvas className="abolute top-0 left-0  bg-black" ref={canvasRef} />
+      <canvas style={{width:'100%',height:'100%',}} className="abolute top-40 left-0  bg-Cyellow font-passion" ref={canvasRef} />
     </div>
   );
 };
