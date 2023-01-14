@@ -38,14 +38,19 @@ const AboutMe = () => {
    
     
     const text='I am a web developer with \n a passion  for creating \n a visualy appealing and \n user friendly  website. \n I will be happy to bring \n my expertise  in making \n your idea a reality '
+    
+    
+    const textsm=' I am a web \ndeveloper with \na passion  for \ncreating \na visualy \nappealing and \nuser friendly \nwebsite. \nI will be happy to \nbring  my \nexpertise  \nin making  your \nidea a reality'
+    const tabsm=textsm.split('\n')
+    
     const tab=text.split('\n')
     ctx.fillStyle = "white";
     ctx.font = `${fontSize} arial`;
-    let lineHeight=10
-    for(let i=0;i<tab.length;i++){
+    let lineHeight=0
+    for(let i=0;i<tabsm.length;i++){
       lineHeight += ctx.measureText('M').width
       console.log('Lineheight',lineHeight)
-      ctx.fillText(tab[i] as string, 2, lineHeight+2*i );
+      ctx.fillText(tabsm[i] as string, 2, lineHeight+2*i );
     }
     
 
