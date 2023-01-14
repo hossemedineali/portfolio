@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import Section1 from "../components/sections/home";
 import Work from "../components/sections/work";
 import Section2 from "../components/sections/skills";
-import Aboutme from "../components/sections/aboutme";
+import Aboutme from "../components/sections/newAboutme";
 import useWindowSize from "../helper/useWindowSize";
 import Contact from "../components/sections/contact";
 
