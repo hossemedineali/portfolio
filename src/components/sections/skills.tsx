@@ -213,18 +213,18 @@ const Skills = () => {
       >
         <div className="flex gap-4">
           <div className="h-20 w-20 md:h-32 md:w-32  lg:h-40 lg:w-40  ">
-            <img src={reactIcon.src} className="h-full w-full" />
+            <img alt="imageskill" src={reactIcon.src} className="h-full w-full" />
           </div>
           <div className="h-20 w-20 md:h-32 md:w-32  lg:h-40 lg:w-40  ">
-            <img src={next.src} className="h-full w-full" />
+            <img alt="imageskill" src={next.src} className="h-full w-full" />
           </div>
         </div>
         <div className="flex gap-4">
           <div className="h-20 w-20 md:h-32 md:w-32  lg:h-40 lg:w-40  ">
-            <img src={ts.src} className="h-full w-full" />
+            <img alt="imageskill" src={ts.src} className="h-full w-full" />
           </div>
           <div className="h-20 w-20 md:h-32 md:w-32  lg:h-40 lg:w-40  ">
-            <img src={tailwind.src} className="h-full w-full" />
+            <img alt="imageskill" src={tailwind.src} className="h-full w-full" />
           </div>
         </div>
       </div>

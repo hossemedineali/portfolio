@@ -1,45 +1,19 @@
 import {
     motion,
-    useMotionValue,
+    
     useScroll,
     useTransform,
     useInView,
-    AnimatePresence,
-    useAnimation,
+    
   } from "framer-motion";
   
   import { useEffect, useRef, useState } from "react";
   import useWindowSize from "../../helper/useWindowSize";
 import Paragraphe from "./paragraphe";
   
-  const text =
-    "I / am / a web / developer / with / a / passion / for / creating / visually / appealing / and / user-friendly / websites / and / applications. / I / will / be / happy / to / bring / my / expertise / in / creating / beautiful / user / interfaces / to / your / projects / and / help / your / team / create / meaningful / and / impactful / solutions. / I / am / reliable, / self-motivated, / and / able / to / work / well / in / a / team / environment.";
   
-  const t = [
-    "I / am / a web / developer / with / a / passion /",
-    [
-      " for / creating / visually / appealing / and / user-friendly / websites / and /",
-    ],
-    [" applications. / I / will / be / happy / to / bring / my / expertise / in"],
-    [
-      " / creating / beautiful / user / interfaces / to / your / projects / and /",
-    ],
-    [" help / your / team / create / meaningful / and / impactful /"],
-    [" solutions. / I / am / reliable, / self-motivated, / and / able / to /"],
-    [" work / well / in / a / team / environment."],
-  ];
   
-  const tt = "I / am / a web / developer / with / a / passion /";
-  const tt2 =
-    " for / creating / visually / appealing / and / user-friendly / websites / and /";
-  const tt3 =
-    " applications. / I / will / be / happy / to / bring / my / expertise / in";
-  const tt4 =
-    " / creating / beautiful / user / interfaces / to / your / projects / and /";
-  const tt5 = " help / your / team / create / meaningful / and / impactful /";
-  const tt6 =
-    " solutions. / I / am / reliable, / self-motivated, / and / able / to /";
-  const tt7 = " work / well / in / a / team / environment.";
+ 
   
   const Aboutme = () => {
     const { scrollY } = useScroll();
@@ -52,7 +26,6 @@ import Paragraphe from "./paragraphe";
     const [range2, setRange2] = useState<number[]>([0, 0]);
     const [range3, setRang3] = useState<number[]>([0, 0]);
     const [positionRange, setPositionRange] = useState<number[]>([0, 0, 0]);
-    const [colorRange, setColorRange] = useState<number[]>([0, 0, 0, 0, 0, 0]);
     const pathLength = useTransform(scrollY, range, [0, 1]);
     const pathLength1 = useTransform(scrollY, range1, [0, 1]);
     const pathLength2 = useTransform(scrollY, range2, [0, 1]);
@@ -72,49 +45,16 @@ import Paragraphe from "./paragraphe";
         setRange1([y + height * 2, y + height * 4]);
         setRange2([y + height * 2.4, y + height * 4]);
         setRang3([y + height * 3.1, y + height * 4]);
-        setColorRange([
-          y,
-          y + height,
-          y + height * 2,
-          y + height * 3,
-          y + height * 4,
-          y + height * 5,
-        ]);
+      
         setPositionRange([y, y + height * 2, y + height * 2.1]);
       } else {
         //setShowUlistration(false);
       }
     }, [isInView]);
   
-    const container = {
-      hidden: { opacity: 0 },
-      visible: (i = 1) => ({
-        opacity: 1,
-        transition: { staggerChildren: 1, delayChildren: 1 * i },
-      }),
-    };
   
-    const child = {
-      visible: {
-        opacity: 1,
-        //y: 0,
-        transition: {
-          type: "spring",
-          damping: 12,
-          stiffness: 100,
-        },
-      },
-      hidden: {
-        opacity: 0,
-        //y: 200,
-        transition: {
-          type: "spring",
-          damping: 12,
-          stiffness: 100,
-        },
-      },
-    };
   
+
     return (
       <motion.section className="   bg-[#151a24] ">
       

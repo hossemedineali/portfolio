@@ -1,44 +1,10 @@
-import { motion, useCycle, Cycle, useScroll, useTransform } from "framer-motion";
-import Menu from "./sections/menu";
+import { motion,type Cycle, useScroll, useTransform } from "framer-motion";
 import LogoSVG from "./UI/logosvg";
 
-const close = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="h-[15vw] w-[15vw] text-white sm:h-[8vw] sm:w-[8vw] 2xl:h-[6vw] 2xl:w-[6vw]"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-    />
-  </svg>
-);
-
-const open = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    className="h-[15vw] w-[15vw] text-black sm:h-[8vw] sm:w-[8vw] 2xl:h-[6vw] 2xl:w-[6vw]"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M6 18L18 6M6 6l12 12"
-    />
-  </svg>
-);
 
 const Header: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
   toggleOpen,
-  isOpen,
+  
 }) => {
 
   const { scrollY } = useScroll()

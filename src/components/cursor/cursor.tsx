@@ -1,32 +1,7 @@
 import { motion,  } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef,  } from 'react'
+import useWindowSize from '../../helper/useWindowSize'
 
-
-function useWindowSize() {
-  // Initialize state with undefined width/height so server and client renders match
-  // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
-  const [windowSize, setWindowSize] = useState<{width:number|undefined,height:number|undefined}>({
-    width:undefined ,
-    height: undefined,
-  });
-  useEffect(() => {
-    // Handler to call on window resize
-    function handleResize() {
-      // Set window width/height to state
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-    // Call handler right away so state gets updated with initial window size
-    handleResize();
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array ensures that effect is only run on mount
-  return windowSize;
-}
 const Canvas = () => {
   // Create a reference to the canvas element
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -189,7 +164,6 @@ const Canvas = () => {
         color = '#f5d300' 
       }
        
-      // Add a new star based on the cursor's speed
       stars.push(
         new Star(
           event.clientX,
@@ -212,7 +186,6 @@ const Canvas = () => {
 
   return (
     <motion.canvas
-      //animate={{ x: cursorPosition.x, y: cursorPosition.y }}
       ref={canvasRef}
      width={width?width-10:0}
      

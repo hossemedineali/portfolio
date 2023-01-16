@@ -16,7 +16,7 @@ import soon from '../../../public/soon.png'
 import Image from "next/image";
 import Link from "next/link";
 
-const Project1:React.FC<{isLoading:boolean,hundelPreviousButton:()=>void,hundelNextButton:()=>void}> = ({isLoading,hundelPreviousButton,hundelNextButton}) => {
+const ProjectsDetails:React.FC<{isLoading:boolean,hundelPreviousButton:()=>void,hundelNextButton:()=>void}> = ({isLoading,hundelPreviousButton,hundelNextButton}) => {
   
   const project = useProjectModal();
   const prevBtnDisabled = project.prjectNumber == 1;
@@ -609,4 +609,4 @@ const P4:React.FC<{isLoading:boolean}> = ({isLoading}) => {
     </div>
   );
 };
-export default Project1;
+export default ProjectsDetails;

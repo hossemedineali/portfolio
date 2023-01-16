@@ -1,11 +1,11 @@
-import Loader from "../loader";
-import { motion, useCycle, useScroll, useTransform } from "framer-motion";
-import Header from "../header";
+//import Loader from "../loader";
+import { motion,  useScroll, useTransform } from "framer-motion";
+//import Header from "../header";
 import useWindowSize from "../../helper/useWindowSize";
 
 import {useEffect,useState} from 'react'
 const Home = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+ // const [isOpen, toggleOpen] = useCycle(false, true);
   const [range,setRange]=useState([0,0,0,0,0,0])
   const {scrollY}=useScroll()
  const {height}= useWindowSize()
@@ -14,10 +14,7 @@ const Home = () => {
  const p2=useTransform(scrollY,[height*1,height*2],[0,1])
  const p3=useTransform(scrollY,[height*2,height*5],[0,1])
  const p4=useTransform(scrollY,[height*4,height*6],[0,1])
- const p5=useTransform(scrollY,[height*4,height*5],[0,1])
-
-
- const htmlCssJsPositionTransform=useTransform(scrollY,[height*5,height*7],['0','5vw'])
+ 
 
  const htmlX=useTransform(scrollY,[height*5,height*7],['0','5vw'])
  const htmlY=useTransform(scrollY,[height*5,height*7],['0','-25vh'])
@@ -103,101 +100,12 @@ const Home = () => {
 <motion.path style={{scale:htmlCssJsScaleTransform,x:tsX,y:tsY}}    className='scale-0'  d="M135.125 417.094C134.354 417.094 133.792 417 133.438 416.812C133.083 416.604 132.906 416.292 132.906 415.875V382.344H122.219C121.823 382.344 121.542 382.208 121.375 381.938C121.208 381.667 121.125 381.25 121.125 380.688V379.781C121.125 379.198 121.208 378.781 121.375 378.531C121.542 378.26 121.823 378.125 122.219 378.125H148.281C148.677 378.125 148.958 378.26 149.125 378.531C149.292 378.781 149.375 379.198 149.375 379.781V380.688C149.375 381.25 149.292 381.667 149.125 381.938C148.958 382.208 148.677 382.344 148.281 382.344H137.812V415.875C137.812 416.688 137.062 417.094 135.562 417.094H135.125ZM164.062 417.312C162.021 417.312 160.115 417.094 158.344 416.656C156.594 416.198 155.188 415.656 154.125 415.031C153.083 414.385 152.562 413.802 152.562 413.281C152.562 412.99 152.677 412.604 152.906 412.125C153.156 411.646 153.438 411.219 153.75 410.844C154.062 410.469 154.312 410.281 154.5 410.281C154.667 410.281 155.031 410.448 155.594 410.781C156.885 411.448 158.167 412 159.438 412.438C160.708 412.875 162.25 413.094 164.062 413.094C165.479 413.094 166.74 412.823 167.844 412.281C168.948 411.74 169.802 410.979 170.406 410C171.031 409 171.344 407.854 171.344 406.562C171.344 405.188 170.969 404.052 170.219 403.156C169.49 402.24 168.594 401.521 167.531 401C166.49 400.458 164.969 399.792 162.969 399C160.802 398.167 159.083 397.396 157.812 396.688C156.562 395.958 155.49 394.906 154.594 393.531C153.719 392.156 153.281 390.333 153.281 388.062C153.281 386.083 153.792 384.312 154.812 382.75C155.833 381.167 157.281 379.938 159.156 379.062C161.031 378.188 163.188 377.75 165.625 377.75C166.729 377.75 167.99 377.906 169.406 378.219C170.823 378.51 172.031 378.917 173.031 379.438C174.052 379.958 174.562 380.531 174.562 381.156C174.562 381.427 174.448 381.802 174.219 382.281C174.01 382.74 173.76 383.156 173.469 383.531C173.177 383.906 172.948 384.094 172.781 384.094C172.594 384.094 172.219 383.938 171.656 383.625C170.719 383.125 169.792 382.729 168.875 382.438C167.958 382.125 166.844 381.969 165.531 381.969C163.385 381.969 161.646 382.521 160.312 383.625C159 384.729 158.344 386.271 158.344 388.25C158.344 389.438 158.635 390.417 159.219 391.188C159.802 391.958 160.542 392.573 161.438 393.031C162.333 393.49 163.583 394.021 165.188 394.625C165.292 394.646 165.531 394.729 165.906 394.875C168.115 395.729 169.917 396.562 171.312 397.375C172.729 398.167 173.927 399.312 174.906 400.812C175.906 402.312 176.406 404.229 176.406 406.562C176.406 408.75 175.896 410.656 174.875 412.281C173.875 413.906 172.438 415.156 170.562 416.031C168.708 416.885 166.542 417.312 164.062 417.312Z" fill="white"/>
 
 
-</svg>
-
-
-
-   
+</svg>   
     </div>
   </div>
-  /*   <div className="relative  z-0 h-screen ">
-      
-      <div className="   flex   justify-center items-center   h-full ">
-        <div className="md:max-w-1/2  mb-10 md:mb-0">
-          <Loader />
-        </div>
-    
-      </div>
-
-   
-    </div> */
+  
   );
 };
-
-
-
-
-const Arrows = () => {
-  return (
-    <motion.svg
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="h-20 w-20 "
-      initial={{ opacity: 0, y: 0, color: "fff" }}
-      animate={{
-        opacity: [0, 0.5, 1, 0.5, 0],
-        y: [0, 20, 30, 50, 60],
-        color: ["#fff", "#ff0000", "#ff7a7a", "#ffcfcf", "#fdf4da"],
-      }}
-      transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
-    >
-      <motion.path
-        fill="none"
-        d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5    "
-      />
-
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-  <motion.path strokeLinecap="round" strokeLinejoin="round" d="M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5" />
-</svg>
-
-    </motion.svg>
-  );
-};
-
-const Arrows2 = () => {
-  return (
-<svg className="hero-family__arrow-svg --transition" viewBox="0 0 209 209" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle className="hero-family__arrow-circle" cx="104.5" cy="104.5" r="0" fill="white"></circle>
-                    <circle className="hero-family__arrow-circle2" opacity="0.6" cx="104.5" cy="104.5" r="103.75" stroke="white" stroke-width="0.5" style={{strokeDashoffset:0,strokeDasharray:'none',}} ></circle>
-                    <rect className="hero-family__arrow-rect" x="104.302" y="84" width="1.19328" height="40.5714" fill="white" style={{height:'41px',fill:'white'}} ></rect>
-                    <path className="path-1"  style={{strokeDashoffset:0,strokeDasharray:'none',stroke:'white'}} d="M104.898 124.571C104.898 118.604 108.419 106.194 122.499 104.285" stroke="white"  ></path>
-                    <path className="path-2" style={{strokeDashoffset:0,strokeDasharray:'none',stroke:'white'}} d="M104.601 124.571C104.601 118.604 101.08 106.194 86.9997 104.285" stroke="white" ></path>
-                  </svg>
-
-/* 
-style="stroke-dashoffset: 0; stroke-dasharray: none; stroke: white;"
-style="stroke-dashoffset: 0; stroke-dasharray: none; stroke: white;" */
-  );
-};
-
 
 export default Home;
 
-/*
-
-  <p className="text-Cviolet">
-          While <span>(</span> <span className="text-Cblue">alive</span>{" "}
-          <span>)</span>
-        </p>
-        <p className="text-Cviolet">{"{"}</p>
-
-        <p className="text-Cyellow">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eat{" "}
-          <span className="text-Cblue">()</span>
-        </p>
-        <p className="text-Cyellow">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep{" "}
-          <span className="text-Cblue">()</span>
-        </p>
-        <p className="text-Cyellow">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code{" "}
-          <span className="text-Cblue">()</span>
-        </p>
-        <p className="text-Cyellow">
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;repeat{" "}
-          <span className="text-Cblue">()</span>
-        </p>
-        <p className="text-Cviolet">{"}"}</p>
-*/

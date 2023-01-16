@@ -1,84 +1,8 @@
-import { AnimatePresence, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 import { useState } from "react";
 import { useProjectModal } from "../../store/projects";
-import Project1 from "./p1";
-import Project2 from "./p2";
+import Project1 from "./projectsDetails";
 
-const container = {
-  hidden: { opacity: 1 },
-  visible: (i = 1) => ({
-    opacity: 1,
-
-    transition: { staggerChildren: 1, delayChildren: 0.04 * i },
-  }),
-};
-
-const child1 = {
-  visible: {
-    width: "100%",
-    transition: {
-      duration: 1,
-    },
-  },
-  hidden: {
-    width: 0,
-    transition: {
-      type: "spring",
-      damping: 12,
-      stiffness: 100,
-    },
-  },
-};
-
-const child2 = {
-  visible: {
-    top: 0,
-    transition: {
-      duration: 1,
-    },
-  },
-  hidden: {
-    top: "100%",
-    transition: {
-      type: "spring",
-      damping: 12,
-      stiffness: 100,
-    },
-  },
-};
-
-const child3 = {
-  visible: {
-    left: 0,
-    transition: {
-      duration: 1,
-    },
-  },
-  hidden: {
-    left: "99%",
-    transition: {
-      type: "spring",
-      damping: 12,
-      stiffness: 100,
-    },
-  },
-};
-const child4 = {
-  visible: {
-    height: "100%",
-    transition: {
-      duration: 1,
-    },
-  },
-  hidden: {
-    height: 0,
-    transition: {
-      type: "spring",
-      damping: 12,
-      stiffness: 100,
-    },
-  },
-};
 const Project1DetailsWrapper = () => {
   const project = useProjectModal();
   const[isLoading,setIsLoading]=useState(false)
@@ -248,8 +172,7 @@ const Project1DetailsWrapper = () => {
               }}
               className="  z-50    h-screen  overflow-y-scroll border-Cblue scrollbar-hide lg:overflow-hidden lg:border-[20px]"
             >
-              {/* {project.prjectNumber==1&&<Project1/>}
-          {project.prjectNumber==2&&<Project2/>}  */}
+             
              
                 <Project1 isLoading={isLoading} hundelNextButton={hundelNextButton} hundelPreviousButton={hundelPreviousButton} />
              

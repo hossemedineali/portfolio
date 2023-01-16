@@ -9,7 +9,7 @@ interface Projects{
     setProjectNumber:(x:number)=>void
 }
 const useProjectModal=create<Projects>()(
-    (set,get)=>({
+    (set)=>({
       //  show:false,
         prjectNumber:0,
         //toggleShow:()=>set({show:!get().show}),
