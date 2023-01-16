@@ -7,7 +7,7 @@ export default function Test() {
   return (
     <Canvas  camera={{ position: [0, 0, 1] }}>
       <Stars />
-     
+   
     </Canvas>
   )
 }

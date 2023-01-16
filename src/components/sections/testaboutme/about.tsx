@@ -47,6 +47,10 @@ const About = () => {
       <div className="h-full">
        <Test/>
       </div>
+      <div className="absolute top-0">
+        <p style={{color: 'linear-gradient(30deg, #c850c0, #ffcc70)'}} className="font-bold text-[10vw]  md:text-[6vw] lg:text-[5vw] ">I am a web developer with a passin for crating a vesualy appealing and user friendly  websites and application . </p>
+        <p style={{color:'red'}} className="font-bold text-[10vw]  md:text-[6vw] lg:text-[5vw] ">I will be happy to bring my expertise in making your idea a reality</p>
+        </div>
 
       <div ref={ref} className=" absolute  top-[50vh] h-1 w-full">
         {" "}
