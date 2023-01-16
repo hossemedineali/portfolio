@@ -104,7 +104,7 @@ const Home: NextPage = () => {
           <Section1 />
         </div>
 
-        <div className="relative">
+        <div className="relative z-10">
           <div ref={work} className="absolute  top-20 bottom-0 border-2"></div>
           <Work />
         </div>
@@ -120,7 +120,7 @@ const Home: NextPage = () => {
         <div className="relative">
           <div
             ref={about}
-            className="absolute  top-20 bottom-[50vh] border-2"
+            className="absolute -z-10  top-20 bottom-[50vh] border-2"
           ></div>
           {/* <Aboutme /> */}
           <About />
