@@ -104,7 +104,7 @@ const Home: NextPage = () => {
           <Section1 />
         </div>
 
-        <div className="relative z-10">
+        <div className="relative z-0">
           <div ref={work} className="absolute  top-20 bottom-0 border-2"></div>
           <Work />
         </div>
@@ -136,7 +136,7 @@ const Home: NextPage = () => {
       </main>
 
       <motion.div
-        className="fixed"
+        className="fixed "
         style={{
           top: topLogo,
           right: rightLogo,
