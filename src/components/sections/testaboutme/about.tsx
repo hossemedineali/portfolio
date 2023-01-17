@@ -2,19 +2,23 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../../../helper/useWindowSize";
-import Paragraphe from "../paragraphe";
-import Test from "./stars";
+import StarsBG from "./stars";
+import Glitch from "../../UI/glitch";
 
 const About = () => {
+  const { height,width } = useWindowSize();
   const { scrollY } = useScroll();
   const ref = useRef<HTMLDivElement>(null);
-  const { height } = useWindowSize();
+  
+  const glitchRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
+  const glitchIsInView = useInView(ref,{amount:'all'});
   const [showUlistration, setShowUlistration] = useState(false);
   const [range, setRange] = useState<number[]>([0, 0]);
   const [range1, setRange1] = useState<number[]>([0, 0]);
   const [range2, setRange2] = useState<number[]>([0, 0]);
   const [range3, setRang3] = useState<number[]>([0, 0]);
+  const [glitchRange,setGlitchRange]=useState<number[]>([0,0,0,0,0,0])
   const [positionRange, setPositionRange] = useState<number[]>([0, 0, 0]);
   const pathLength = useTransform(scrollY, range, [0, 1]);
   const pathLength1 = useTransform(scrollY, range1, [0, 1]);
@@ -42,17 +46,35 @@ const About = () => {
     }
   }, [isInView]);
 
+const [top,setTop]=useState(0)
+const [isFixed,setIsFixed]=useState(false)
+
+
+useEffect(()=>{
+  console.log('isinview glitch',glitchIsInView)
+  if(glitchIsInView) setIsFixed(true)
+  else {setIsFixed(false)}
+},[glitchIsInView])
+
+
   return (
-    <motion.section className=" h-[400vh]  bg-[#151a24] ">
+    <motion.section className="relative h-[400vh]  bg-[#151a24] ">
       <div className="h-full">
-       <Test/>
+       <StarsBG/>
       </div>
-      <div className="absolute top-0">
-        <p style={{color: 'linear-gradient(30deg, #c850c0, #ffcc70)'}} className="font-bold text-[10vw]  md:text-[6vw] lg:text-[5vw] ">I am a web developer with a passin for crating a vesualy appealing and user friendly  websites and application . </p>
-        <p style={{color:'red'}} className="font-bold text-[10vw]  md:text-[6vw] lg:text-[5vw] ">I will be happy to bring my expertise in making your idea a reality</p>
+
+
+      <div style={{position:`${isFixed?'fixed':'absolute'}`}}  className={`  z-50 flex top-0  h-screen w-full text-[7vw] transition-all ease-linear duration-1000 `} >
+        
+               <div data-text='hover' className="glitch  border w-[90vw] sm:w-[75vw] md:w-[50%] lg:w-[55%] mx-auto m-24"> <Glitch/></div>
+ 
+      
         </div>
 
-      <div ref={ref} className=" absolute  top-[50vh] h-1 w-full">
+      <div ref={ref} className=" absolute bg-white  top-[50vh] h-1 w-full">
+        {" "}
+      </div>
+      <div ref={glitchRef} className=" absolute bg-Cblue  top-[100vh] h-[1px] w-full">
         {" "}
       </div>
       <motion.div className=" h-[300vh]  w-full ">

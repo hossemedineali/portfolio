@@ -13,7 +13,6 @@ import { useEffect, useRef, useState } from "react";
 import Section1 from "../components/sections/home";
 import Work from "../components/sections/work";
 import Section2 from "../components/sections/skills";
-import Aboutme from "../components/sections/newAboutme";
 import useWindowSize from "../helper/useWindowSize";
 import Contact from "../components/sections/contact";
 import About from "../components/sections/testaboutme/about";
@@ -38,7 +37,8 @@ const Home: NextPage = () => {
 
   const translateXLogo = useTransform(scroll, [0, height * 2], ["50%", "0%"]);
   const translateYLogo = useTransform(scroll, [0, height * 2], ["-50%", "0%"]);
-
+  //to controle the cercle (show after logo finish annimation)
+ const [o,seto]=useState(0)
   const rotateLogo = useTransform(
     scroll,
     [0, height, height * 2],
@@ -53,7 +53,6 @@ const Home: NextPage = () => {
   });
 
   useEffect(() => {
-    console.log(sectionInView);
     if (isInViewabout) {
       setSectionInView("about");
       return;
@@ -83,6 +82,16 @@ const Home: NextPage = () => {
     isInViewcontact,
   ]);
 
+useEffect(() => {
+  
+  const timer = setTimeout(() => seto(1), 3500);
+
+  return () => {
+    clearTimeout(timer);
+
+  }
+}, [])
+
   const opacity = useTransform(scrollYhome, [0, 150], [0.9, 0]);
 
   const [isOpen] = useCycle(false, true);
@@ -100,8 +109,8 @@ const Home: NextPage = () => {
         }`}
       >
         {/*  {isOpen&&<Menu toggleOpen={toggleOpen} isOpen={isOpen}/>} */}
-        <div ref={home}>
-          <Section1 />
+        <div ref={home} className='min-h-[200vh]'>
+         {false&& <Section1 />}
         </div>
 
         <div className="relative z-0">
@@ -135,15 +144,23 @@ const Home: NextPage = () => {
         </div>
       </main>
 
+<motion.div>
+  
+</motion.div>
+  
+  
       <motion.div
-        className="fixed "
+        className="fixed"
+        
         style={{
           top: topLogo,
           right: rightLogo,
           translateX: translateXLogo,
           translateY: translateYLogo,
           rotate: rotateLogo,
+          opacity:o
         }}
+       
       >
         <AnimatePresence>
           <Arrows2 opacity={opacity} sectionInView={sectionInView} />
@@ -194,6 +211,7 @@ const Arrows2: React.FC<Props> = ({ opacity, sectionInView }) => {
       xmlns="http://www.w3.org/2000/svg"
       //className="h-[96px] w-[90px] md:h-[198px] md:w-[188px]"
       className="aspect-square w-[25vw] sm:w-[20vw] md:w-[15vw] lg:w-[12vw]"
+      
     >
       {/* lg:w-[15vw] md:w-[20vw] w-[33vw] */}
       <AnimatePresence mode="wait">
