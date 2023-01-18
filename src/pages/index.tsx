@@ -110,10 +110,10 @@ useEffect(() => {
       >
         {/*  {isOpen&&<Menu toggleOpen={toggleOpen} isOpen={isOpen}/>} */}
         <div ref={home} className='min-h-[200vh]'>
-         {false&& <Section1 />}
+         <Section1 />
         </div>
 
-        <div className="relative z-0">
+        <div className="relative z-10">
           <div ref={work} className="absolute  top-20 bottom-0 border-2"></div>
           <Work />
         </div>
@@ -150,7 +150,7 @@ useEffect(() => {
   
   
       <motion.div
-        className="fixed"
+        className="fixed z-20"
         
         style={{
           top: topLogo,

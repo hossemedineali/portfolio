@@ -26,16 +26,16 @@
     left: 0;
   }
   
-  .glitch span:first-child {
- /*  animation: glitch 650ms infinite; */
+  .glitch span:first-child:hover {
+    animation: glitch 650ms infinite; 
     clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
     transform: translate(-0.025em, -0.0125em);
-    /* color: green; */
+     color: green; 
     opacity: 0.8;
   }
   
-  .glitch span:last-child {
-   /*  animation: glitch 375ms infinite; */
+  .glitch span:last-child:hover {
+    animation: glitch 375ms infinite; 
     clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
     transform: translate(0.0125em, 0.025em);
     /* color: red; */

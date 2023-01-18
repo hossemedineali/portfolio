@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../../../helper/useWindowSize";
@@ -6,19 +6,25 @@ import StarsBG from "./stars";
 import Glitch from "../../UI/glitch";
 
 const About = () => {
-  const { height,width } = useWindowSize();
+  const { height, width } = useWindowSize();
   const { scrollY } = useScroll();
   const ref = useRef<HTMLDivElement>(null);
-  
+
   const glitchRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
-  const glitchIsInView = useInView(ref,{amount:'all'});
+  const glitchIsInView = useInView(glitchRef, { amount: "all" });
   const [showUlistration, setShowUlistration] = useState(false);
   const [range, setRange] = useState<number[]>([0, 0]);
   const [range1, setRange1] = useState<number[]>([0, 0]);
   const [range2, setRange2] = useState<number[]>([0, 0]);
   const [range3, setRang3] = useState<number[]>([0, 0]);
-  const [glitchRange,setGlitchRange]=useState<number[]>([0,0,0,0,0,0])
+  const [glitchFadeOutRange, setGlitchFadeOutRange] = useState<number[]>([
+    0, 0, 0,
+  ]);
+
+  const [glitchCoverOpacityRange, setGlitchCoverOpacityRange] = useState<number[]>([
+    0, 0, 0,0,0,0
+  ]);
   const [positionRange, setPositionRange] = useState<number[]>([0, 0, 0]);
   const pathLength = useTransform(scrollY, range, [0, 1]);
   const pathLength1 = useTransform(scrollY, range1, [0, 1]);
@@ -46,38 +52,73 @@ const About = () => {
     }
   }, [isInView]);
 
-const [top,setTop]=useState(0)
-const [isFixed,setIsFixed]=useState(false)
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    console.log("isinview glitch", glitchIsInView);
+    if (glitchIsInView) {
+      const glitchOpacityRangetop = scrollY.get() + height * 0.5;
+      const glitchOpacityRangebottom = scrollY.get() + height * 0.8;
 
 
-useEffect(()=>{
-  console.log('isinview glitch',glitchIsInView)
-  if(glitchIsInView) setIsFixed(true)
-  else {setIsFixed(false)}
-},[glitchIsInView])
 
+      setIsFixed(true);
+      setGlitchFadeOutRange([
+        0,
+        glitchOpacityRangetop,
+        glitchOpacityRangebottom,
+      ]);
+
+      setGlitchCoverOpacityRange([0,scrollY.get(),scrollY.get()+10,scrollY.get()+height*0.2,scrollY.get()+height*0.8,scrollY.get()+height] )
+    } else {
+      setIsFixed(false);
+    }
+  }, [glitchIsInView]);
+
+  const glitchOpacityExit = useTransform(
+    scrollY,
+    glitchFadeOutRange,
+    [1, 1, 0]
+  );
+
+  const glitchCoverOpacityEnter=useTransform(scrollY,glitchCoverOpacityRange,[0,0,1,1,1,0])
 
   return (
     <motion.section className="relative h-[400vh]  bg-[#151a24] ">
       <div className="h-full">
-       <StarsBG/>
+        <StarsBG />
       </div>
 
-
-      <div style={{position:`${isFixed?'fixed':'absolute'}`}}  className={`  z-50 flex top-0  h-screen w-full text-[7vw] transition-all ease-linear duration-1000 `} >
-        
-               <div data-text='hover' className="glitch  border w-[90vw] sm:w-[75vw] md:w-[50%] lg:w-[55%] mx-auto m-24"> <Glitch/></div>
- 
+      <div
+        style={{ position: `${isFixed ? "fixed" : "absolute"}` }}
+        className={`  top-0 z-10    h-screen w-full text-[7vw] transition-all duration-1000 ease-linear `}
+        >
       
-        </div>
+        <motion.div
+          style={{ opacity: glitchOpacityExit }} 
+          className=" justify-center  m-auto  w-[90vw] my-20 opacity-100 sm:w-[75vw] md:w-[50%] lg:w-[55%]"
+        >
+          {" "}
+          <Glitch />
+        </motion.div>
+      </div>
 
-      <div ref={ref} className=" absolute bg-white  top-[50vh] h-1 w-full">
+        
+
+
+      
+       
+
+      <div ref={ref} className=" absolute top-[50vh]  h-1 w-full bg-white">
         {" "}
       </div>
-      <div ref={glitchRef} className=" absolute bg-Cblue  top-[100vh] h-[1px] w-full">
+      <div
+        ref={glitchRef}
+        className=" absolute top-[99vh]  h-[1px] w-full bg-Cblue"
+      >
         {" "}
       </div>
-      <motion.div className=" h-[300vh]  w-full ">
+      <motion.div className=" h-[400vh]  w-full ">
         {/* new sec one  */}
         {showUlistration && (
           <motion.svg
