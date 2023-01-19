@@ -22,9 +22,6 @@ const About = () => {
     0, 0, 0,
   ]);
 
-  const [glitchCoverOpacityRange, setGlitchCoverOpacityRange] = useState<number[]>([
-    0, 0, 0,0,0,0
-  ]);
   const [positionRange, setPositionRange] = useState<number[]>([0, 0, 0]);
   const pathLength = useTransform(scrollY, range, [0, 1]);
   const pathLength1 = useTransform(scrollY, range1, [0, 1]);
@@ -53,6 +50,7 @@ const About = () => {
   }, [isInView]);
 
   const [isFixed, setIsFixed] = useState(false);
+  const [rangeTopGlitchFixedStart, setRangeTopGlitchFixedStart] = useState(0);
 
   useEffect(() => {
     console.log("isinview glitch", glitchIsInView);
@@ -68,8 +66,7 @@ const About = () => {
         glitchOpacityRangetop,
         glitchOpacityRangebottom,
       ]);
-
-      setGlitchCoverOpacityRange([0,scrollY.get(),scrollY.get()+10,scrollY.get()+height*0.2,scrollY.get()+height*0.8,scrollY.get()+height] )
+      setRangeTopGlitchFixedStart(scrollY.get())
     } else {
       setIsFixed(false);
     }
@@ -81,7 +78,6 @@ const About = () => {
     [1, 1, 0]
   );
 
-  const glitchCoverOpacityEnter=useTransform(scrollY,glitchCoverOpacityRange,[0,0,1,1,1,0])
 
   return (
     <motion.section className="relative h-[400vh]  bg-[#151a24] ">
@@ -96,10 +92,10 @@ const About = () => {
       
         <motion.div
           style={{ opacity: glitchOpacityExit }} 
-          className=" justify-center  m-auto  w-[90vw] my-20 opacity-100 sm:w-[75vw] md:w-[50%] lg:w-[55%]"
+          className=" justify-center  m-auto  w-[90vw] my-10 md:my-0 opacity-100 sm:w-[75vw] md:w-[50%] lg:w-[55%]"
         >
           {" "}
-          <Glitch />
+          <Glitch  rangeTopGlitchFixedStart={rangeTopGlitchFixedStart} />
         </motion.div>
       </div>
 
@@ -109,12 +105,13 @@ const About = () => {
       
        
 
-      <div ref={ref} className=" absolute top-[50vh]  h-1 w-full bg-white">
+      <div aria-hidden='true' ref={ref} className=" absolute top-[50vh]  h-1 w-full opacity-0 bg-white">
         {" "}
       </div>
       <div
+      aria-hidden='true'
         ref={glitchRef}
-        className=" absolute top-[99vh]  h-[1px] w-full bg-Cblue"
+        className=" absolute top-[99vh]  h-[1px] w-full opacity-0 bg-Cblue"
       >
         {" "}
       </div>

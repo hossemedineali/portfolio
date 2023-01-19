@@ -1,4 +1,5 @@
 import { type Cycle, motion } from "framer-motion";
+import { useScrollTo } from "../../store/projects";
 
 
 
@@ -21,17 +22,20 @@ const menu = {
   },
 };
 
-const list = ["Home", "Works", "Skills", "Resume", "Contact"];
+const list = ["Home", "Works", "Skills", "About", "Contact"];
 
 
 
 
 
 const Menu: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
-  
+  toggleOpen
 }) => {
+
+  
+const scrollto=useScrollTo()
   return (
-    <div className="absolute z-10 ">
+    <div className="absolute z-20 ">
       <motion.div
         variants={menu}
         initial="hidden"
@@ -74,6 +78,8 @@ const Menu: React.FC<{ toggleOpen: Cycle; isOpen: boolean }> = ({
             return (
               <motion.div
                 key={index}
+                onClick={()=>{scrollto.setScrollTo(index+1);toggleOpen()}}
+                
                 className="flex h-1/5 items-center justify-center border-b-[1px] border-b-black text-6xl transition-colors duration-300 ease-linear hover:bg-black hover:text-[#994AA6] md:text-8xl "
               >
                 {skil}

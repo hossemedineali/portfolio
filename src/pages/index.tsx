@@ -16,13 +16,14 @@ import Section2 from "../components/sections/skills";
 import useWindowSize from "../helper/useWindowSize";
 import Contact from "../components/sections/contact";
 import About from "../components/sections/testaboutme/about";
+import { useScrollTo } from "../store/projects";
 
 const Home: NextPage = () => {
-  const home = useRef(null);
-  const work = useRef(null);
-  const skills = useRef(null);
-  const about = useRef(null);
-  const contact = useRef(null);
+  const home = useRef<HTMLDivElement>(null);
+  const work = useRef<HTMLDivElement>(null);
+  const skills = useRef<HTMLDivElement>(null);
+  const about = useRef<HTMLDivElement>(null);
+  const contact = useRef<HTMLDivElement>(null);
 
   const isInViewhome = useInView(home);
   const isInViewwork = useInView(work);
@@ -96,6 +97,62 @@ useEffect(() => {
 
   const [isOpen] = useCycle(false, true);
 
+  const scrollto=useScrollTo()
+
+  useEffect(()=>{
+
+
+   // const contactsection=document.getElementById('contact')
+   // contactsection?.scrollTo({behavior:'smooth'})
+     const timer=setTimeout(()=>{
+
+   
+    switch(scrollto.scrtollto){
+      case 1:
+    if(!home.current) return
+      //home.current.scrollIntoView({behavior:'smooth'})
+      const targethome=document.getElementById('home')
+      targethome?.scrollIntoView()
+    break;
+
+    case 2:
+    if(!work.current) return
+      //work.current.scrollIntoView({behavior:'smooth'})
+      const targetwork=document.getElementById('work')
+      targetwork?.scrollIntoView()
+    break;
+
+    case 3:
+    if(!skills.current) return
+    //  skills.current.scrollIntoView({behavior:'smooth'})
+    const targetskills=document.getElementById('skills')
+      targetskills?.scrollIntoView()
+    break;
+
+    case 4:
+    if(!about.current) return
+  //    about.current.scrollIntoView({behavior:'smooth'})
+  const targetabout=document.getElementById('about')
+      targetabout?.scrollIntoView()
+    break;
+
+    case 5:
+    if(!contact.current) return
+   //   contact.current.scrollIntoView({behavior:'smooth'})
+   const targetcontact=document.getElementById('contact')
+      targetcontact?.scrollIntoView()
+    break;
+
+    }
+  },2000) 
+
+
+  return(()=>{
+    clearTimeout(timer)
+  })
+
+  
+  },[scrollto.scrtollto])
   return (
     <>
       <Head>
@@ -109,16 +166,16 @@ useEffect(() => {
         }`}
       >
         {/*  {isOpen&&<Menu toggleOpen={toggleOpen} isOpen={isOpen}/>} */}
-        <div ref={home} className='min-h-[200vh]'>
+        <div id='home' ref={home} className='min-h-[200vh]'>
          <Section1 />
         </div>
 
-        <div className="relative z-10">
+        <div id='work' className="relative z-10">
           <div ref={work} className="absolute  top-20 bottom-0 border-2"></div>
           <Work />
         </div>
 
-        <div className="relative">
+        <div id='skills' className="relative">
           <div
             ref={skills}
             className="absolute  top-20 bottom-0 border-2"
@@ -126,7 +183,7 @@ useEffect(() => {
           <Section2 />
         </div>
 
-        <div className="relative">
+        <div id='about' className="relative">
           <div
             ref={about}
             className="absolute -z-10  top-20 bottom-[50vh] border-2"
@@ -135,7 +192,7 @@ useEffect(() => {
           <About />
         </div>
 
-        <div className="relative  h-[100vh]  w-full ">
+        <div id='contact' className="relative  h-[100vh]  w-full ">
           <div
             ref={contact}
             className="absolute  top-20 bottom-0 border-2"
@@ -150,7 +207,7 @@ useEffect(() => {
   
   
       <motion.div
-        className="fixed z-20"
+        className="fixed z-10"
         
         style={{
           top: topLogo,
@@ -336,8 +393,8 @@ const Arrows2: React.FC<Props> = ({ opacity, sectionInView }) => {
       <motion.g
         style={{ opacity }}
         initial={{ pathLength: 0 }}
-        animate={{ y: [-10, 0, 10], pathLength: 1 }}
-        transition={{ duration: 2, delay: 2, repeat: 5, repeatDelay: 2 }}
+        animate={{ y: [-20, 0, 20], pathLength: 1 }}
+        transition={{ duration: 2, delay: 2, repeat: 7, repeatDelay: 2 }}
       >
         <motion.path
           initial={{ pathLength: 0 }}

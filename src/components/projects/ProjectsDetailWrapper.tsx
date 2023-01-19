@@ -5,6 +5,7 @@ import Project1 from "./projectsDetails";
 
 const Project1DetailsWrapper = () => {
   const project = useProjectModal();
+  
   const[isLoading,setIsLoading]=useState(false)
   const hundelNextButton = () => {
     if (project.prjectNumber == 4) {

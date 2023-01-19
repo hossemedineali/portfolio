@@ -16,4 +16,17 @@ const useProjectModal=create<Projects>()(
         setProjectNumber:(x)=>set({prjectNumber:x})
     })
 )
-export {useProjectModal}
+
+interface Scroll{
+    scrtollto:number,
+    setScrollTo:(x:number)=>void
+}
+
+const useScrollTo=create<Scroll>(
+    (set)=>({
+        scrtollto:0,
+        setScrollTo:(x)=>set({scrtollto:x})
+    })
+)
+
+export {useProjectModal,useScrollTo}
