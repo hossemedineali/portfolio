@@ -80,7 +80,7 @@ const About = () => {
 
 
   return (
-    <motion.section className="relative h-[400vh]  bg-[#151a24] ">
+    <motion.section className="relative h-[400vh]  bg-[#24324f] ">
       <div className="h-full">
         <StarsBG />
       </div>

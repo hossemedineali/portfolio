@@ -17,6 +17,7 @@ import useWindowSize from "../helper/useWindowSize";
 import Contact from "../components/sections/contact";
 import About from "../components/sections/testaboutme/about";
 import { useScrollTo } from "../store/projects";
+import SphericSkills from "../components/sections/sphericSkills";
 
 const Home: NextPage = () => {
   const home = useRef<HTMLDivElement>(null);
@@ -180,7 +181,8 @@ useEffect(() => {
             ref={skills}
             className="absolute  top-20 bottom-0 border-2"
           ></div>
-          <Section2 />
+         {/*  <Section2 /> */}
+         <SphericSkills/>
         </div>
 
         <div id='about' className="relative">
@@ -363,14 +365,14 @@ const Arrows2: React.FC<Props> = ({ opacity, sectionInView }) => {
         fill="rgba(227, 210, 218, 0.2)"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={{ duration: 2 }}
+        transition={{ duration: 2,delay:4 }}
         d="M196.02 94C196.02 144.876 152.583 186.12 99 186.12C45.4173 186.12 1.98 144.876 1.98 94C1.98 43.1235 45.4173 1.88 99 1.88C152.583 1.88 196.02 43.1235 196.02 94ZM198 94C198 145.915 153.676 188 99 188C44.3238 188 0 145.915 0 94C0 42.0852 44.3238 0 99 0C153.676 0 198 42.0852 198 94Z"
         stroke="white"
       />
       <motion.path
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={{ duration: 2 }}
+        transition={{ duration: 2 ,delay:4}}
         fillRule="evenodd"
         clipRule="evenodd"
         d="M99 186.12C152.583 186.12 196.02 144.876 196.02 94C196.02 43.1235 152.583 1.88 99 1.88C45.4173 1.88 1.98 43.1235 1.98 94C1.98 144.876 45.4173 186.12 99 186.12ZM99 188C153.676 188 198 145.915 198 94C198 42.0852 153.676 0 99 0C44.3238 0 0 42.0852 0 94C0 145.915 44.3238 188 99 188Z"
@@ -399,7 +401,7 @@ const Arrows2: React.FC<Props> = ({ opacity, sectionInView }) => {
         <motion.path
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1,delay:4 }}
           fillRule="evenodd"
           clipRule="evenodd"
           d="M104 135H94V52H104V135Z"
@@ -408,7 +410,7 @@ const Arrows2: React.FC<Props> = ({ opacity, sectionInView }) => {
         <motion.path
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1,delay:4 }}
           fillRule="evenodd"
           clipRule="evenodd"
           d="M132.128 110.027C131.527 110.053 130.646 110.091 129.67 110.091C123.58 110.091 118.653 113.269 114.119 118.488C110.354 122.823 107.32 128.004 104.36 133.059C103.669 134.24 102.981 135.415 102.289 136.57L93.7108 131.43C94.2916 130.461 94.9009 129.418 95.5406 128.323C98.5081 123.242 102.128 117.044 106.57 111.93C112.08 105.586 119.524 100.091 129.67 100.091C130.424 100.091 130.91 100.07 131.434 100.046C131.713 100.034 132.004 100.021 132.351 100.011C133.328 99.9815 134.341 100.001 135.667 100.216C138.011 100.596 141.277 101.596 147.597 103.726L144.403 113.202C137.857 110.996 135.432 110.309 134.065 110.087C133.535 110.001 133.187 109.99 132.649 110.006C132.515 110.01 132.339 110.018 132.128 110.027Z"
@@ -417,7 +419,7 @@ const Arrows2: React.FC<Props> = ({ opacity, sectionInView }) => {
         <motion.path
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1, delay:4}}
           fillRule="evenodd"
           clipRule="evenodd"
           d="M65.8718 110.027C66.473 110.053 67.3541 110.091 68.3299 110.091C74.4197 110.091 79.3469 113.269 83.8806 118.488C87.6458 122.823 90.6798 128.004 93.6396 133.059C94.3313 134.24 95.0189 135.415 95.7109 136.57L104.289 131.43C103.708 130.461 103.099 129.418 102.459 128.323C99.4919 123.242 95.872 117.044 91.4303 111.93C85.9198 105.586 78.4759 100.091 68.3299 100.091C67.5756 100.091 67.0898 100.07 66.5661 100.046C66.2867 100.034 65.9965 100.021 65.649 100.011C64.6716 99.9815 63.6589 100.001 62.3332 100.216C59.9885 100.596 56.7229 101.596 50.4031 103.726L53.5969 113.202C60.1431 110.996 62.5682 110.309 63.9349 110.087C64.4648 110.001 64.813 109.99 65.351 110.006C65.485 110.01 65.6613 110.018 65.8718 110.027Z"

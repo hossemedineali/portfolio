@@ -16,6 +16,6 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "src/pages/a.tsx", "src/components/sections/testaboutme/stars.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", "src/pages/a.tsx", "src/components/sections/testaboutme/stars.jsx", "src/components/sections/sphericSkills.jsx"],
   "exclude": ["node_modules"]
 }

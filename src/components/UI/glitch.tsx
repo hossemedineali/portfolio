@@ -24,14 +24,14 @@ const Glitch:React.FC<{rangeTopGlitchFixedStart:number}> = ({rangeTopGlitchFixed
   
   return (
     <div className="flex h-screen w-full   flex-col items-center text-white ">
-      <p  className="  glitch  text-[17vw] sm:text-[13vw] md:text-[9vw] lg:text-[8vw] font-bold transition duration-150 ease-in-out  ">
+      <p  className="  glitch  text-[17vw] sm:text-[13vw] md:text-[9vw] lg:text-[6vw] font-bold transition duration-150 ease-in-out  ">
         <span aria-hidden="true">Bring </span>
         Bring
         <span  aria-hidden="true">Bring </span>
       </p>
 
       
-      <p  className="glitch  text-[17vw] sm:text-[14vw] md:text-[10vw] lg:text-[9vw] font-bold transition duration-150 ease-in-out  ">
+      <p  className="glitch  text-[17vw] sm:text-[14vw] md:text-[10vw] lg:text-[7vw] font-bold transition duration-150 ease-in-out  ">
         <span aria-hidden="true">your</span>
         your
         <span aria-hidden="true">your</span>
@@ -39,14 +39,14 @@ const Glitch:React.FC<{rangeTopGlitchFixedStart:number}> = ({rangeTopGlitchFixed
       </p>
       
       
-      <p  className="glitch  text-[9vw] sm:text-[6vw] md:text-[4vw] lg:text-[4vw] font-bold transition duration-150 ease-in-out  ">
+      <p  className="glitch  text-[9vw] sm:text-[6vw] md:text-[4vw] lg:text-[3vw] font-bold transition duration-150 ease-in-out  ">
         <span aria-hidden="true">idea to life</span>
         idea to life
         <span aria-hidden="true">idea to life</span>
       </p>
       
       
-      <p  className="glitch  text-[18vw] sm:text-[14vw] md:text-[10vw] lg:text-[9vw] font-bold transition duration-150 ease-in-out  ">
+      <p  className="glitch  text-[18vw] sm:text-[14vw] md:text-[10vw] lg:text-[7vw] font-bold transition duration-150 ease-in-out  ">
         <span aria-hidden="true">is my</span>
         is my
         <span aria-hidden="true">is my</span>

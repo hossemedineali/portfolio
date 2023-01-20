@@ -56,7 +56,7 @@ import Paragraphe from "./paragraphe";
   
 
     return (
-      <motion.section className="   bg-[#151a24] ">
+      <motion.section className="   bg-[#24324f] ">
       
   
       
