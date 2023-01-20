@@ -4,7 +4,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Text, TrackballControls } from "@react-three/drei";
 //import randomWord from 'random-words'
 
-function Word({ children, ...props }) {
+function Word({ text, ...props }) {
   const color = new THREE.Color();
   const fontProps = {
     font: "/Inter-Bold.woff",
@@ -40,7 +40,7 @@ function Word({ children, ...props }) {
       onClick={() => console.log("clicked")}
       {...props}
       {...fontProps}
-      children={children}
+      text={text}
     />
   );
 }
@@ -97,7 +97,7 @@ function Cloud({ count = 3, radius = 20 }) {
     return temp;
   }, [count, radius]);
   return words.map(([pos, word], index) => (
-    <Word key={index} position={pos} children={word} />
+    <Word key={index} position={pos} text={word} />
   ));
 }
 
