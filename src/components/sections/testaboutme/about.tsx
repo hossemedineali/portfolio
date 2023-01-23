@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from "../../../helper/useWindowSize";
@@ -6,7 +6,7 @@ import StarsBG from "./stars";
 import Glitch from "../../UI/glitch";
 
 const About = () => {
-  const { height, width } = useWindowSize();
+  const { height } = useWindowSize();
   const { scrollY } = useScroll();
   const ref = useRef<HTMLDivElement>(null);
 
@@ -92,7 +92,7 @@ const About = () => {
       
         <motion.div
           style={{ opacity: glitchOpacityExit }} 
-          className=" justify-center  m-auto  w-[90vw] my-10 md:my-0 opacity-100 sm:w-[75vw] md:w-[50%] lg:w-[55%]"
+          className=" justify-center  m-auto  w-[90vw]  md:my-0 opacity-100 sm:w-[75vw] md:w-[50%] lg:w-[55%]"
         >
           {" "}
           <Glitch  rangeTopGlitchFixedStart={rangeTopGlitchFixedStart} />

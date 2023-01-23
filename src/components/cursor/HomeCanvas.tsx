@@ -2,7 +2,7 @@ import { motion,  } from 'framer-motion'
 import { useEffect, useRef,  } from 'react'
 import useWindowSize from '../../helper/useWindowSize'
 
-const Canvas = () => {
+const HomeCanvas = () => {
   // Create a reference to the canvas element
   const canvasRef = useRef<HTMLCanvasElement>(null)
   
@@ -35,30 +35,25 @@ const Canvas = () => {
 
   // Set up the canvas and start the update loop
   useEffect(() => {
-    console.log("cursor :,",width,height)
 
     // Get a reference to the canvas element
     const canvas = canvasRef.current
 
     if(!canvas){
-        console.log('no canvas ,will return')
         return
     }
     // Get a reference to the canvas rendering context
     const ctx = canvas.getContext('2d')
     
     if(!ctx){
-        console.log('no ctx ,will return')
         return
     }
     // Update function
     function update() {
         if(!ctx){
-            console.log('no ctx ,will return')
             return
         }
         if(!canvas){
-            console.log('no canvas ,will return')
             return
         }
       // Clear the canvas
@@ -195,4 +190,4 @@ const Canvas = () => {
   )
 }
 
-export default Canvas
+export default HomeCanvas

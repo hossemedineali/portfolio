@@ -325,7 +325,7 @@ const P2 = () => {
           whileInView={{ opacity: 1, scale:1 }}
           transition={{ duration: 1 }}
           onClick={() => {
-            project.setProjectNumber(1);
+            project.setProjectNumber(2);
           }}
           className="group mx-auto  aspect-square w-[100%] shadow-md shadow-Cblue  sm:aspect-[2/1] md:mx-0 md:mr-auto  "
         >
@@ -574,7 +574,7 @@ const P3 = () => {
           whileInView={{ opacity: 1, scale:1 }}
           transition={{ duration: 1 }}
           onClick={() => {
-            project.setProjectNumber(1);
+            project.setProjectNumber(3);
           }}
           className="group mx-auto  aspect-square w-[100%] shadow-md shadow-Cblue  sm:aspect-[2/1]   "
         >
@@ -858,7 +858,7 @@ const P4 = () => {
           whileInView={{ opacity: 1, scale:1 }}
           transition={{ duration: 1 }}
           onClick={() => {
-            project.setProjectNumber(1);
+            project.setProjectNumber(4);
           }}
           className="group mx-auto  aspect-square w-[100%] shadow-md shadow-Cblue  sm:aspect-[2/1]   "
         >

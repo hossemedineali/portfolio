@@ -1,5 +1,5 @@
-import { useInView ,motion, useScroll, useTransform, AnimatePresence} from "framer-motion";
-import { useRef ,useState} from "react";
+import {  motion, useScroll, AnimatePresence} from "framer-motion";
+import { useState} from "react";
 import useWindowSize from "../../helper/useWindowSize";
 
 const Glitch:React.FC<{rangeTopGlitchFixedStart:number}> = ({rangeTopGlitchFixedStart}) => {

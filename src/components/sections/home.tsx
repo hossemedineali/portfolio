@@ -33,7 +33,7 @@ const Home = () => {
   return (
 
     <div className=" h-[800vh] 2xl:h-[700vh] ">
-    <div className="fixed flex flex-col sm:flex-row top-0 left-0 w-full h-screen">
+    <div className="fixed z-0 flex flex-col sm:flex-row top-0 left-0 w-full h-screen">
 
 
    

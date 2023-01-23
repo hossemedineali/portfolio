@@ -10,6 +10,7 @@ import p17 from "../../../public/p1-7.png";
 import p21 from "../../../public/p2-1.jpg";
 import p22 from "../../../public/p2-2.jpg";
 import p23 from "../../../public/p2-3.jpg";
+import p24 from "../../../public/p2-4.jpg";
 import p31 from "../../../public/p3-1.jpg"
 import p32 from "../../../public/p3-2.jpg"
 import soon from '../../../public/soon.png'
@@ -385,6 +386,7 @@ const P2:React.FC<{isLoading:boolean}> = ({isLoading}) =>{
       >
         <div className="flex h-full flex-col gap-20 pt-14 pb-20 lg:pr-10">
           <Image src={p21} alt="screen-shot-1" />
+          <Image src={p24} alt="screen-shot-1" />
 
           <Image src={p22} alt="screen-shot-1" />
           <Image src={p23} alt="screen-shot-1" />
