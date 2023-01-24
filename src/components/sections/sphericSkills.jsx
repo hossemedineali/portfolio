@@ -114,6 +114,7 @@ const Cloud = ({ count = 3, radius = 20 }) => {
         sphereHovered.setIsHovered(false);
         sphereHovered.setHoveredIndex(-1);
       }}
+      
       key={index}
       position={pos}
       text={word}
@@ -221,7 +222,6 @@ export default function SphericSkills() {
           <TrackballControls />
         </Canvas>
       </div>
-
       {showCursor && (
         <motion.div
           variants={variants}
@@ -232,14 +232,10 @@ export default function SphericSkills() {
         {sphereHovered.isHovered&&
         <>
         {skillsSvg[sphereHovered.hoveredIndex]}
-
         </>
-          
         }
         </motion.div>
       )}
-
-      {/* <div className="absolute top-0 right-0 left-0 bottom-0 bg-primary z-0"></div> */}
     </div>
   );
 }

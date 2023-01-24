@@ -26,6 +26,15 @@ const Home = () => {
  const cssY=useTransform(scrollY,[height*5,height*7],['0','-22vh'])
 
  const htmlCssJsScaleTransform=useTransform(scrollY,[height*5,height*7],[0,1])
+ const [isLoading, setIsLoading] = useState(true);
+
+ useEffect(() => {
+   
+   const timer = setTimeout(() => {
+     setIsLoading(false);
+   }, 2500);
+   return () => clearTimeout(timer);
+ }, []);
 
  useEffect(()=>{
   setRange([150,height,height*2,height*3,height*4,height*5])
@@ -33,7 +42,7 @@ const Home = () => {
   return (
 
     <div className=" h-[800vh] 2xl:h-[700vh] ">
-    <div className="fixed z-0 flex flex-col sm:flex-row top-0 left-0 w-full h-screen">
+   {!isLoading&& <div className="fixed z-0 flex flex-col sm:flex-row top-0 left-0 w-full h-screen">
 
 
    
@@ -101,7 +110,7 @@ const Home = () => {
 
 
 </svg>   
-    </div>
+    </div>}
   </div>
   
   );

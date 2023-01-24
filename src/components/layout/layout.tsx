@@ -24,7 +24,7 @@ const Layout: React.FC<props> = (props) => {
     
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3800);
+    }, 0);
     return () => clearTimeout(timer);
   }, []);
   return (
@@ -44,7 +44,7 @@ const Layout: React.FC<props> = (props) => {
         </AnimatePresence>
       )}
      
-      {!isLoading && <main>{props.children}</main>}
+      {<main>{props.children}</main>}
     </motion.div>
   );
 };
